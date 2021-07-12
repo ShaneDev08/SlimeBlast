@@ -16,9 +16,12 @@ public class Launcher : MonoBehaviour
     [SerializeField] private float launchSpeed;
 
     private Rigidbody2D rb;
+    public CinemachineTargetGroup target1;
 
 
     public CinemachineVirtualCamera cam;
+
+    private GameObject slimeSpawned;
     
     private void Start()
     {
@@ -26,20 +29,26 @@ public class Launcher : MonoBehaviour
     }
     public void LaunchSlime()
     {
-        GameObject slimeSpawned = Instantiate(slime, transform.position, transform.rotation);
+         slimeSpawned = Instantiate(slime, transform.position, transform.rotation);
 
         Rigidbody2D rb = slimeSpawned.GetComponent<Rigidbody2D>();
 
         rb.AddForce(transform.right * UIManager.instance.powerAmount, ForceMode2D.Impulse);
         // Launch in the Air
         rb.AddForce(Vector3.up * UIManager.instance.powerAmount, ForceMode2D.Impulse);
+
+        target1.AddMember(slimeSpawned.transform,1,0);
         
-        cam.LookAt = slimeSpawned.transform;
-        cam.Follow = slimeSpawned.transform;
+
+        //cam.LookAt = slimeSpawned.transform;
+        //cam.Follow = slimeSpawned.transform;
+
     }
 
+   
 
- 
+
+
 
 
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class UIManager : MonoBehaviour
     [Header("FireFunction")]
     [SerializeField] Button startButton;
     [SerializeField] Image powerImage;
+
+    [Header("PlayerScore")]
+    [SerializeField] TextMeshProUGUI scoreText;
 
     public float powerAmount;
 
@@ -31,8 +35,8 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   public void UpdateScoreText(int score)
     {
-        
+        scoreText.text = "Score: " +  score.ToString();
     }
 }

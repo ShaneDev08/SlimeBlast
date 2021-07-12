@@ -64,6 +64,10 @@ public class PowerBar : MonoBehaviour
     {
         isPowerUp = false;
         UIManager.instance.powerAmount = this.powerAmount;
-        EventManager.instance.Launch();
+        
+            Debug.Log("Testing powerDown");
+            EventManager.instance.Launch();
+        UIManager.instance.startButton.enabled = false;
+
     }
 }

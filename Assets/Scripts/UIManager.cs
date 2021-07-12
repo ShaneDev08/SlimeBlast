@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
 
 
     [Header("FireFunction")]
-    [SerializeField] Button startButton;
+    [SerializeField] public Button startButton;
     [SerializeField] Image powerImage;
 
     [Header("PlayerScore")]
@@ -28,13 +28,13 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
     }
-    //[SerializeField] Button fireButton;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
    public void UpdateScoreText(int score)
     {
         scoreText.text = "Score: " +  score.ToString();

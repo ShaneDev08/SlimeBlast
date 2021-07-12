@@ -25,4 +25,6 @@ public class EventManager : MonoBehaviour
             LaunchSlime();
         }
     }
+
+
 }

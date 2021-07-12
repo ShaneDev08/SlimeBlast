@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8973850128973150308}
   - component: {fileID: 884228877325690759}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Circle 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0, g: 0.8977246, b: 0.9622642, a: 1}
+  m_Color: {r: 0.9339623, g: 0.5506853, b: 0.8863994, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -26,6 +26,12 @@ public class SlimeBall : MonoBehaviour
             hasStopedMoving = true;
          GameObject obj =  Instantiate(flag, transform.position, flag.transform.rotation);
             //target1.AddMember(obj.transform,1,0);
+
+            // if score is over 100 add 100 money
+            if(score > 100)
+            {
+                PlayerManager.money = 100;
+            }
             KillSlime();
             
         }

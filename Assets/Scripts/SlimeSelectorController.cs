@@ -21,6 +21,9 @@ public class SlimeSelectorController : MonoBehaviour
     [SerializeField] private AudioClip nextClick;
     [SerializeField] private AudioClip characterNoise;
 
+
+    
+
     private void Start() {
         UpdateCharacterSelectionUI();
     }
@@ -30,6 +33,7 @@ public class SlimeSelectorController : MonoBehaviour
         characterSplash.sprite =  characterSelection[selectedCharacterIndex].characterSplashImage;
         characterName.text =  characterSelection[selectedCharacterIndex].characterName;
         desiredColour =  characterSelection[selectedCharacterIndex].characterBackgroundColour;
+        PlayerManager.instance.slimeBall = characterSelection[selectedCharacterIndex].slime;
     }
 
     public void changeCharacterLeft(){
@@ -45,11 +49,17 @@ public class SlimeSelectorController : MonoBehaviour
             selectedCharacterIndex = 0;
             UpdateCharacterSelectionUI();
     }
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(1);
+    }
     
     [System.Serializable]
     public class CharacterSelection{
         public Sprite characterSplashImage;
         public string characterName;
         public Color characterBackgroundColour;
+        public GameObject slime;
     }
 }

@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 264954511}
   - component: {fileID: 264954513}
   - component: {fileID: 264954512}
+  - component: {fileID: 264954514}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -330,6 +331,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264954510}
   m_CullTransparentMesh: 1
+--- !u!114 &264954514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264954510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 264954512}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 383796994}
+        m_TargetAssemblyTypeName: SlimeSelectorController, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &335017142
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,9 +554,11 @@ MonoBehaviour:
   - characterSplashImage: {fileID: 21300000, guid: 6fba3606eb5d5564587ec5c548b6dd1b, type: 3}
     characterName: Slimey Boy
     characterBackgroundColour: {r: 1, g: 1, b: 1, a: 0}
+    slime: {fileID: 4157254658293010547, guid: 10f7c757ebc7c3a43a8b77d8aee11900, type: 3}
   - characterSplashImage: {fileID: 21300000, guid: 45be15311e15ced4aacea613d0214f7b, type: 3}
     characterName: Slimey Girl
     characterBackgroundColour: {r: 1, g: 1, b: 1, a: 0}
+    slime: {fileID: 4157254658293010547, guid: 5501354b67209f8439e7e21b2f7827e6, type: 3}
   characterName: {fileID: 433821929}
   characterSplash: {fileID: 514607933}
   backgroundColour: {fileID: 1923762260}
@@ -1266,3 +1325,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &6668571602760395231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1223.4661
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 482.50604
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -76.21931
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865110, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_Name
+      value: PlayerManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}

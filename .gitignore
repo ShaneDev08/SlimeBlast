@@ -64,3 +64,4 @@ crashlytics-build.properties
 # End of https://www.gitignore.io/api/unity
 ProjectSettings/EditorBuildSettings.asset
 UserSettings/EditorUserSettings.asset
+UserSettings/EditorUserSettings.asset

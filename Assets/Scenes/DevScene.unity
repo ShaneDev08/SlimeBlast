@@ -452,7 +452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71c9fb3c8d370e4d9c23c9774db8927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slime: []
+  slime:
+  - {fileID: 4157254658293010547, guid: 10f7c757ebc7c3a43a8b77d8aee11900, type: 3}
   launchHeight: 10
   launchSpeed: 10
 --- !u!212 &546762947

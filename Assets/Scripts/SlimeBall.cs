@@ -24,7 +24,8 @@ public class SlimeBall : MonoBehaviour
         if(GetComponent<Rigidbody2D>().IsSleeping() && !hasStopedMoving)
         {
             hasStopedMoving = true;
-            Instantiate(flag, transform.position, flag.transform.rotation);
+         GameObject obj =  Instantiate(flag, transform.position, flag.transform.rotation);
+            //target1.AddMember(obj.transform,1,0);
             KillSlime();
             
         }

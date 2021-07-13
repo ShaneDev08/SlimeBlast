@@ -17,7 +17,6 @@ public class SlimeStats : ScriptableObject {
     public string slimeName;
 
     [Header("SlimeObjectReferences")]
-    public GameObject slimeObject;
     public Sprite slimeSprite;
     public Color slimeBackground;
     public AudioClip slimeNoise;

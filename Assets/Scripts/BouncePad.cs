@@ -5,6 +5,13 @@ using UnityEngine;
 public class BouncePad : MonoBehaviour
 {
     public Obstacle obstacle;
+    private AudioSource audioSource;
+    public AudioClip audio;
+
+    private void Start()
+    {
+        audioSource = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -14,6 +21,7 @@ public class BouncePad : MonoBehaviour
             
             if (obstacle.type == Obstacle.Type.BouncePad)
             {
+                audioSource.PlayOneShot(audio);
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);
                 this.GetComponent<BoxCollider2D>().enabled = false;

@@ -5,39 +5,44 @@ using Cinemachine;
 
 public class Launcher : MonoBehaviour
 {
-
-
-    // Can make array to spawn different type of slime
-    [Header("Slime")]
-    //[SerializeField] private GameObject slime;
-
-    //[Header("Launch Settings")]
-    ////[SerializeField] private float launchHeight;
-    ////[SerializeField] private float launchSpeed;
-
     private Rigidbody2D rb;
-    public CinemachineTargetGroup target1;
-
-
-    public CinemachineVirtualCamera cam;
-
     private GameObject slimeSpawned;
+    private AudioSource audio;
+    private float launchMultiplier;
+
+    // TO DO 
+    // Use upgrades class to add in upgrades to the launcher. Then we can check to see if upgrades have been unlocked and then use them
+    private Upgrades[] upgrades = new Upgrades[5];      // Set the amount of upgrades we are going to put in
+
+
+    public CinemachineTargetGroup target1;
+    public CinemachineVirtualCamera cam;
+    public AudioClip launchSound;
     
     private void Start()
     {
         EventManager.instance.LaunchSlime += LaunchSlime;
+        audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
     }
     public void LaunchSlime()
     {
          slimeSpawned = Instantiate(PlayerManager.instance.slimeBall, transform.position, transform.rotation);
+
+       
         PlayerManager.instance.slimeInGame = slimeSpawned;
         Rigidbody2D rb = slimeSpawned.GetComponent<Rigidbody2D>();
 
-        rb.AddForce(transform.right * UIManager.instance.powerAmount, ForceMode2D.Impulse);
-        // Launch in the Air
-        rb.AddForce(Vector3.up * UIManager.instance.powerAmount, ForceMode2D.Impulse);
+        audio.PlayOneShot(launchSound);
 
-        target1.AddMember(slimeSpawned.transform,1,0);
+        // If upgrades equals null then use default launch settings else use fire upgrade setting
+        if (!CheckForPowerUpgrade())
+        {
+            LaunchWithNoUpgrades(rb);
+            
+        } else
+        {
+            LaunchWithPowerUpgrade();
+        }
         
 
         //cam.LookAt = slimeSpawned.transform;
@@ -56,7 +61,71 @@ public class Launcher : MonoBehaviour
         }
     }
 
-   
+    
+    public void AddUpgrade(Upgrades upgrade)
+    {
+       for(int i = 0; i < upgrades.Length; i++)
+        {
+            if(upgrades[i] == null)
+            {
+                upgrades[i] = upgrade;
+                break;
+            }
+        }
+    }
+
+    private bool CheckForPowerUpgrade()
+    {
+        if (upgrades[0] == null)
+            return false;
+        for(int i = 0; i < upgrades.Length;i++)
+        {
+            if(upgrades[i].name == "PowerUpgrade")
+            {
+                return true;
+            }
+
+            
+        }
+
+        return false;
+    }
+
+
+    #region LauncherWithOrWithoutUpgrades
+    private void LaunchWithNoUpgrades(Rigidbody2D rb)
+    {
+        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10, ForceMode2D.Impulse);
+        // Launch in the Air
+        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10, ForceMode2D.Impulse);
+
+        target1.AddMember(slimeSpawned.transform, 1, 0);
+    }
+
+    private void LaunchWithPowerUpgrade()
+    {
+
+        PowerUpgrade power1 = null;
+        for (int i = 0; i < upgrades.Length; i++)
+        {
+            if (upgrades[i].name == "PowerUpgrade")
+            {
+                power1 = (PowerUpgrade)upgrades[i];
+            }
+        }
+
+        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * power1.powerModifier, ForceMode2D.Impulse);
+        // Launch in the Air
+        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10, ForceMode2D.Impulse);
+
+        target1.AddMember(slimeSpawned.transform, 1, 0);
+    }
+
+    #endregion
+
+
+
+
 
 
 

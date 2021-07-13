@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abfacc558affdfc4aa49b85f5fb719e8, type: 3}
+  m_Name: TaskAtlasData
+  m_EditorClassIdentifier: 
+  version: 2.0.3
+  sceneIndex: 0
+  sceneIndexPrev: 0
+  scene:
+  - name: Assets/Scenes/DevScene 1.unity
+    sortMode: 0
+    showLandmarkLabels: 1
+    showTaskGizmos: 1
+    showStickies: 1
+    landmarkDetailState: 0
+    selectedLandmark: 0
+    zoomToTaskID: 
+    scrollPosLandmarkDetail: {x: 0, y: 0}
+    scrollPosLandmarkDetailGeneral: {x: 0, y: 0}
+    scrollPosLandmarkDetailTags: {x: 0, y: 0}
+    scrollPosLandmarkDetailGallery: {x: 0, y: 0}
+    scrollPosLandmarkDetailGalleryThumbnails: {x: 0, y: 0}
+    scrollPosLandmarkDetailDelete: {x: 0, y: 0}
+    scrollPosLandmark: {x: 0, y: 0}
+    scrollPosLandmarkSort: {x: 0, y: 0}
+    scrollPosLandmarkTags: {x: 0, y: 0}
+    scrollPosAtlasTasks: {x: 0, y: 0}
+    scrollPosAtlasLandmarkZoom: {x: 0, y: 0}
+    scrollPosAtlasTaskZoom: {x: 0, y: 0}
+    landmarkDetailOpen: 0
+    landmarkThumbnailsLoaded: 0
+    history: []
+    landmarks: []
+    count: 0
+    atlas:
+      thumbnail: []
+      landmarkSelected: -1
+      state: 0
+      viewPointSizesLandmarks:
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      - 500
+      focusPositions:
+      - {x: 0.8313713, y: 1.2053264, z: -53.970695}
+      viewPointsTasks:
+      - {x: 0.8313713, y: 1.2053264, z: 0}
+      viewPointSizesTasks:
+      - 26.985348
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      prevPosition: {x: -5.0919213, y: -0.57839054, z: -1055.9253}
+      legitPosition: {x: -8.894105, y: 2.5932066, z: -1000}
+      prevRotation: {x: 0, y: 0, z: 0, w: 1}
+      prevSize: 9.016302
+      tiltAngles: 8
+      rotAngles: 8
+      zoomLevels: 50
+      tiltCurrent: 5
+      rotCurrent: 0
+      zoomCurrent: 1
+      landmarkFocus: 0
+      landmarkFocusCount: 1
+      taskFocus: 0
+      taskFocusCount: 1
+      taskZoom: 0
+      taskZoomLevels: 50
+      enabled: 1
+      isZooming: 1
+      settings: 1
+  tags: []

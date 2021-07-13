@@ -312,7 +312,7 @@ RectTransform:
   - {fileID: 924435611}
   - {fileID: 654516961}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1797,7 +1797,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.9500003
+  orthographic size: 4.450787
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2759,7 +2759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1835734250161231238, guid: f5850c34b4beb694e8932e73d72b9843, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1835734250161231238, guid: f5850c34b4beb694e8932e73d72b9843, type: 3}
       propertyPath: m_LocalPosition.x

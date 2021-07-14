@@ -15,7 +15,8 @@ public class SlimeBall : MonoBehaviour
     public GameObject flag;
     // Scriptable object to hold all the slime stats
     public SlimeStats slimeStats;
-
+    private GameObject tank;
+    private GameObject floor;
     
 
    
@@ -23,6 +24,8 @@ public class SlimeBall : MonoBehaviour
     {
         target1 = GameObject.Find("TargetGroup").GetComponent<CinemachineTargetGroup>();
         audioSource = GetComponent<AudioSource>();
+        tank = GameObject.Find("Tank");
+        floor = GameObject.Find("Floor");
     }
     private void Update()
     {
@@ -48,12 +51,19 @@ public class SlimeBall : MonoBehaviour
             
         }
 
+        if(transform.position.y > 100)
+        {
+            Debug.Log("Remove Floor");
+            target1.RemoveMember(floor.transform);
+        }
+
     }
 
 
     private void KillSlime()
     {
         target1.RemoveMember(this.transform);
+        target1.AddMember(tank.transform,1,0);
         this.gameObject.SetActive(false);
     }
 

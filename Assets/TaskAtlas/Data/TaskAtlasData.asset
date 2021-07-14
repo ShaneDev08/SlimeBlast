@@ -97,11 +97,11 @@ MonoBehaviour:
       - 500
       - 500
       focusPositions:
-      - {x: 0.8313713, y: 1.2053264, z: -53.970695}
+      - {x: 0, y: 0, z: -1000}
       viewPointsTasks:
-      - {x: 0.8313713, y: 1.2053264, z: 0}
+      - {x: 0, y: 0, z: 0}
       viewPointSizesTasks:
-      - 26.985348
+      - 500
       - 0
       - 0
       - 0
@@ -151,8 +151,8 @@ MonoBehaviour:
       - 0
       - 0
       - 0
-      prevPosition: {x: -5.0919213, y: -0.57839054, z: -1055.9253}
-      legitPosition: {x: -8.894105, y: 2.5932066, z: -1000}
+      prevPosition: {x: -5.0919213, y: -0.57839054, z: -1110.0231}
+      legitPosition: {x: 0, y: 0, z: -1000}
       prevRotation: {x: 0, y: 0, z: 0, w: 1}
       prevSize: 9.016302
       tiltAngles: 8
@@ -167,7 +167,7 @@ MonoBehaviour:
       taskFocusCount: 1
       taskZoom: 0
       taskZoomLevels: 50
-      enabled: 1
+      enabled: 0
       isZooming: 1
       settings: 1
   tags: []

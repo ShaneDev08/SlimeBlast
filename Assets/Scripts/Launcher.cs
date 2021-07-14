@@ -95,9 +95,9 @@ public class Launcher : MonoBehaviour
     #region LauncherWithOrWithoutUpgrades
     private void LaunchWithNoUpgrades(Rigidbody2D rb)
     {
-        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10, ForceMode2D.Impulse);
+        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10*50, ForceMode2D.Impulse);
         // Launch in the Air
-        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10, ForceMode2D.Impulse);
+        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 *50, ForceMode2D.Impulse);
 
         target1.AddMember(slimeSpawned.transform, 1, 0);
     }

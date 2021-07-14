@@ -58,13 +58,16 @@ public class SlimeBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("BouncingPad"))
+        if (!collision.gameObject.CompareTag("Player"))
         {
-            audioSource.PlayOneShot(slimeStats.slimeNoises[1]);
-        }
-        else
-        {
-            audioSource.PlayOneShot(slimeStats.slimeNoises[0]);
+            if (collision.gameObject.CompareTag("BouncingPad"))
+            {
+                audioSource.PlayOneShot(slimeStats.slimeNoises[1]);
+            }
+            else
+            {
+                audioSource.PlayOneShot(slimeStats.slimeNoises[0]);
+            }
         }
     }
 }

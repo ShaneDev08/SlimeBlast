@@ -10,12 +10,27 @@ public class MainMenu : MonoBehaviour
     private Button playGame;
     private Button settings;
     private Button characterSelection;
-    [SerializeField] private AudioSource clickNoise;
+    private AudioSource audio;
+    public AudioClip buttonNoise;
+    private float transitionSpeed =1f;
+    private float volume =0.5f;
 
     // Start is called before the first frame update
-    
-    public void PlayGame(){
+
+    public void Start()
+    {
+        audio = GameObject.Find("SoundController").GetComponent<AudioSource>();
+    }
+
+    IEnumerator sceneTransition()
+    {
+        yield return new WaitForSeconds(transitionSpeed);
         SceneManager.LoadScene("CharacterSelection");
+    }
+
+    public void PlayGame(){
+
+        StartCoroutine(sceneTransition());
     }
 
     public void OpenSettings(){
@@ -28,7 +43,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayButtonClick()
     {
-        
+        audio.PlayOneShot(buttonNoise,volume);
     }
 
 

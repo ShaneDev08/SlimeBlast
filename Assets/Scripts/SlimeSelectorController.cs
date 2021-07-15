@@ -50,9 +50,14 @@ public class SlimeSelectorController : MonoBehaviour
             UpdateCharacterSelectionUI();
     }
 
-    public void ChangeScene()
+    public void ChangeSceneToGame()
     {
         SceneManager.LoadScene("DevScene 1");
+    }
+
+     public void ChangeSceneToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
     
     [System.Serializable]

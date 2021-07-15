@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Slimeblast
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: df602bc3233f4cf41af408af268f5943, type: 2}
-  m_sharedMaterial: {fileID: -1530446806388536351, guid: df602bc3233f4cf41af408af268f5943, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 86e234314a3245347a6b79fe61186b26, type: 2}
+  m_sharedMaterial: {fileID: 162988421939607036, guid: 86e234314a3245347a6b79fe61186b26, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

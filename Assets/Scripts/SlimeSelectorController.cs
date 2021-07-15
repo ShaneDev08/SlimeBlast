@@ -52,7 +52,7 @@ public class SlimeSelectorController : MonoBehaviour
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("DevScene 1");
     }
     
     [System.Serializable]

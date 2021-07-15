@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     private Button playGame;
     private Button settings;
     private Button characterSelection;
+    [SerializeField] private AudioSource clickNoise;
 
     // Start is called before the first frame update
     
@@ -24,4 +25,11 @@ public class MainMenu : MonoBehaviour
     public void OpenCharacterCollection(){
         SceneManager.LoadScene("CharacterCollection");
     }
+
+    public void PlayButtonClick()
+    {
+        
+    }
+
+
 }

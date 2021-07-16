@@ -26,6 +26,7 @@ public class Launcher : MonoBehaviour
     public AudioClip launchSound;
     public ObjectPool pool;
     public Transform shootFrom;
+    public GameObject explosion;
     
     private void Start()
     {
@@ -153,6 +154,7 @@ public class Launcher : MonoBehaviour
             rb2.AddForce(transform.right * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
             // Launch in the Air
             rb2.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
+            Instantiate(explosion, shootFrom.transform.position, explosion.transform.rotation);
         }
 
         target1.AddMember(slimeSpawned.transform, 2, 5);

@@ -275,7 +275,7 @@ MonoBehaviour:
   m_VertexDensity: 10
   m_SphereRadius: 0.1
   m_DistanceExponent: 2
-  m_Stiffness: 3
+  m_Stiffness: 2.5
   m_Mass: 1
   m_LockRotation: 1
   m_GravityScale: 1
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_RadiusPoints: 8
   m_GridColumns: 4
   m_GridRows: 4
-  m_DampingRatio: 0.6
+  m_DampingRatio: 0
   m_SoftBodyScale: {x: 1, y: 1}
   m_SoftBodyRotation: 0
   m_SoftBodyOffset: {x: -0, y: -0}

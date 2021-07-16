@@ -8,6 +8,7 @@ using TMPro;
 public class SlimeSelectorController : MonoBehaviour
 {
     private int selectedCharacterIndex;
+    [SerializeField] private float transitionSpeed = 3f;
     private Color desiredColour;
     [Header("Character List")]
     [SerializeField] private List<CharacterSelection> characterSelection = new List<CharacterSelection>();
@@ -20,6 +21,14 @@ public class SlimeSelectorController : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioClip nextClick;
     [SerializeField] private AudioClip characterNoise;
+    [Header("Tween Objects")]
+    [SerializeField] private GameObject blastButton;
+    [SerializeField] private GameObject leftSelection;
+    [SerializeField] private GameObject rightSelection;
+    [SerializeField] private GameObject homeButton;
+    [SerializeField] private float tweenTime = 1f;
+
+
 
 
     
@@ -37,6 +46,7 @@ public class SlimeSelectorController : MonoBehaviour
     }
 
     public void changeCharacterLeft(){
+        LeanTween.scale(leftSelection, Vector3.one * 2, tweenTime).setEasePunch();
         selectedCharacterIndex--;
         if(selectedCharacterIndex < 0)
             selectedCharacterIndex = characterSelection.Count -1;
@@ -44,6 +54,7 @@ public class SlimeSelectorController : MonoBehaviour
     }
     
     public void changeCharacterRight(){
+        LeanTween.scale(rightSelection, Vector3.one * 2, tweenTime).setEasePunch();
         selectedCharacterIndex++;
         if(selectedCharacterIndex == characterSelection.Count)
             selectedCharacterIndex = 0;
@@ -52,11 +63,21 @@ public class SlimeSelectorController : MonoBehaviour
 
     public void ChangeSceneToGame()
     {
+        LeanTween.scale(blastButton, Vector3.one * 2, tweenTime).setEasePunch();
+        StartCoroutine(sceneTransition());
         SceneManager.LoadScene("DevScene 1");
+        
+    }
+
+    IEnumerator sceneTransition(){
+        ;
+        yield return new WaitForSeconds(transitionSpeed);
     }
 
      public void ChangeSceneToMainMenu()
     {
+        LeanTween.scale(homeButton, Vector3.one * 2, tweenTime).setEasePunch();
+        StartCoroutine(sceneTransition());
         SceneManager.LoadScene("MainMenu");
     }
     

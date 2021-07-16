@@ -15,6 +15,14 @@ public class MainMenu : MonoBehaviour
     private float transitionSpeed =1f;
     private float volume =0.5f;
 
+    [Header("Tween Objects")]
+    [SerializeField] private GameObject settingsButton;
+    [SerializeField] private GameObject slimeCollectionButton;
+    [SerializeField] private GameObject aboutButton;
+    [SerializeField] private GameObject scoreButton;
+    [SerializeField] private GameObject playButton;
+    [SerializeField] private float tweenTime = 1f;
+
     // Start is called before the first frame update
 
     public void Start()
@@ -25,20 +33,42 @@ public class MainMenu : MonoBehaviour
     IEnumerator sceneTransition()
     {
         yield return new WaitForSeconds(transitionSpeed);
-        SceneManager.LoadScene("CharacterSelection");
+        
     }
 
     public void PlayGame(){
-
-        StartCoroutine(sceneTransition());
+         LeanTween.scale(playButton, Vector3.one * 2, tweenTime).setEasePunch();
+         PlayButtonClick();
+         StartCoroutine(sceneTransition());
+         SceneManager.LoadScene("CharacterSelection");
     }
 
     public void OpenSettings(){
+        LeanTween.scale(settingsButton, Vector3.one * 2, tweenTime).setEasePunch();
+        PlayButtonClick();
+        StartCoroutine(sceneTransition());
         SceneManager.LoadScene("Settings");
     }
 
     public void OpenCharacterCollection(){
+        LeanTween.scale(slimeCollectionButton, Vector3.one * 2, tweenTime).setEasePunch();
+        PlayButtonClick();
+        StartCoroutine(sceneTransition());
         SceneManager.LoadScene("CharacterCollection");
+    }
+
+    public void OpenScore(){
+        LeanTween.scale(scoreButton, Vector3.one * 2, tweenTime).setEasePunch();
+        PlayButtonClick();
+        StartCoroutine(sceneTransition());
+        print("Hello");
+    }
+
+    public void OpenAbout(){
+        LeanTween.scale(aboutButton, Vector3.one * 2, tweenTime).setEasePunch();
+        PlayButtonClick();
+        StartCoroutine(sceneTransition());
+        print("Hello");
     }
 
     public void PlayButtonClick()

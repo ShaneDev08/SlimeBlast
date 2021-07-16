@@ -19,8 +19,10 @@ public class SlimeSelectorController : MonoBehaviour
     [SerializeField] private Image backgroundColour;
 
     [Header("Sounds")]
-    [SerializeField] private AudioClip nextClick;
+    [SerializeField] private AudioClip buttonNoise;
     [SerializeField] private AudioClip characterNoise;
+    [SerializeField] public float audioVolume = 0.5F;
+    private AudioSource audio;
     [Header("Tween Objects")]
     [SerializeField] private GameObject blastButton;
     [SerializeField] private GameObject leftSelection;
@@ -28,13 +30,9 @@ public class SlimeSelectorController : MonoBehaviour
     [SerializeField] private GameObject homeButton;
     [SerializeField] private float tweenTime = 1f;
 
-
-
-
-    
-
     private void Start() {
         UpdateCharacterSelectionUI();
+        audio = GameObject.Find("CharacterSelectionController").GetComponent<AudioSource>();
     }
 
     private void UpdateCharacterSelectionUI(){
@@ -47,6 +45,7 @@ public class SlimeSelectorController : MonoBehaviour
 
     public void changeCharacterLeft(){
         LeanTween.scale(leftSelection, Vector3.one * 2, tweenTime).setEasePunch();
+        audio.PlayOneShot(buttonNoise, audioVolume);
         selectedCharacterIndex--;
         if(selectedCharacterIndex < 0)
             selectedCharacterIndex = characterSelection.Count -1;
@@ -55,6 +54,7 @@ public class SlimeSelectorController : MonoBehaviour
     
     public void changeCharacterRight(){
         LeanTween.scale(rightSelection, Vector3.one * 2, tweenTime).setEasePunch();
+        audio.PlayOneShot(buttonNoise, audioVolume);
         selectedCharacterIndex++;
         if(selectedCharacterIndex == characterSelection.Count)
             selectedCharacterIndex = 0;
@@ -64,6 +64,7 @@ public class SlimeSelectorController : MonoBehaviour
     public void ChangeSceneToGame()
     {
         LeanTween.scale(blastButton, Vector3.one * 2, tweenTime).setEasePunch();
+        audio.PlayOneShot(buttonNoise, audioVolume);
         StartCoroutine(sceneTransition());
         SceneManager.LoadScene("DevScene 1");
         
@@ -77,6 +78,7 @@ public class SlimeSelectorController : MonoBehaviour
      public void ChangeSceneToMainMenu()
     {
         LeanTween.scale(homeButton, Vector3.one * 2, tweenTime).setEasePunch();
+        audio.PlayOneShot(buttonNoise, audioVolume);
         StartCoroutine(sceneTransition());
         SceneManager.LoadScene("MainMenu");
     }

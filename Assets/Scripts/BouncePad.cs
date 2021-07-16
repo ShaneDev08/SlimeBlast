@@ -8,6 +8,9 @@ public class BouncePad : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip audio;
 
+    private Rigidbody2D[] jellyRb;
+    private GameObject jellyRef;
+
     private void Start()
     {
         audioSource = GameObject.Find("SoundManager").GetComponent<AudioSource>();
@@ -21,9 +24,17 @@ public class BouncePad : MonoBehaviour
             
             if (obstacle.type == Obstacle.Type.BouncePad)
             {
+                jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
+                jellyRb = jellyRef.GetComponentsInChildren<Rigidbody2D>();
                 audioSource.PlayOneShot(audio);
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);
+
+                foreach (Rigidbody2D rbbb in jellyRb)
+                {
+                    rbbb.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
+                    rbbb.AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);
+                }
+                //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
+                //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);
                 this.GetComponent<BoxCollider2D>().enabled = false;
                 Invoke("SwitchOnCollider", 2f);
             }

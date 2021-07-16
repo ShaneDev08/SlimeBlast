@@ -11,6 +11,7 @@ public class Launcher : MonoBehaviour
     private float launchMultiplier;
     private bool hasSpawned;
     private bool hasFoundRb;
+    private SpriteRenderer[] sprites;
 
     public Rigidbody2D[] rbs;
     private GameObject jellyRef;
@@ -51,7 +52,14 @@ public class Launcher : MonoBehaviour
         if (!hasSpawned)
         {
             slimeSpawned = pool.GetObject();
+            
             slimeSpawned.transform.position = shootFrom.transform.position;
+            slimeSpawned.GetComponent<MeshRenderer>().enabled = false;
+            sprites = slimeSpawned.GetComponentsInChildren<SpriteRenderer>();
+            for (int i = 0; i < sprites.Length;i++)
+            {
+                sprites[i].enabled = false;
+            }
             hasSpawned = true;
 
             
@@ -132,6 +140,11 @@ public class Launcher : MonoBehaviour
     #region LauncherWithOrWithoutUpgrades
     private void LaunchWithNoUpgrades(Rigidbody2D[] rb)
     {
+        slimeSpawned.GetComponent<MeshRenderer>().enabled = true;
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].enabled = true;
+        }
         foreach (Rigidbody2D rb2 in rbs)
         {
 

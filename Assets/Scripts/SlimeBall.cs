@@ -10,6 +10,7 @@ public class SlimeBall : MonoBehaviour
     private int score;
     private AudioSource audioSource;
     public bool hasSpawned;
+    private bool hasSpawndFlag;
 
 
     // Flag to spawn as reminder where you last hit
@@ -41,24 +42,42 @@ public class SlimeBall : MonoBehaviour
         score = (int)transform.position.x;
 
         UIManager.instance.UpdateScoreText(score);
+        bool jellyStopped = false;
         foreach (Rigidbody2D rb in rbs)
         {
-            if (rb.IsSleeping() && !hasStopedMoving && hasSpawned)
+            if (rb.velocity.x <= 0 && !hasStopedMoving && hasSpawned)
             {
-                hasStopedMoving = true;
-                GameObject obj = Instantiate(flag, transform.position, flag.transform.rotation);
-                //target1.AddMember(obj.transform,1,0);
 
-                // if score is over 100 add 100 money
-                if (score > 100)
-                {
-                    PlayerManager.money = 100;
-                }
-                KillSlime();
-                hasStopedMoving = false;
-
+                jellyStopped = true;
+            }
+            else
+            {
+                jellyStopped = false;
             }
         }
+
+        if (jellyStopped)
+        {
+            hasStopedMoving = true;
+            if (!hasSpawndFlag)
+            {
+                GameObject obj = Instantiate(flag, transform.position, flag.transform.rotation);
+                hasSpawndFlag = true;
+            }
+            //target1.AddMember(obj.transform,1,0);
+
+            // if score is over 100 add 100 money
+            if (score > 100)
+            {
+                PlayerManager.money = 100;
+            }
+            Invoke("KillSlime", 5);
+            hasStopedMoving = false;
+        }
+                
+
+            
+        
 
         if(transform.position.y > 100)
         {
@@ -90,4 +109,6 @@ public class SlimeBall : MonoBehaviour
             }
         }
     }
+
+    
 }

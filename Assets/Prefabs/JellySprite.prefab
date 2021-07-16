@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2338f319fc414d7499be04935498c024, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2338f319fc414d7499be04935498c024, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -176,9 +176,10 @@ GameObject:
   - component: {fileID: 7679748748658669321}
   - component: {fileID: 7679748748658669320}
   - component: {fileID: 7679748748658669327}
+  - component: {fileID: -1402066855214883230}
   m_Layer: 0
   m_Name: JellySprite
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +247,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7679748748658669327
 MonoBehaviour:
@@ -275,10 +276,10 @@ MonoBehaviour:
   m_VertexDensity: 10
   m_SphereRadius: 0.1
   m_DistanceExponent: 2
-  m_Stiffness: 3
+  m_Stiffness: 2
   m_Mass: 1
   m_LockRotation: 1
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_UseGravity: 1
   m_CollideConnected: 0
   m_CentralBodyKinematic: 0
@@ -287,7 +288,7 @@ MonoBehaviour:
   m_RadiusPoints: 8
   m_GridColumns: 4
   m_GridRows: 4
-  m_DampingRatio: 0.6
+  m_DampingRatio: 0
   m_SoftBodyScale: {x: 1, y: 1}
   m_SoftBodyRotation: 0
   m_SoftBodyOffset: {x: -0, y: -0}
@@ -303,3 +304,19 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_ReferencePointParent: {fileID: 0}
   m_Sprite: {fileID: 21300000, guid: 822171381a89c1441bb6a6b1f7c81526, type: 3}
+--- !u!114 &-1402066855214883230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7679748748658669326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad936e1390b460e48baed1e04c37be2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasSpawned: 0
+  flag: {fileID: 6137006683065028263, guid: 2f0f4f10675d0804082b4863b5d63faa, type: 3}
+  slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
+  rbs: []

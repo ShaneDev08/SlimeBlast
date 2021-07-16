@@ -6,6 +6,8 @@ public class Test : MonoBehaviour
 {
     public int test;
     private SpriteRenderer sprite;
+
+    public GameObject[] grassObjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,17 @@ public class Test : MonoBehaviour
    void CreateLevel()
     {
         sprite.size = new Vector2(500, 9.373164f);
+
+        if(test == 0)
+        {
+            for(int i = 0; i < 25; i++)
+            {
+                Instantiate(grassObjects[Random.RandomRange(0, grassObjects.Length)], new Vector2(Random.RandomRange(0, 470), -2),transform.rotation);
+            }
+        }
+        
+        
+        
         if(test == 2)
         {
             sprite.size = new Vector2(500, 7.4f);

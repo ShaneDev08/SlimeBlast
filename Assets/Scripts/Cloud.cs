@@ -19,8 +19,8 @@ public class Cloud : MonoBehaviour
         
         if(transform.position.x <= -10)
         {
-           
-            this.gameObject.transform.position =  new Vector3(startPos.position.x,startPos.position.y,startPos.position.z);
+          
+            transform.position =  new Vector3(startPos.position.x,startPos.position.y,startPos.position.z);
         }
            
         

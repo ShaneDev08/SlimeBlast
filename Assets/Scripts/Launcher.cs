@@ -9,6 +9,11 @@ public class Launcher : MonoBehaviour
     private GameObject slimeSpawned;
     private AudioSource audio;
     private float launchMultiplier;
+    private bool hasSpawned;
+    private bool hasFoundRb;
+
+    public Rigidbody2D[] rbs;
+    private GameObject jellyRef;
 
     // TO DO 
     // Use upgrades class to add in upgrades to the launcher. Then we can check to see if upgrades have been unlocked and then use them
@@ -23,14 +28,42 @@ public class Launcher : MonoBehaviour
     
     private void Start()
     {
+        
         EventManager.instance.LaunchSlime += LaunchSlime;
         audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+        
+    }
+
+    private void Update()
+    {
+        if (GameObject.Find("JellySprite(Clone) Reference Points") != null)
+        {
+            AddRbs();
+            if (!hasFoundRb)
+            {
+                foreach (Rigidbody2D rbbs in rbs)
+                {
+                    rbbs.gravityScale = 0;
+                }
+                hasFoundRb = true;
+            }
+        }
+        if (!hasSpawned)
+        {
+            slimeSpawned = pool.GetObject();
+            slimeSpawned.transform.position = shootFrom.transform.position;
+            hasSpawned = true;
+
+            
+
+            
+        }
     }
     public void LaunchSlime()
     {
-        slimeSpawned = pool.GetObject();
-        slimeSpawned.transform.position = shootFrom.transform.position;
-
+        //slimeSpawned = pool.GetObject();
+        //slimeSpawned.transform.position = shootFrom.transform.position;
+        
        
         PlayerManager.instance.slimeInGame = slimeSpawned;
         Rigidbody2D rb = slimeSpawned.GetComponent<Rigidbody2D>();
@@ -40,7 +73,8 @@ public class Launcher : MonoBehaviour
         // If upgrades equals null then use default launch settings else use fire upgrade setting
         if (!CheckForPowerUpgrade())
         {
-            LaunchWithNoUpgrades(rb);
+            
+            LaunchWithNoUpgrades(rbs);
             
         } else
         {
@@ -96,11 +130,17 @@ public class Launcher : MonoBehaviour
 
 
     #region LauncherWithOrWithoutUpgrades
-    private void LaunchWithNoUpgrades(Rigidbody2D rb)
+    private void LaunchWithNoUpgrades(Rigidbody2D[] rb)
     {
-        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
-        // Launch in the Air
-        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
+        foreach (Rigidbody2D rb2 in rbs)
+        {
+
+            rb2.gravityScale = 1;
+            slimeSpawned.GetComponent<SlimeBall>().hasSpawned = true;
+            rb2.AddForce(transform.right * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
+            // Launch in the Air
+            rb2.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
+        }
 
         target1.AddMember(slimeSpawned.transform, 2, 5);
         target1.RemoveMember(gameObject.transform);
@@ -123,6 +163,13 @@ public class Launcher : MonoBehaviour
         rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10, ForceMode2D.Impulse);
 
         target1.AddMember(slimeSpawned.transform, 1, 0);
+    }
+
+    private void AddRbs()
+    {
+        jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
+        rbs = jellyRef.GetComponentsInChildren<Rigidbody2D>();
+
     }
 
     #endregion

@@ -9,6 +9,7 @@ public class SlimeBall : MonoBehaviour
     private bool hasStopedMoving = false;
     private int score;
     private AudioSource audioSource;
+    public bool hasSpawned;
 
 
     // Flag to spawn as reminder where you last hit
@@ -17,38 +18,46 @@ public class SlimeBall : MonoBehaviour
     public SlimeStats slimeStats;
     private GameObject tank;
     private GameObject floor;
+
+    public Rigidbody2D[] rbs;
+    private GameObject jellyRef;
     
 
    
     private void Start()
     {
+        jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
         target1 = GameObject.Find("TargetGroup").GetComponent<CinemachineTargetGroup>();
         audioSource = GetComponent<AudioSource>();
         tank = GameObject.Find("Tank");
         floor = GameObject.Find("Floor");
+        
+
     }
     private void Update()
     {
-       
-        if((int)transform.position.x > score)
+        rbs = jellyRef.GetComponentsInChildren<Rigidbody2D>();
+        if ((int)transform.position.x > score)
         score = (int)transform.position.x;
 
         UIManager.instance.UpdateScoreText(score);
-
-        if(GetComponent<Rigidbody2D>().IsSleeping() && !hasStopedMoving)
+        foreach (Rigidbody2D rb in rbs)
         {
-            hasStopedMoving = true;
-         GameObject obj =  Instantiate(flag, transform.position, flag.transform.rotation);
-            //target1.AddMember(obj.transform,1,0);
-
-            // if score is over 100 add 100 money
-            if(score > 100)
+            if (rb.IsSleeping() && !hasStopedMoving && hasSpawned)
             {
-                PlayerManager.money = 100;
+                hasStopedMoving = true;
+                GameObject obj = Instantiate(flag, transform.position, flag.transform.rotation);
+                //target1.AddMember(obj.transform,1,0);
+
+                // if score is over 100 add 100 money
+                if (score > 100)
+                {
+                    PlayerManager.money = 100;
+                }
+                KillSlime();
+                hasStopedMoving = false;
+
             }
-            KillSlime();
-            hasStopedMoving = false;
-            
         }
 
         if(transform.position.y > 100)

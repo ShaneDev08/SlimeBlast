@@ -123,4 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 11400000, guid: 13adee6246b62ce4bb16da9a51b9e139, type: 2}
-  audio: {fileID: 8300000, guid: f1dd105ba1465b9409d369acc3014dce, type: 3}
+  audio: {fileID: 8300000, guid: b1295d67c8dc1db4381c9df8f73cc697, type: 3}

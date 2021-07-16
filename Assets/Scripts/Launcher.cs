@@ -80,15 +80,15 @@ public class Launcher : MonoBehaviour
         audio.PlayOneShot(launchSound);
 
         // If upgrades equals null then use default launch settings else use fire upgrade setting
-        if (!CheckForPowerUpgrade())
-        {
+        //if (!CheckForPowerUpgrade())
+        //{
             
             LaunchWithNoUpgrades(rbs);
             
-        } else
-        {
-            LaunchWithPowerUpgrade();
-        }
+        //} else
+        //{
+        //    LaunchWithPowerUpgrade();
+        //}
         
 
         //cam.LookAt = slimeSpawned.transform;
@@ -98,44 +98,44 @@ public class Launcher : MonoBehaviour
 
 
     // Added the jump here. If the abillity is enabled then we can show a button??
-    public void Jump()
-    {
-        if (PlayerManager.abillities[0].isEnabled)
-        {
-            Debug.Log("Jump");
-            slimeSpawned.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50f, ForceMode2D.Impulse);
-        }
-    }
+    //public void Jump()
+    //{
+    //    if (PlayerManager.abillities[0].isEnabled)
+    //    {
+    //        Debug.Log("Jump");
+    //        slimeSpawned.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50f, ForceMode2D.Impulse);
+    //    }
+    //}
 
     
-    public void AddUpgrade(Upgrades upgrade)
-    {
-       for(int i = 0; i < upgrades.Length; i++)
-        {
-            if(upgrades[i] == null)
-            {
-                upgrades[i] = upgrade;
-                break;
-            }
-        }
-    }
+    //public void AddUpgrade(Upgrades upgrade)
+    //{
+    //   for(int i = 0; i < upgrades.Length; i++)
+    //    {
+    //        if(upgrades[i] == null)
+    //        {
+    //            upgrades[i] = upgrade;
+    //            break;
+    //        }
+    //    }
+    //}
 
-    private bool CheckForPowerUpgrade()
-    {
-        if (upgrades[0] == null)
-            return false;
-        for(int i = 0; i < upgrades.Length;i++)
-        {
-            if(upgrades[i].name == "PowerUpgrade")
-            {
-                return true;
-            }
+    //private bool CheckForPowerUpgrade()
+    //{
+    //    if (upgrades[0] == null)
+    //        return false;
+    //    for(int i = 0; i < upgrades.Length;i++)
+    //    {
+    //        if(upgrades[i].name == "PowerUpgrade")
+    //        {
+    //            return true;
+    //        }
 
             
-        }
+    //    }
 
-        return false;
-    }
+    //    return false;
+    //}
 
 
     #region LauncherWithOrWithoutUpgrades

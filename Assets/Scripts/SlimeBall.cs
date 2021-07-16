@@ -31,7 +31,7 @@ public class SlimeBall : MonoBehaviour
         target1 = GameObject.Find("TargetGroup").GetComponent<CinemachineTargetGroup>();
         audioSource = GetComponent<AudioSource>();
         tank = GameObject.Find("Tank");
-        floor = GameObject.Find("Floor");
+        floor = GameObject.Find("pls_01");
         
 
     }

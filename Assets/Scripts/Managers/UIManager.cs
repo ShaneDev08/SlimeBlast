@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
 
     public float powerAmount;
 
+    public GameObject roundOverUI;
+    public GameObject gameUI;
+
 
 
 
@@ -31,7 +34,17 @@ public class UIManager : MonoBehaviour
     
     void Start()
     {
-        
+        roundOverUI.SetActive(false);
+    }
+
+    public void disableGameUI()
+    {
+        gameUI.SetActive(false);
+    }
+
+    public void enableRoundOverUI()
+    {
+        roundOverUI.SetActive(true);
     }
 
     

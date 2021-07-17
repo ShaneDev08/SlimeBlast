@@ -22,6 +22,12 @@ public class SlimeBall : MonoBehaviour
 
     public Rigidbody2D[] rbs;
     private GameObject jellyRef;
+
+    [Header("UIElementsReferences")]
+    private GameObject uiControl;
+    private GameObject roundOverUI;
+
+
     
 
    
@@ -32,7 +38,9 @@ public class SlimeBall : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         tank = GameObject.Find("Tank");
         floor = GameObject.Find("pls_01");
-        
+        uiControl = GameObject.Find("GameSystem");
+
+
 
     }
     private void Update()
@@ -93,6 +101,7 @@ public class SlimeBall : MonoBehaviour
         target1.RemoveMember(this.transform);
         target1.AddMember(tank.transform,1,0);
         this.gameObject.SetActive(false);
+        //roundOverUI = uiControl.GetComponentInChildren<UIManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

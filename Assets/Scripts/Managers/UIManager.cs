@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         gameUI.SetActive(false);
     }
 
-    public void enableRoundOverUI()
+    public void EnableRoundOverUI()
     {
         roundOverUI.SetActive(true);
     }

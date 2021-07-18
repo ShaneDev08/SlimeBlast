@@ -20,5 +20,6 @@ public class SlimeStats : ScriptableObject {
     public Sprite slimeSprite;
     public Color slimeBackground;
     public AudioClip[] slimeNoises;
+    public bool multipleRbs;
 
 }

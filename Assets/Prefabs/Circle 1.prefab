@@ -440,7 +440,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8973850128973150308
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -469,8 +469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad936e1390b460e48baed1e04c37be2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasSpawned: 0
   flag: {fileID: 6137006683065028263, guid: 2f0f4f10675d0804082b4863b5d63faa, type: 3}
-  slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
+  slimeStats: {fileID: 11400000, guid: e3382a29a46540542b03decd015156b7, type: 2}
+  rbs: []
 --- !u!82 &5851686300160764195
 AudioSource:
   m_ObjectHideFlags: 0

@@ -24,14 +24,25 @@ public class BouncePad : MonoBehaviour
             
             if (obstacle.type == Obstacle.Type.BouncePad)
             {
-                jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
-                jellyRb = jellyRef.GetComponentsInChildren<Rigidbody2D>();
-                audioSource.PlayOneShot(audio);
-
-                foreach (Rigidbody2D rbbb in jellyRb)
+                if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
                 {
-                    rbbb.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
-                    rbbb.AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);
+                    jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
+                    jellyRb = jellyRef.GetComponentsInChildren<Rigidbody2D>();
+                    audioSource.PlayOneShot(audio);
+
+                    foreach (Rigidbody2D rbbb in jellyRb)
+                    {
+                        rbbb.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
+                        rbbb.AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);
+                    }
+                }
+                else
+                {
+                   Rigidbody2D rb =  collision.gameObject.GetComponent<Rigidbody2D>();
+                    audioSource.PlayOneShot(audio);
+                    rb.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
+                    rb.AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);
+
                 }
                 //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
                 //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * obstacle.heightAmount, ForceMode2D.Impulse);

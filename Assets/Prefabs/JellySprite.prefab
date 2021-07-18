@@ -317,10 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad936e1390b460e48baed1e04c37be2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
   hasSpawned: 0
   flag: {fileID: 6137006683065028263, guid: 2f0f4f10675d0804082b4863b5d63faa, type: 3}
-  slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
-  rbs: []
 --- !u!82 &-1785876143643628091
 AudioSource:
   m_ObjectHideFlags: 0
@@ -333,7 +332,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.307
   m_Pitch: 1
   Loop: 0
   Mute: 0

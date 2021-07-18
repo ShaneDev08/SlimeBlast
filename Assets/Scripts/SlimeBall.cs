@@ -109,20 +109,27 @@ public class SlimeBall : MonoBehaviour
 
     #endregion
     // If Slime has collided with a non player object such as bouncing pad then play sound
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (!collision.gameObject.CompareTag("Player"))
+    //    {
+    //        if (collision.gameObject.CompareTag("BouncingPad"))
+    //        {
+    //            audioSource.PlayOneShot(slimeStats.slimeNoises[0]);
+    //        }
+    //        else
+    //        {
+                
+    //            int randomNumber = 0;
+    //            audioSource.PlayOneShot(slimeStats.slimeNoises[Random.RandomRange(1,slimeStats.slimeNoises.Length)]);
+    //        }
+    //    }
+    //}
+
+    public void PlaySound()
     {
-        if (!collision.gameObject.CompareTag("Player"))
-        {
-            if (collision.gameObject.CompareTag("BouncingPad"))
-            {
-                audioSource.PlayOneShot(slimeStats.slimeNoises[0]);
-            }
-            else
-            {
-                int randomNumber = 0;
-                audioSource.PlayOneShot(slimeStats.slimeNoises[Random.RandomRange(1,slimeStats.slimeNoises.Length)]);
-            }
-        }
+        int randomNumber = 0;
+        audioSource.PlayOneShot(slimeStats.slimeNoises[Random.RandomRange(1, slimeStats.slimeNoises.Length)]);
     }
 
     #region MultipleRbSlime

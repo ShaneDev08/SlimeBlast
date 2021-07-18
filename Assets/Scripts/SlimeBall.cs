@@ -100,8 +100,8 @@ public class SlimeBall : MonoBehaviour
     // Could maybe remove this so it stays at slime location when end game UI pops up?
     private void KillSlime()
     {
-        target1.RemoveMember(this.transform);
-        target1.AddMember(tank.transform,1,0);
+       // target1.RemoveMember(this.transform);
+        //target1.AddMember(tank.transform,1,0);
         this.gameObject.SetActive(false);
         //roundOverUI = uiControl.GetComponentInChildren<UIManager>();
         UIManager.instance.EnableRoundOverUI();
@@ -115,11 +115,12 @@ public class SlimeBall : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("BouncingPad"))
             {
-                audioSource.PlayOneShot(slimeStats.slimeNoises[1]);
+                audioSource.PlayOneShot(slimeStats.slimeNoises[0]);
             }
             else
             {
-                audioSource.PlayOneShot(slimeStats.slimeNoises[0]);
+                int randomNumber = 0;
+                audioSource.PlayOneShot(slimeStats.slimeNoises[Random.RandomRange(1,slimeStats.slimeNoises.Length)]);
             }
         }
     }

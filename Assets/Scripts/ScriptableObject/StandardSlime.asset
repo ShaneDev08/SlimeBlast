@@ -19,6 +19,9 @@ MonoBehaviour:
   slimeSprite: {fileID: 21300000, guid: 6fba3606eb5d5564587ec5c548b6dd1b, type: 3}
   slimeBackground: {r: 0, g: 0, b: 0, a: 0}
   slimeNoises:
-  - {fileID: 8300000, guid: 53f46c29f6733d24ab0d15c651d0fe4f, type: 3}
   - {fileID: 8300000, guid: b1295d67c8dc1db4381c9df8f73cc697, type: 3}
+  - {fileID: 8300000, guid: ebdf7715c328fd24593ef002cc891585, type: 3}
+  - {fileID: 8300000, guid: bc548b245fd4451478d89b4b7c603cdd, type: 3}
+  - {fileID: 8300000, guid: c44b89db7efc42a48b2b82e3ee88e13e, type: 3}
+  - {fileID: 8300000, guid: 2a38039c0cdb1634da9f0e72c015fa33, type: 3}
   multipleRbs: 1

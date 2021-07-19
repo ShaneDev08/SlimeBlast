@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4578b1a7d089ea741ae8d5a1928fda9c, type: 3}
   m_Name: BouncePad
   m_EditorClassIdentifier: 
+  type: 0
   speedAmount: 10
-  heightAmount: 10
+  heightAmount: 15

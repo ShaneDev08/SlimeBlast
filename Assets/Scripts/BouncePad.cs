@@ -32,7 +32,7 @@ public class BouncePad : MonoBehaviour
 
                     foreach (Rigidbody2D rbbb in jellyRb)
                     {
-                        //rbbb.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
+                        rbbb.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
                         rbbb.AddForce(Vector2.up * obstacle.heightAmount * 2, ForceMode2D.Impulse);
                     }
                 }

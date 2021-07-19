@@ -16,6 +16,7 @@ public class SlimeBall : MonoBehaviour
     // Rigidbodys
     private Rigidbody2D standardSlimeRb;
     private Rigidbody2D[] rbs;
+    //private Rigidbody2D mainRB;
 
     // Game Components 
     private CinemachineTargetGroup target1;
@@ -30,7 +31,7 @@ public class SlimeBall : MonoBehaviour
     private int score;
     private bool hasSpawndFlag;
     private bool hasMultipleRbs;
-
+    
 
 
 
@@ -43,6 +44,8 @@ public class SlimeBall : MonoBehaviour
             Debug.Log("HasMultipleRbs");
             jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
             rbs = jellyRef.GetComponentsInChildren<Rigidbody2D>();
+          // mainRB = rbs[0].GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<Rigidbody2D>();
+
         } 
         // Else just use the standard Rigibody
         else
@@ -137,14 +140,13 @@ public class SlimeBall : MonoBehaviour
     private void CheckIfStopedMoving()
     {
         bool jellyStopped = false;
-        foreach (Rigidbody2D rb in rbs)
-        {
-            if (rb.velocity.x <= 0 && !hasStopedMoving && hasSpawned)
+       
+            if (rbs[7].velocity.x <= 0 && !hasStopedMoving && hasSpawned)
             {
 
                 jellyStopped = true;
             }
-        }
+        
 
         if (jellyStopped)
         {

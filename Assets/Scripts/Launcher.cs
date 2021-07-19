@@ -151,9 +151,9 @@ public class Launcher : MonoBehaviour
 
             rb2.gravityScale = 1;
             slimeSpawned.GetComponent<SlimeBall>().hasSpawned = true;
-            rb2.AddForce(transform.right * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
+            rb2.AddForce(transform.right * UIManager.instance.powerAmount / 10 , ForceMode2D.Impulse);
             // Launch in the Air
-            rb2.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
+            rb2.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 , ForceMode2D.Impulse);
             
         }
         Instantiate(explosion, shootFrom.transform.position, explosion.transform.rotation);

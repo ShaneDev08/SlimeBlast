@@ -42,7 +42,8 @@ public class SlimeBall : MonoBehaviour
         {
             hasMultipleRbs = true;
             Debug.Log("HasMultipleRbs");
-            jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
+            jellyRef = GameObject.Find(this.gameObject.name +" Reference Points");
+            Debug.Log(this.gameObject.name);
             rbs = jellyRef.GetComponentsInChildren<Rigidbody2D>();
           // mainRB = rbs[0].GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<Rigidbody2D>();
 

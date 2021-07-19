@@ -49,7 +49,8 @@ public class Launcher : MonoBehaviour
         // Check to see if slime has multiple Rbs and adds them to the array
         if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
         {
-            if (GameObject.Find("JellySprite(Clone) Reference Points") != null)
+           
+            if (GameObject.Find(PlayerManager.instance.slimeBall.gameObject.name + "(Clone) Reference Points") != null)
             {
                 AddRbs();
                 if (!hasFoundRb)
@@ -139,11 +140,11 @@ public class Launcher : MonoBehaviour
     {
         // Enables the Mesh so we can see it
         slimeSpawned.GetComponent<MeshRenderer>().enabled = true;
-        for (int i = 0; i < sprites.Length; i++)
-        {
-            // Enables the Eyes 
-            sprites[i].enabled = true;
-        }
+        //for (int i = 0; i < sprites.Length; i++)
+        //{
+        //    // Enables the Eyes 
+        //    sprites[i].enabled = true;
+        //}
 
         // Loops through each Rb and adds gravity and force. Also creates an explosion and adds slime to target group
         foreach (Rigidbody2D rb2 in rbs)
@@ -204,7 +205,7 @@ public class Launcher : MonoBehaviour
     #region AddsRb
     private void AddRbs()
     {
-        jellyRef = GameObject.Find("JellySprite(Clone) Reference Points");
+        jellyRef = GameObject.Find(PlayerManager.instance.slimeBall.gameObject.name + "(Clone) Reference Points");
         rbs = jellyRef.GetComponentsInChildren<Rigidbody2D>();
 
     }

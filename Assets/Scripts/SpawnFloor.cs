@@ -9,6 +9,11 @@ public class SpawnFloor : MonoBehaviour
 
     public GameObject[] floors;
 
+    public GameObject bouncePads;
+    public GameObject floorParent;
+    public GameObject bounceParent;
+    public int amountToSpawn;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +35,10 @@ public class SpawnFloor : MonoBehaviour
                 floor.transform.position = new Vector3(floors[1].transform.position.x + 500, floor.transform.position.y, floor.transform.position.z);
             }
             CreateLevel(gameFloor);
+            
         }
-        
+        SpawnBouncePads();
 
-        
-
-       
-        
     }
 
     // Update is called once per frame
@@ -55,8 +57,9 @@ public class SpawnFloor : MonoBehaviour
         {
             for (int i = 0; i < 25; i++)
             {
-                int randomNumber = Random.RandomRange(0, gameFloor.floor.objects.Length);
-                Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.RandomRange(5, 470), gameFloor.floor.objects[randomNumber].transform.position.y), transform.rotation);
+                int randomNumber = Random.Range(0, gameFloor.floor.objects.Length);
+             GameObject go =   Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.Range(5, 470), gameFloor.floor.objects[randomNumber].transform.position.y), transform.rotation);
+                go.transform.parent = floorParent.transform;
             }
         }
 
@@ -64,8 +67,9 @@ public class SpawnFloor : MonoBehaviour
         {
             for (int i = 0; i < 25; i++)
             {
-                int randomNumber = Random.RandomRange(0, gameFloor.floor.objects.Length);
-                Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.RandomRange(490, 960), gameFloor.floor.objects[randomNumber].transform.position.y), transform.rotation);
+                int randomNumber = Random.Range(0, gameFloor.floor.objects.Length);
+                GameObject go = Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.Range(490, 960), gameFloor.floor.objects[randomNumber].transform.position.y), transform.rotation);
+                go.transform.parent = floorParent.transform;
             }
         }
 
@@ -77,9 +81,20 @@ public class SpawnFloor : MonoBehaviour
 
             for (int i = 0; i < 25; i++)
             {
-                int randomNumber = Random.RandomRange(0, gameFloor.floor.objects.Length);
-                Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.RandomRange(980, 1460), gameFloor.floor.objects[randomNumber].transform.position.y), transform.rotation);
+                int randomNumber = Random.Range(0, gameFloor.floor.objects.Length);
+                GameObject go = Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.Range(980, 1460), gameFloor.floor.objects[randomNumber].transform.position.y), transform.rotation);
+                go.transform.parent = floorParent.transform;
             }
+        }
+    }
+
+    void SpawnBouncePads()
+    {
+        for(int i = 0; i < amountToSpawn; i++ )
+
+        {
+           GameObject go =  Instantiate(bouncePads, new Vector2((float)Random.Range(10, 2000), bouncePads.transform.position.y), bouncePads.transform.rotation);
+            go.transform.parent = bounceParent.transform;
         }
     }
 }

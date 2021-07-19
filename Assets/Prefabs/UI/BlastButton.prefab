@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlastButton
       objectReference: {fileID: 0}
+    - target: {fileID: 466506728425000004, guid: 093fb2b1ffab3724690f963c7369a12f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 466506728425000004, guid: 093fb2b1ffab3724690f963c7369a12f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayButtonClick
+      objectReference: {fileID: 0}
     - target: {fileID: 466506728425000005, guid: 093fb2b1ffab3724690f963c7369a12f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -85,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 466506728425000005, guid: 093fb2b1ffab3724690f963c7369a12f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -334
+      value: -468
       objectReference: {fileID: 0}
     - target: {fileID: 466506728425000005, guid: 093fb2b1ffab3724690f963c7369a12f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

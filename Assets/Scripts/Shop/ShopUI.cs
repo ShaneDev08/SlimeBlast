@@ -52,5 +52,10 @@ public class ShopUI : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void onClickPlay()
+    {
+        SceneManager.LoadScene("DevScene 1");
+    }
     
 }

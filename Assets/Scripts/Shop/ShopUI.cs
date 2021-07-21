@@ -20,6 +20,8 @@ public class ShopUI : MonoBehaviour
     public Transform slimeUpgradeContainer;
     public CanvasGroup backgroundSlime;
     public Transform worldUpgradeContainer;
+    // 0 worldUpgrade
+    //1 
     public CanvasGroup backgroundWorld;
     public TextMeshProUGUI moneyText;
     [Header("ObjectReferences")]
@@ -101,5 +103,6 @@ public class ShopUI : MonoBehaviour
     public void updateMoneyValue()
     {
         moneyText.text = "Money:" + PlayerManager.money.ToString();
+       
     }
 }

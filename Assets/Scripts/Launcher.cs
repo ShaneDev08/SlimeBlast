@@ -140,11 +140,11 @@ public class Launcher : MonoBehaviour
     {
         // Enables the Mesh so we can see it
         slimeSpawned.GetComponent<MeshRenderer>().enabled = true;
-        //for (int i = 0; i < sprites.Length; i++)
-        //{
-        //    // Enables the Eyes 
-        //    sprites[i].enabled = true;
-        //}
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            // Enables the Eyes 
+            sprites[i].enabled = true;
+        }
 
         // Loops through each Rb and adds gravity and force. Also creates an explosion and adds slime to target group
         foreach (Rigidbody2D rb2 in rbs)

@@ -16,6 +16,8 @@ public class PlayerManager : MonoBehaviour
     // 2 is?
     public static Abillity[] abillities = new Abillity[1];
 
+    
+    public static Dictionary<string, Upgrades> shopUpgrades;
     public static int money;
 
 

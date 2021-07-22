@@ -41,7 +41,9 @@ public class Launcher : MonoBehaviour
 
         // Cache AudioSource from sound manager
         audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
+
         
+
     }
 
     private void Update()
@@ -103,16 +105,20 @@ public class Launcher : MonoBehaviour
 
             audio.PlayOneShot(launchSound);
 
-            // If upgrades equals null then use default launch settings else use fire upgrade setting
-            //if (!CheckForPowerUpgrade())
-            //{
+            // Check to see if powerUpgrade is enabled
+            Debug.Log(PlayerManager.shopUpgrades["Cannon"].isEnabled);
+            if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
+            {
+                Debug.Log("Launch With extra Power");
+                LaunchWithPowerUpgrade(rb);
+            }
+            else
+            {
+                Debug.Log("Launch With No Power");
+                LaunchWithNoUpgrades(rb);
+            }
 
-            LaunchWithNoUpgrades(rb);
-
-            //} else
-            //{
-            //    LaunchWithPowerUpgrade();
-            //}
+           
 
 
             //cam.LookAt = slimeSpawned.transform;
@@ -122,8 +128,17 @@ public class Launcher : MonoBehaviour
         // Else Launch with multipleRbs
         else if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
         {
+
+            if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
+            {
+                LaunchWithPowerUpgrade(rb);
+            }
+            else
+            {
+                LaunchWithNoUpgrades(rbs);
+            }
             audio.PlayOneShot(launchSound);
-            LaunchWithNoUpgrades(rbs);
+            
         }
 
     }
@@ -178,21 +193,14 @@ public class Launcher : MonoBehaviour
 
 
     #region TODOLAUNCHSLIMEWITHUPGRADE
-    private void LaunchWithPowerUpgrade()
+    private void LaunchWithPowerUpgrade(Rigidbody2D rb)
     {
-
-        PowerUpgrade power1 = null;
-        for (int i = 0; i < upgrades.Length; i++)
-        {
-            if (upgrades[i].name == "PowerUpgrade")
-            {
-                power1 = (PowerUpgrade)upgrades[i];
-            }
-        }
-
-        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * power1.powerModifier, ForceMode2D.Impulse);
+        Debug.Log("POWERRRRRR");
+        PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
+        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * power.powerModifier, ForceMode2D.Impulse);
         // Launch in the Air
-        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10, ForceMode2D.Impulse);
+        
+        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * power.powerModifier , ForceMode2D.Impulse);
 
         target1.AddMember(slimeSpawned.transform, 1, 0);
     }
@@ -224,34 +232,7 @@ public class Launcher : MonoBehaviour
     //}
 
 
-    //public void AddUpgrade(Upgrades upgrade)
-    //{
-    //   for(int i = 0; i < upgrades.Length; i++)
-    //    {
-    //        if(upgrades[i] == null)
-    //        {
-    //            upgrades[i] = upgrade;
-    //            break;
-    //        }
-    //    }
-    //}
 
-    //private bool CheckForPowerUpgrade()
-    //{
-    //    if (upgrades[0] == null)
-    //        return false;
-    //    for(int i = 0; i < upgrades.Length;i++)
-    //    {
-    //        if(upgrades[i].name == "PowerUpgrade")
-    //        {
-    //            return true;
-    //        }
-
-
-    //    }
-
-    //    return false;
-    //}
     #endregion
 
 

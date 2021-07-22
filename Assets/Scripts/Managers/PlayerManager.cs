@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     
     public static Dictionary<string, Upgrades> shopUpgrades;
-    public static int money;
+    public static int money = 100;
 
 
     public  GameObject slimeBall;
@@ -33,6 +33,8 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        AddAllUpgrades();
     }
 
     public void SetSlimeBall(GameObject slime)
@@ -57,6 +59,26 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         
+    }
+
+    private void AddAllUpgrades()
+    {
+        PowerUpgrade cannonPower = new PowerUpgrade("Power", 10, 10, 10, false);
+        cannonPower.UpgradePower(30);
+        shopUpgrades = new Dictionary<string, Upgrades>();
+
+        shopUpgrades.Add("Cannon", cannonPower);
+    }
+
+
+    public static void BuyCannonUpgrade()
+    {
+        if (money >= shopUpgrades["Cannon"].costAmount)
+        {
+            shopUpgrades["Cannon"].isEnabled = true;
+            Debug.Log(shopUpgrades["Cannon"].isEnabled);
+            money -= shopUpgrades["Cannon"].costAmount;
+        }
     }
 
       

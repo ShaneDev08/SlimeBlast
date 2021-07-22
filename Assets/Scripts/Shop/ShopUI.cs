@@ -20,6 +20,8 @@ public class ShopUI : MonoBehaviour
     public Transform slimeUpgradeContainer;
     public CanvasGroup backgroundSlime;
     public Transform worldUpgradeContainer;
+    public TextMeshProUGUI cannonCost;
+    public GameObject cannonBuyButton;
     // 0 worldUpgrade
     //1 
     public CanvasGroup backgroundWorld;
@@ -33,11 +35,15 @@ public class ShopUI : MonoBehaviour
     {
         audio = GameObject.Find("ShopCanvas").GetComponent<AudioSource>();
         playerManager = GetComponent<PlayerManager>();
+        Debug.Log(PlayerManager.shopUpgrades["Cannon"].name);
+        cannonCost.text = PlayerManager.shopUpgrades["Cannon"].costAmount.ToString(); 
+        
         
     }
 
     private void Update() {
         updateMoneyValue();
+        CheckForBoughtItems();
     }
 
     public void onClickCannonUpgrade()
@@ -104,5 +110,13 @@ public class ShopUI : MonoBehaviour
     {
         moneyText.text = "Money:" + PlayerManager.money.ToString();
        
+    }
+
+    private void CheckForBoughtItems()
+    {
+        if(PlayerManager.shopUpgrades["Cannon"].isEnabled)
+        {
+            cannonBuyButton.SetActive(false);
+        }
     }
 }

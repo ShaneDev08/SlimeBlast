@@ -63,11 +63,15 @@ public class PlayerManager : MonoBehaviour
 
     private void AddAllUpgrades()
     {
-        PowerUpgrade cannonPower = new PowerUpgrade("Power", 10, 10, 10, false);
-        cannonPower.UpgradePower(30);
         shopUpgrades = new Dictionary<string, Upgrades>();
+        PowerUpgrade cannonPower = new PowerUpgrade("Power", 10, 10, 10, false);
+        
+       
 
         shopUpgrades.Add("Cannon", cannonPower);
+
+        cannonPower.PurchaseUpgrade();
+
     }
 
 
@@ -76,7 +80,7 @@ public class PlayerManager : MonoBehaviour
         if (money >= shopUpgrades["Cannon"].costAmount)
         {
             shopUpgrades["Cannon"].isEnabled = true;
-            Debug.Log(shopUpgrades["Cannon"].isEnabled);
+
             money -= shopUpgrades["Cannon"].costAmount;
         }
     }

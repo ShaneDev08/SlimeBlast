@@ -111,9 +111,9 @@ MonoBehaviour:
   parentEditor: {fileID: 0}
   drawing: 1
   selectedNode: {fileID: 0}
-  LivePreviewShaderPath: Assets/Test.shader
-  ShaderName: Test
-  ShaderInMemory: {fileID: 4800000, guid: 290c7e56bbdbf7c4c9183d8972ee56ea, type: 3}
+  LivePreviewShaderPath: 
+  ShaderName: 
+  ShaderInMemory: {fileID: 0}
   panOffset: {x: 970.79645, y: 189.20181}
   zoom: 1.8
 --- !u!114 &-527851046201504069

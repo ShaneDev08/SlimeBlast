@@ -7,12 +7,26 @@ public class SpawnFloor : MonoBehaviour
     private SpriteRenderer sprite;
     //public Floors floor;
 
+    [Header("Floors")]
     public GameObject[] floors;
 
-    public GameObject bouncePads;
+    [Header("ParentObject")]
     public GameObject floorParent;
-    public GameObject bounceParent;
-    public int amountToSpawn;
+    public GameObject helperObjects;
+
+    [Header("Helpers")]
+    public GameObject bouncePads;
+    public GameObject extraSlime;
+    // Money
+
+
+    [Header("Amount To Spawn")]
+    public int bouncePadsToSpawn;
+    public int extraSlimeToSpawn;
+
+
+
+
 
 
     // Start is called before the first frame update
@@ -38,6 +52,7 @@ public class SpawnFloor : MonoBehaviour
             
         }
         SpawnBouncePads();
+        SpawnExtraSlime();
 
     }
 
@@ -90,11 +105,21 @@ public class SpawnFloor : MonoBehaviour
 
     void SpawnBouncePads()
     {
-        for(int i = 0; i < amountToSpawn; i++ )
+        for(int i = 0; i < bouncePadsToSpawn; i++ )
 
         {
            GameObject go =  Instantiate(bouncePads, new Vector2((float)Random.Range(10, 2000), bouncePads.transform.position.y), bouncePads.transform.rotation);
-            go.transform.parent = bounceParent.transform;
+            go.transform.parent = helperObjects.transform;
+        }
+    }
+
+    void SpawnExtraSlime()
+    {
+        for (int i = 0; i < extraSlimeToSpawn; i++)
+
+        {
+            GameObject go = Instantiate(extraSlime, new Vector2((float)Random.Range(10, 2000), extraSlime.transform.position.y), extraSlime.transform.rotation);
+            go.transform.parent = helperObjects.transform;
         }
     }
 }

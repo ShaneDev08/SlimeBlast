@@ -30,9 +30,11 @@ public class BouncePad : MonoBehaviour
                     jellyRb = jellyRef.GetComponentsInChildren<Rigidbody2D>();
                     audioSource.PlayOneShot(audio);
 
-                    
-                        jellyRb[7].AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
-                    jellyRb[7].AddForce(Vector2.up * obstacle.heightAmount * 2, ForceMode2D.Impulse);
+                    foreach (Rigidbody2D rbs in jellyRb)
+                    {
+                        rbs.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
+                       rbs.AddForce(Vector2.up * obstacle.heightAmount * 2, ForceMode2D.Impulse);
+                    }
                     
                 }
                 else

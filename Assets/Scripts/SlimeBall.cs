@@ -25,18 +25,29 @@ public class SlimeBall : MonoBehaviour
     private GameObject floor;
     private GameObject jellyRef;
     private GameObject uiControl;
+    private UnityJellySprite jellyScript;
 
     // Script Variables
     private bool hasStopedMoving = false;
     private int score;
     private bool hasSpawndFlag;
     private bool hasMultipleRbs;
+    private bool tookDamage = false;
+
+    [Header("SlimeStats")]
+    public int health;
     
 
 
 
     private void Start()
     {
+
+        jellyScript = GetComponent<UnityJellySprite>();
+
+        float scaleRatio = health / 100;
+        jellyScript.m_SpriteScale *= scaleRatio;
+        jellyScript.Scale(scaleRatio, true);
         // Check to see if this object has multiple Rbs and gets them
         if (slimeStats.multipleRbs)
         {
@@ -86,6 +97,10 @@ public class SlimeBall : MonoBehaviour
             target1.RemoveMember(floor.transform);
         }
 
+        //Set scale based on health
+        //Debug.Log(health / 100);
+    
+
     }
 
     #region ScoringSystem
@@ -106,7 +121,7 @@ public class SlimeBall : MonoBehaviour
     {
        // target1.RemoveMember(this.transform);
         //target1.AddMember(tank.transform,1,0);
-        this.gameObject.SetActive(false);
+        
         //roundOverUI = uiControl.GetComponentInChildren<UIManager>();
         UIManager.instance.EnableRoundOverUI();
     }
@@ -140,16 +155,10 @@ public class SlimeBall : MonoBehaviour
     //Checks to see if all Rbs on a slime has stopped moving and creates a flag and money.
     private void CheckIfStopedMoving()
     {
-        bool jellyStopped = false;
-       
-            if (rbs[7].velocity.x <= 0 && !hasStopedMoving && hasSpawned)
-            {
-
-                jellyStopped = true;
-            }
+        
         
 
-        if (jellyStopped)
+        if (health <=0)
         {
             hasStopedMoving = true;
             if (!hasSpawndFlag)
@@ -164,6 +173,7 @@ public class SlimeBall : MonoBehaviour
             {
                 PlayerManager.money = 100;
             }
+            this.gameObject.SetActive(false);
             Invoke("KillSlime", 5);
             hasStopedMoving = false;
         }
@@ -199,4 +209,32 @@ public class SlimeBall : MonoBehaviour
     }
 
     #endregion
+
+
+    public void TakeDamage(int damage)
+    {
+       
+
+        if (!tookDamage)
+        {
+            foreach (Rigidbody2D rig in rbs)
+            {
+                rig.AddForce(Vector3.right * 2, ForceMode2D.Impulse);
+                rig.AddForce(Vector3.up * 20, ForceMode2D.Impulse);
+            }
+            health -= damage;
+            float scaleRatio = 0.9f;
+            jellyScript.m_SpriteScale = new Vector2(health/100,health/100);
+            jellyScript.Scale(scaleRatio, true);
+            tookDamage = true;
+            Invoke("ResetDamage", 1);
+            
+        }
+
+    }
+
+    private void ResetDamage()
+    {
+        tookDamage = false;
+    }
 }

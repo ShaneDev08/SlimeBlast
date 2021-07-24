@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TaskAtlasData
   m_EditorClassIdentifier: 
   version: 2.0.3
-  sceneIndex: 6
+  sceneIndex: 0
   sceneIndexPrev: 0
   scene:
   - name: Assets/Scenes/DevScene 1.unity

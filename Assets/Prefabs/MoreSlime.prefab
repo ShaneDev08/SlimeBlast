@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
+  collectionSound: {fileID: 8300000, guid: e451f510b1b387b44a4713bfac66a501, type: 3}
 --- !u!58 &7430628782644158446
 CircleCollider2D:
   m_ObjectHideFlags: 0

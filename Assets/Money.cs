@@ -7,6 +7,9 @@ public class Money : MonoBehaviour
     [Header("Money Modifiers")]
     public int money;
 
+    [Header("Sounds")]
+    public AudioClip moneySound;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +17,7 @@ public class Money : MonoBehaviour
         {
             PlayerManager.money += money;
             Destroy(gameObject);
-            //collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound();
+            collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound(moneySound);
         }
         else
         {

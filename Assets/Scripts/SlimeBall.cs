@@ -150,6 +150,10 @@ public class SlimeBall : MonoBehaviour
         int randomNumber = 0;
         audioSource.PlayOneShot(slimeStats.slimeNoises[Random.RandomRange(1, slimeStats.slimeNoises.Length)]);
     }
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 
     #region MultipleRbSlime
     //Checks to see if all Rbs on a slime has stopped moving and creates a flag and money.
@@ -220,7 +224,7 @@ public class SlimeBall : MonoBehaviour
             foreach (Rigidbody2D rig in rbs)
             {
                 rig.AddForce(Vector3.right * 2, ForceMode2D.Impulse);
-                rig.AddForce(Vector3.up * 20, ForceMode2D.Impulse);
+                rig.AddForce(Vector3.up * 25, ForceMode2D.Impulse);
             }
             health -= damage;
             float scaleRatio = 0.9f;

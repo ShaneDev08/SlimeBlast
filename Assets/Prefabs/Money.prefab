@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 20
+  moneySound: {fileID: 8300000, guid: 0443d4cbacaface43b801577b6b42b8b, type: 3}
 --- !u!70 &2012276419513932502
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

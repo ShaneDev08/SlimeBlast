@@ -131,7 +131,7 @@ public class Launcher : MonoBehaviour
 
             if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
             {
-                LaunchWithPowerUpgrade(rb);
+                LaunchWithPowerUpgrade(rbs);
             }
             else
             {
@@ -154,12 +154,7 @@ public class Launcher : MonoBehaviour
     private void LaunchWithNoUpgrades(Rigidbody2D[] rb)
     {
         // Enables the Mesh so we can see it
-        slimeSpawned.GetComponent<MeshRenderer>().enabled = true;
-        for (int i = 0; i < sprites.Length; i++)
-        {
-            // Enables the Eyes 
-            sprites[i].enabled = true;
-        }
+        EnableMesh();
 
         // Loops through each Rb and adds gravity and force. Also creates an explosion and adds slime to target group
         foreach (Rigidbody2D rb2 in rbs)
@@ -204,6 +199,25 @@ public class Launcher : MonoBehaviour
 
         target1.AddMember(slimeSpawned.transform, 1, 0);
     }
+
+    private void LaunchWithPowerUpgrade(Rigidbody2D[] rb)
+    {
+        EnableMesh();
+        Debug.Log("POWERRRRRR");
+        PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
+        foreach (Rigidbody2D rbs in rb)
+        {
+            rbs.gravityScale = 1;
+            slimeSpawned.GetComponent<SlimeBall>().hasSpawned = true;
+            rbs.AddForce(transform.right * UIManager.instance.powerAmount / 10 * power.powerModifier, ForceMode2D.Impulse);
+            // Launch in the Air
+
+            rbs.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * power.powerModifier, ForceMode2D.Impulse);
+         }
+
+        target1.AddMember(slimeSpawned.transform, 2, 5);
+        target1.RemoveMember(gameObject.transform);
+    }
     #endregion
 
 
@@ -236,4 +250,14 @@ public class Launcher : MonoBehaviour
     #endregion
 
 
+    private void EnableMesh()
+    {
+        slimeSpawned.GetComponent<MeshRenderer>().enabled = true;
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            // Enables the Eyes 
+            sprites[i].enabled = true;
+        }
+
+    }
 }

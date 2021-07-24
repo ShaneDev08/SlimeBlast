@@ -171,7 +171,7 @@ public class SlimeBall : MonoBehaviour
             // if score is over 100 add 100 money
             if (score > 100)
             {
-                PlayerManager.money = 100;
+                PlayerManager.money += 100;
             }
             this.gameObject.SetActive(false);
             Invoke("KillSlime", 5);
@@ -200,7 +200,7 @@ public class SlimeBall : MonoBehaviour
             // If Slime has gone over 100 along the X axies then add money
             if (score > 100)
             {
-                PlayerManager.money = 100;
+                PlayerManager.money += 100;
             }
             // Kill the slime in 5 seconds.
             Invoke("KillSlime", 5);

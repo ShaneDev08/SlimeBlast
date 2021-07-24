@@ -25,7 +25,7 @@ public class SpawnFloor : MonoBehaviour
             FloorHolder gameFloor = floor.GetComponent<FloorHolder>();
             if (gameFloor.floor.type == Floors.Type.Ice)
             {
-                floor.transform.position = new Vector3(floors[0].transform.position.x + 500 - 10, floor.transform.position.y, floor.transform.position.z);
+                floor.transform.position = new Vector3(floors[0].transform.position.x + 500 -5, floor.transform.position.y, floor.transform.position.z);
                 //floor.transform.position = new Vector3(484.85f, floor.transform.position.y, floor.transform.position.z);
                 sprite.size = new Vector2(500, 11.78f);
             }

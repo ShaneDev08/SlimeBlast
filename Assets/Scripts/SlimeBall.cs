@@ -228,6 +228,7 @@ public class SlimeBall : MonoBehaviour
             jellyScript.Scale(scaleRatio, true);
             tookDamage = true;
             Invoke("ResetDamage", 1);
+           
             
         }
 
@@ -236,7 +237,7 @@ public class SlimeBall : MonoBehaviour
     public void AddSlime(int amount)
     {
         health += amount;
-        float scaleRatio = 0.9f;
+        float scaleRatio = 1.1f;
         jellyScript.m_SpriteScale = new Vector2(health / 100, health / 100);
         jellyScript.Scale(scaleRatio, true);
     }

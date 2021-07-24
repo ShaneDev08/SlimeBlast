@@ -10,6 +10,7 @@ public class BouncePad : MonoBehaviour
 
     private Rigidbody2D[] jellyRb;
     private GameObject jellyRef;
+    private bool hasHit;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class BouncePad : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             
-            if (obstacle.type == Obstacle.Type.BouncePad)
+            if (obstacle.type == Obstacle.Type.BouncePad && !hasHit)
             {
                 if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
                 {
@@ -30,12 +31,16 @@ public class BouncePad : MonoBehaviour
                     jellyRb = jellyRef.GetComponentsInChildren<Rigidbody2D>();
                     audioSource.PlayOneShot(audio);
 
+                    //jellyRb[0].AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
+                    //jellyRb[0].AddForce(Vector2.up * obstacle.heightAmount * 2, ForceMode2D.Impulse);
+
                     foreach (Rigidbody2D rbs in jellyRb)
                     {
                         rbs.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
-                       rbs.AddForce(Vector2.up * obstacle.heightAmount * 2, ForceMode2D.Impulse);
+                        rbs.AddForce(Vector2.up * obstacle.heightAmount * 2, ForceMode2D.Impulse);
                     }
-                    
+                    hasHit = true;
+
                 }
                 else
                 {

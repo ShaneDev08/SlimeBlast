@@ -17,12 +17,14 @@ public class SpawnFloor : MonoBehaviour
     [Header("Helpers")]
     public GameObject bouncePads;
     public GameObject extraSlime;
+    public GameObject extraMoney;
     // Money
 
 
     [Header("Amount To Spawn")]
     public int bouncePadsToSpawn;
     public int extraSlimeToSpawn;
+    public int extraMoneyToSpawn;
 
 
 
@@ -53,6 +55,7 @@ public class SpawnFloor : MonoBehaviour
         }
         SpawnBouncePads();
         SpawnExtraSlime();
+        SpawnMoneyBags();
 
     }
 
@@ -119,6 +122,16 @@ public class SpawnFloor : MonoBehaviour
 
         {
             GameObject go = Instantiate(extraSlime, new Vector2((float)Random.Range(10, 2000), extraSlime.transform.position.y), extraSlime.transform.rotation);
+            go.transform.parent = helperObjects.transform;
+        }
+    }
+
+    void SpawnMoneyBags()
+    {
+        for (int i = 0; i < extraMoneyToSpawn; i++)
+
+        {
+            GameObject go = Instantiate(extraMoney, new Vector2((float)Random.Range(10, 2000), extraMoney.transform.position.y), extraMoney.transform.rotation);
             go.transform.parent = helperObjects.transform;
         }
     }

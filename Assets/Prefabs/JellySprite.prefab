@@ -321,7 +321,7 @@ MonoBehaviour:
   slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
   hasSpawned: 0
   flag: {fileID: 6137006683065028263, guid: 2f0f4f10675d0804082b4863b5d63faa, type: 3}
-  health: 250
+  health: 100
 --- !u!82 &-1785876143643628091
 AudioSource:
   m_ObjectHideFlags: 0

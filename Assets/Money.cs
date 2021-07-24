@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Money : MonoBehaviour
+{
+    [Header("Money Modifiers")]
+    public int money;
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
+        {
+            PlayerManager.money += money;
+            Destroy(gameObject);
+            //collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound();
+        }
+        else
+        {
+            //collision.gameObject.GetComponent<SlimeBall>().PlaySound();
+        }
+
+    }
+}

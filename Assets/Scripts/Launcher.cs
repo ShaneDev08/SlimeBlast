@@ -18,6 +18,7 @@ public class Launcher : MonoBehaviour
     public ObjectPool pool;
     public Transform shootFrom;
     public GameObject explosion;
+    public Transform floor;
     private GameObject jellyRef;
     private GameObject slimeSpawned;
     private AudioSource audio;
@@ -36,6 +37,8 @@ public class Launcher : MonoBehaviour
 
     private void Start()
     {
+
+        cam.m_Lens.NearClipPlane = -5;
         // Register to event when fire button is no longer pressed
         EventManager.instance.LaunchSlime += LaunchSlime;
 
@@ -170,6 +173,7 @@ public class Launcher : MonoBehaviour
         Instantiate(explosion, shootFrom.transform.position, explosion.transform.rotation);
         target1.AddMember(slimeSpawned.transform, 2, 5);
         target1.RemoveMember(gameObject.transform);
+        target1.RemoveMember(floor);
     }
 
 
@@ -217,6 +221,7 @@ public class Launcher : MonoBehaviour
 
         target1.AddMember(slimeSpawned.transform, 2, 5);
         target1.RemoveMember(gameObject.transform);
+        target1.RemoveMember(floor);
     }
     #endregion
 

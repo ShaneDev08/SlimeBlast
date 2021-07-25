@@ -5,10 +5,12 @@ using UnityEngine;
 public class UpgradeStarController : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    GameObject starImage;
+
     public void startAnim()
     {
-        LeanTween.scale(this, vector3.one, 0.5f).easeInPunch();
+        LeanTween.scale(starImage, Vector3.one, 0.5f).setEasePunch();
+        
     }
 
 }

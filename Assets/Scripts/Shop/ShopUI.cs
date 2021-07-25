@@ -31,8 +31,12 @@ public class ShopUI : MonoBehaviour
     [Header("TweenValues")]
     [SerializeField] private float tweenTime;
 
+
+    public static ShopUI instance;
+
     public void Start()
     {
+        instance = this;
         audio = GameObject.Find("ShopCanvas").GetComponent<AudioSource>();
         playerManager = GetComponent<PlayerManager>();
         Debug.Log(PlayerManager.shopUpgrades["Cannon"].name);
@@ -43,7 +47,7 @@ public class ShopUI : MonoBehaviour
 
     private void Update() {
         updateMoneyValue();
-        CheckForBoughtItems();
+        //CheckForBoughtItems();
     }
 
     public void onClickCannonUpgrade()
@@ -106,17 +110,38 @@ public class ShopUI : MonoBehaviour
       worldUpgradeContainer.LeanMoveLocalY(-65,tweenTime).setEaseOutExpo();
     }
 
+    
+
     public void updateMoneyValue()
     {
         moneyText.text = "Money:" + PlayerManager.money.ToString();
-       
+
     }
 
-    private void CheckForBoughtItems()
-    {
-        if(PlayerManager.shopUpgrades["Cannon"].isEnabled)
-        {
-            cannonBuyButton.SetActive(false);
-        }
-    }
+
+
+
+    // To get the money cost of the upgrade do the following:
+    // PlayerManager.shopUpgrades["Cannon"].costAmount.ToString();
+    // PlayerManager.shopUpgrades["Cannon"].upgradeAmount.ToString();
+
+
+
+
+
+
+
+
+
+
+
+    // Commented out as no longer works with new Shop UI.
+
+    //private void CheckForBoughtItems()
+    //{
+    //    if(PlayerManager.shopUpgrades["Cannon"].isEnabled)
+    //    {
+    //        cannonBuyButton.SetActive(false);
+    //    }
+    //}
 }

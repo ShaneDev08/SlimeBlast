@@ -56,10 +56,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-    }
+   
 
     private void AddAllUpgrades()
     {
@@ -75,13 +72,46 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    public static void BuyCannonUpgrade()
-    {
-        if (money >= shopUpgrades["Cannon"].costAmount)
-        {
-            shopUpgrades["Cannon"].isEnabled = true;
+    // Button in the shop UI will need to pass in the parameter string of the upgrade name. 
+    // Example for the power upgrade the string Cannon needs to be passed in
 
-            money -= shopUpgrades["Cannon"].costAmount;
+    public static void BuyUpgrade(string name)
+    {
+        // A check to see if we have enough money to buy the upgrade and if its disabled
+        if (money >= shopUpgrades[name].costAmount && !shopUpgrades[name].isEnabled)
+        {
+            
+                shopUpgrades[name].isEnabled = true;
+                money -= shopUpgrades[name].costAmount;
+
+            // Method here to run the UI part of the star and enable the next one??
+            // To call a method in the shopUi script do the following:
+            // ShopUi.instance.MethodName();
+        } 
+        // else if the upgrade is enabled we check to see if we have enough money to upgrade
+        else if (money >= shopUpgrades[name].upgradeAmount && shopUpgrades[name].isEnabled)
+        {
+            UpgradeBoughtUpgrade(name);
+
+        }
+
+    }
+
+    public static void UpgradeBoughtUpgrade(string name)
+    {
+        if (shopUpgrades[name].isEnabled)
+        {
+            if(shopUpgrades[name].GetType().ToString() == "PowerUpgrade")
+            {
+                money -= shopUpgrades[name].upgradeAmount;
+                PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades[name];
+                power.UpgradePower(2);
+                shopUpgrades[name] = power;
+                // Method here to run the UI part of the star and enable the next one??
+                // To call a method in the shopUi script do the following:
+                // ShopUi.instance.MethodName();
+
+            }
         }
     }
 

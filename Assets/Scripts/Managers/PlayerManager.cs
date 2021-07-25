@@ -83,6 +83,7 @@ public class PlayerManager : MonoBehaviour
             
                 shopUpgrades[name].isEnabled = true;
                 money -= shopUpgrades[name].costAmount;
+            Debug.Log("Buying Power");
 
             // Method here to run the UI part of the star and enable the next one??
             // To call a method in the shopUi script do the following:
@@ -99,7 +100,7 @@ public class PlayerManager : MonoBehaviour
 
     public static void UpgradeBoughtUpgrade(string name)
     {
-        if (shopUpgrades[name].isEnabled)
+        if (shopUpgrades[name].isEnabled && shopUpgrades[name].currentUpgrade <= shopUpgrades[name].amountOfUpgrades)
         {
             if(shopUpgrades[name].GetType().ToString() == "PowerUpgrade")
             {
@@ -110,6 +111,8 @@ public class PlayerManager : MonoBehaviour
                 // Method here to run the UI part of the star and enable the next one??
                 // To call a method in the shopUi script do the following:
                 // ShopUi.instance.MethodName();
+
+                Debug.Log("Buying Upgrade");
 
             }
         }

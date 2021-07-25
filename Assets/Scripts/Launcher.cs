@@ -18,6 +18,7 @@ public class Launcher : MonoBehaviour
     public ObjectPool pool;
     public Transform shootFrom;
     public GameObject explosion;
+    public Transform floor;
     private GameObject jellyRef;
     private GameObject slimeSpawned;
     private AudioSource audio;
@@ -29,8 +30,6 @@ public class Launcher : MonoBehaviour
     private bool hasFoundRb;
     private bool multipleRb;
 
-    private bool hasLaunched;
-
 
     // TO DO 
     // Use upgrades class to add in upgrades to the launcher. Then we can check to see if upgrades have been unlocked and then use them
@@ -38,13 +37,15 @@ public class Launcher : MonoBehaviour
 
     private void Start()
     {
+
+        cam.m_Lens.NearClipPlane = -5;
         // Register to event when fire button is no longer pressed
         EventManager.instance.LaunchSlime += LaunchSlime;
 
         // Cache AudioSource from sound manager
         audio = GameObject.Find("SoundManager").GetComponent<AudioSource>();
 
-        hasLaunched = false;
+        
 
     }
 
@@ -120,30 +121,29 @@ public class Launcher : MonoBehaviour
                 LaunchWithNoUpgrades(rb);
             }
 
+           
+
 
             //cam.LookAt = slimeSpawned.transform;
             //cam.Follow = slimeSpawned.transform;
-            }
+        }
+
         // Else Launch with multipleRbs
         else if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
         {
-            if(!hasLaunched)
-            {
+
             if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
             {
                 LaunchWithPowerUpgrade(rbs);
-                hasLaunched = true;
             }
             else
             {
                 LaunchWithNoUpgrades(rbs);
-                hasLaunched = true;
             }
             audio.PlayOneShot(launchSound);
             
-         }
-
         }
+
     }
     #endregion
 
@@ -158,7 +158,7 @@ public class Launcher : MonoBehaviour
     {
         // Enables the Mesh so we can see it
         EnableMesh();
-    
+
         // Loops through each Rb and adds gravity and force. Also creates an explosion and adds slime to target group
         foreach (Rigidbody2D rb2 in rbs)
         {
@@ -173,8 +173,8 @@ public class Launcher : MonoBehaviour
         Instantiate(explosion, shootFrom.transform.position, explosion.transform.rotation);
         target1.AddMember(slimeSpawned.transform, 2, 5);
         target1.RemoveMember(gameObject.transform);
-        }
-    
+        target1.RemoveMember(floor);
+    }
 
 
     // Standard Method for one Rb. Adds force and creates an explosion and also adds slime to target
@@ -221,6 +221,7 @@ public class Launcher : MonoBehaviour
 
         target1.AddMember(slimeSpawned.transform, 2, 5);
         target1.RemoveMember(gameObject.transform);
+        target1.RemoveMember(floor);
     }
     #endregion
 

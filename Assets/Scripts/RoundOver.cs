@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class RoundOver : MonoBehaviour
 {
+
+    public Transform roundUIPanel;
     
     public void Start()
     {
-        gameObject.transform.localPosition = new Vector2(0, -Screen.height);
+        roundUIPanel.localPosition = new Vector2(0, -Screen.height);
     }
 
     public void HomeScreen(){

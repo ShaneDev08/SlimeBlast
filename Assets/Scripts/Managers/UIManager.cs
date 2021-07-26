@@ -44,8 +44,8 @@ public class UIManager : MonoBehaviour
 
     public void EnableRoundOverUI()
     {
-        RectTransform rt = roundOverUI.GetComponent<RectTransform>();  
-        rt.LeanMoveLocalY(-65, 0.5f).setEaseOutExpo();//roundOverUI.SetActive(true);
+         
+        roundOverUI.LeanMoveLocalY(0, 0.5f).setEaseOutExpo();//roundOverUI.SetActive(true);
     }
 
     

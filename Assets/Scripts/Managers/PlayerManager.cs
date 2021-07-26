@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     
     public static Dictionary<string, Upgrades> shopUpgrades;
-    public static int money = 100;
+    public static int money = 2500;
 
 
     public  GameObject slimeBall;
@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour
     // Button in the shop UI will need to pass in the parameter string of the upgrade name. 
     // Example for the power upgrade the string Cannon needs to be passed in
 
-    public static void BuyUpgrade(string name)
+    public static bool BuyUpgrade(string name)
     {
         // A check to see if we have enough money to buy the upgrade and if its disabled
         if (money >= shopUpgrades[name].costAmount && !shopUpgrades[name].isEnabled)
@@ -81,7 +81,7 @@ public class PlayerManager : MonoBehaviour
             
                 shopUpgrades[name].isEnabled = true;
                 money -= shopUpgrades[name].costAmount;
-            Debug.Log("Buying Power");
+            return true;
 
             // Method here to run the UI part of the star and enable the next one??
             // To call a method in the shopUi script do the following:
@@ -91,9 +91,9 @@ public class PlayerManager : MonoBehaviour
         else if (money >= shopUpgrades[name].upgradeAmount && shopUpgrades[name].isEnabled)
         {
             UpgradeBoughtUpgrade(name);
-
+            return true;
         }
-
+        return false;
     }
 
     public static void UpgradeBoughtUpgrade(string name)

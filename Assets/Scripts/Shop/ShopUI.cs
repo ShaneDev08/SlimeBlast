@@ -23,7 +23,8 @@ public class ShopUI : MonoBehaviour
     public TextMeshProUGUI cannonCost;
     public GameObject cannonBuyButton;
     public TextMeshProUGUI upgradeValueText;
-    public GameObject[] starImages;
+    public GameObject star;
+    public GameObject grid;
     // 0 worldUpgrade
     //1 
     public CanvasGroup backgroundWorld;
@@ -35,19 +36,27 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private float tweenTime;
 
 
+
+    private List<GameObject> stars;
+
+
     public static ShopUI instance;
 
     public void Start()
     {
+        stars = new List<GameObject>();
+        AddStars();
         instance = this;
         audio = GameObject.Find("ShopCanvas").GetComponent<AudioSource>();
         playerManager = GetComponent<PlayerManager>();
         Debug.Log(PlayerManager.shopUpgrades["Cannon"].name);
-        upgradeValueText.text = PlayerManager.shopUpgrades["Cannon"].upgradeAmount.ToString();
+        
     }
 
     private void Update() {
         updateMoneyValue();
+        if(stars.Count > 0)
+        upgradeValueText.text = PlayerManager.shopUpgrades["Cannon"].upgradeAmount.ToString();
         //CheckForBoughtItems();
     }
 
@@ -121,8 +130,57 @@ public class ShopUI : MonoBehaviour
 
     public void StarAnim()
     {
-        LeanTween.scale(starImages[0],Vector3.one, 0.5f).setEasePunch();
+        
+        LeanTween.scale(star,Vector3.one, 0.5f).setEasePunch();
     }
+
+    private void AddStars()
+    {
+            for (int i = 0; i < PlayerManager.shopUpgrades["Cannon"].amountOfUpgrades; i++)
+            {
+            GameObject instance = Instantiate(star);
+            instance.transform.SetParent(grid.transform);
+            stars.Add(instance);
+            
+            
+            }
+
+            foreach(GameObject starr in stars)
+        {
+            if(starr == stars[0])
+            {
+                //return;
+            } 
+            else
+            {
+                starr.GetComponent<Button>().enabled = false;
+                Color temp = starr.GetComponent<Image>().color;
+                temp.a = 0.2f;
+                starr.GetComponentInChildren<Image>().color = temp;
+            }
+
+        }
+    }
+
+    public void RemoveButton()
+    {
+        
+            stars.Remove(stars[0]);
+        if (stars.Count > 0)
+        {
+            stars[0].GetComponent<Button>().enabled = true;
+            Color temp = stars[0].GetComponent<Image>().color;
+            temp.a = 1;
+            stars[0].GetComponent<Image>().color = temp;
+        } 
+
+        if(stars.Count == 0)
+        {
+            upgradeValueText.text = "MAX";
+        }
+    }
+
+
 
 
     // To get the money cost of the upgrade do the following:

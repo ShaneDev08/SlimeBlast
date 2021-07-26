@@ -22,12 +22,15 @@ public class ShopUI : MonoBehaviour
     public Transform worldUpgradeContainer;
     public TextMeshProUGUI cannonCost;
     public GameObject cannonBuyButton;
+    public TextMeshProUGUI upgradeValueText;
+    public GameObject[] starImages;
     // 0 worldUpgrade
     //1 
     public CanvasGroup backgroundWorld;
     public TextMeshProUGUI moneyText;
     [Header("ObjectReferences")]
     PlayerManager playerManager;
+    Upgrades upgradeManager;
     [Header("TweenValues")]
     [SerializeField] private float tweenTime;
 
@@ -40,9 +43,7 @@ public class ShopUI : MonoBehaviour
         audio = GameObject.Find("ShopCanvas").GetComponent<AudioSource>();
         playerManager = GetComponent<PlayerManager>();
         Debug.Log(PlayerManager.shopUpgrades["Cannon"].name);
-        cannonCost.text = PlayerManager.shopUpgrades["Cannon"].costAmount.ToString(); 
-        
-        
+        upgradeValueText.text = PlayerManager.shopUpgrades["Cannon"].upgradeAmount.ToString();
     }
 
     private void Update() {
@@ -118,7 +119,10 @@ public class ShopUI : MonoBehaviour
 
     }
 
-
+    public void StarAnim()
+    {
+        LeanTween.scale(starImages[0],Vector3.one, 0.5f).setEasePunch();
+    }
 
 
     // To get the money cost of the upgrade do the following:

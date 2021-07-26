@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class RoundOver : MonoBehaviour
 {
     
+    public void Start()
+    {
+        gameObject.transform.localPosition = new Vector2(0, -Screen.height);
+    }
+
     public void HomeScreen(){
         SceneManager.LoadScene("MainMenu");
     }

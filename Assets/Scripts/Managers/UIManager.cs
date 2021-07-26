@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     
     void Start()
     {
-        roundOverUI.SetActive(false);
+        //roundOverUI.SetActive(false);
     }
 
     public void disableGameUI()
@@ -44,7 +44,8 @@ public class UIManager : MonoBehaviour
 
     public void EnableRoundOverUI()
     {
-        roundOverUI.SetActive(true);
+        RectTransform rt = roundOverUI.GetComponent<RectTransform>();  
+        rt.LeanMoveLocalY(-65, 0.5f).setEaseOutExpo();//roundOverUI.SetActive(true);
     }
 
     

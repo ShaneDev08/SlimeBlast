@@ -7,6 +7,8 @@ public class Slime : MonoBehaviour
 
     [Header("Slime Modifiers")]
     public int health;
+    public int slimeCollected = 0;
+    public int obstaclesHit = 0;
     [Header("Sounds")]
     public AudioClip collectionSound;
 
@@ -16,6 +18,7 @@ public class Slime : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
         {
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().AddSlime(health);
+            slimeCollected ++;
             Destroy(gameObject);
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound(collectionSound);
         }

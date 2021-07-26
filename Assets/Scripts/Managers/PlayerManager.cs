@@ -63,8 +63,6 @@ public class PlayerManager : MonoBehaviour
         shopUpgrades = new Dictionary<string, Upgrades>();
         PowerUpgrade cannonPower = new PowerUpgrade("Power", 10, 10, 10, false);
         
-       
-
         shopUpgrades.Add("Cannon", cannonPower);
 
         cannonPower.PurchaseUpgrade();

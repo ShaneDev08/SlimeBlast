@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 7679748748658669327}
   - component: {fileID: -2498806073926492332}
   - component: {fileID: -1785876143643628091}
-  - component: {fileID: 8624046989694881754}
   m_Layer: 0
   m_Name: JellySprite
   m_TagString: Player
@@ -321,6 +320,8 @@ MonoBehaviour:
   slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
   hasSpawned: 0
   flag: {fileID: 6137006683065028263, guid: 2f0f4f10675d0804082b4863b5d63faa, type: 3}
+  score: 0
+  heightScore: 0
   health: 100
 --- !u!82 &-1785876143643628091
 AudioSource:
@@ -418,24 +419,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!50 &8624046989694881754
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7679748748658669326}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

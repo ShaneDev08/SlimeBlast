@@ -242,8 +242,8 @@ public class SlimeBall : MonoBehaviour
         {
             foreach (Rigidbody2D rig in rbs)
             {
-                rig.AddForce(Vector3.right * 2, ForceMode2D.Impulse);
-                rig.AddForce(Vector3.up * 25, ForceMode2D.Impulse);
+                rig.AddForce(Vector3.right , ForceMode2D.Impulse);
+                rig.AddForce(Vector3.up * 15, ForceMode2D.Impulse);
             }
             health -= damage;
             float scaleRatio = 0.9f;

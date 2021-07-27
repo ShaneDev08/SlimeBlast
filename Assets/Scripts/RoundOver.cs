@@ -33,14 +33,22 @@ public class RoundOver : MonoBehaviour
     }
 
     public void HomeScreen(){
+        ResetScores();
         SceneManager.LoadScene("MainMenu");
     }
     public void RetryButton(){
+        ResetScores();
         SceneManager.LoadScene("DevScene 1");
     }
 
     public void ShopScreen(){
+        ResetScores();
         SceneManager.LoadScene("Shop");
+    }
+
+    private void ResetScores()
+    {
+        PlayerManager.instance.OnRoundOver();
     }
 
 }

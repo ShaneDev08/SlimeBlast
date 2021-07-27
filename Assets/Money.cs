@@ -16,6 +16,7 @@ public class Money : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
         {
             PlayerManager.money += money;
+            PlayerManager.instance.playerScore.MoneyCollected += 1;
             Destroy(gameObject);
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound(moneySound);
         }

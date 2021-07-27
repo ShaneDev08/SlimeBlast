@@ -19,6 +19,7 @@ public class Slime : MonoBehaviour
         {
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().AddSlime(health);
             slimeCollected ++;
+            PlayerManager.instance.playerScore.SlimeCollected += 1;
             Destroy(gameObject);
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound(collectionSound);
         }

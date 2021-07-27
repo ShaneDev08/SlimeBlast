@@ -23,6 +23,8 @@ public class PlayerManager : MonoBehaviour
 
     public  GameObject slimeBall;
     public GameObject slimeInGame;
+
+    public SlimeScore playerScore;
     private void Awake()
     {
         if(instance == null)
@@ -35,7 +37,11 @@ public class PlayerManager : MonoBehaviour
         }
 
         AddAllUpgrades();
+
+       playerScore = new SlimeScore();
     }
+
+    
 
     public void SetSlimeBall(GameObject slime)
     {
@@ -114,6 +120,21 @@ public class PlayerManager : MonoBehaviour
 
             }
         }
+    }
+
+
+    public void AddToPlayerScoreHeight(int amount)
+    {
+        playerScore.DistanceInHeight = amount;
+    }
+    public void AddToPlayerScoreDistance(int amount)
+    {
+        playerScore.DistanceTraveled = amount;
+    }
+
+    public void OnRoundOver()
+    {
+        playerScore.ResetScores();
     }
 
       

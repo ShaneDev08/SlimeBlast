@@ -18,6 +18,12 @@ public class UIManager : MonoBehaviour
     [Header("PlayerScore")]
     [SerializeField] TextMeshProUGUI scoreText;
 
+    [Header("Slime Score Text References")]
+    public TextMeshProUGUI distanceScoreText;
+    public TextMeshProUGUI heightText;
+    public TextMeshProUGUI moneyCollectedText;
+    public TextMeshProUGUI slimeCollectedText;
+
     public float powerAmount;
 
     public GameObject roundOverUI;
@@ -37,6 +43,11 @@ public class UIManager : MonoBehaviour
         //roundOverUI.SetActive(false);
     }
 
+    private void Update()
+    {
+        UpdateStats();
+    }
+
     public void disableGameUI()
     {
         gameUI.SetActive(false);
@@ -52,5 +63,13 @@ public class UIManager : MonoBehaviour
    public void UpdateScoreText(int score)
     {
         scoreText.text = "Score: " +  score.ToString();
+    }
+
+    private void UpdateStats()
+    {
+        heightText.text = "Max Height:" + PlayerManager.instance.playerScore.DistanceInHeight.ToString();  // MAX Height
+        distanceScoreText.text = "Max Distance:" + PlayerManager.instance.playerScore.DistanceTraveled.ToString(); // MAX Distance Travelled
+        moneyCollectedText.text = "Money Collected:" + PlayerManager.instance.playerScore.MoneyCollected;
+        slimeCollectedText.text = "Slime Collected:" + PlayerManager.instance.playerScore.SlimeCollected;
     }
 }

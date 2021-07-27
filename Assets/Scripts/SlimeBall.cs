@@ -29,10 +29,11 @@ public class SlimeBall : MonoBehaviour
 
     // Script Variables
     private bool hasStopedMoving = false;
-    private int score;
+    public int score;
     private bool hasSpawndFlag;
     private bool hasMultipleRbs;
     private bool tookDamage = false;
+    public int heightScore = 0;
 
     [Header("SlimeStats")]
     public int health;
@@ -89,9 +90,11 @@ public class SlimeBall : MonoBehaviour
         }
         //Puts the score to screen
         AddScore();
+        AddHeightStats();
+        AddDistanceStats();
 
         // Removes the floor from the camera
-        if(transform.position.y > 100)
+        if (transform.position.y > 100)
         {
             Debug.Log("Remove Floor");
             target1.RemoveMember(floor.transform);
@@ -109,6 +112,22 @@ public class SlimeBall : MonoBehaviour
         if ((int)transform.position.x > score)
             score = (int)transform.position.x;
         UIManager.instance.UpdateScoreText(score);
+    }
+
+    private void AddHeightStats ()
+    {
+        if ((int)transform.position.y > heightScore)
+        {
+            heightScore = (int)transform.position.y;
+            PlayerManager.instance.AddToPlayerScoreHeight(heightScore);
+            
+        }
+    }
+    private void AddDistanceStats()
+    {
+        if ((int)transform.position.x > score)
+            score = (int)transform.position.x;
+        PlayerManager.instance.AddToPlayerScoreDistance(score);
     }
     #endregion
 

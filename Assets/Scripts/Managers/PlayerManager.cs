@@ -71,7 +71,7 @@ public class PlayerManager : MonoBehaviour
         
         shopUpgrades.Add("Cannon", cannonPower);
 
-        cannonPower.PurchaseUpgrade();
+        
 
     }
 
@@ -86,6 +86,7 @@ public class PlayerManager : MonoBehaviour
         {
             
                 shopUpgrades[name].isEnabled = true;
+            shopUpgrades[name].currentUpgrade = 1;
                 money -= shopUpgrades[name].costAmount;
             return true;
 
@@ -117,20 +118,21 @@ public class PlayerManager : MonoBehaviour
                 // ShopUi.instance.MethodName();
 
                 Debug.Log("Buying Upgrade");
+                Debug.Log(shopUpgrades[name].currentUpgrade);
 
             }
         }
     }
 
 
-    public void AddToPlayerScoreHeight(int amount)
-    {
-        playerScore.DistanceInHeight = amount;
-    }
-    public void AddToPlayerScoreDistance(int amount)
-    {
-        playerScore.DistanceTraveled = amount;
-    }
+    //public void AddToPlayerScoreHeight(int amount)
+    //{
+    //    playerScore.DistanceInHeight = amount;
+    //}
+    //public void AddToPlayerScoreDistance(int amount)
+    //{
+    //    playerScore.DistanceTraveled = amount;
+    //}
 
     public void OnRoundOver()
     {

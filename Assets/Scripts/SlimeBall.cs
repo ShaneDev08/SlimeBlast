@@ -103,7 +103,10 @@ public class SlimeBall : MonoBehaviour
         //Set scale based on health
         //Debug.Log(health / 100);
     
-
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            health = 0;
+        }
     }
 
     #region ScoringSystem
@@ -119,7 +122,7 @@ public class SlimeBall : MonoBehaviour
         if ((int)transform.position.y > heightScore)
         {
             heightScore = (int)transform.position.y;
-            PlayerManager.instance.AddToPlayerScoreHeight(heightScore);
+            PlayerManager.instance.playerScore.DistanceInHeight = heightScore;
             
         }
     }
@@ -127,7 +130,7 @@ public class SlimeBall : MonoBehaviour
     {
         if ((int)transform.position.x > score)
             score = (int)transform.position.x;
-        PlayerManager.instance.AddToPlayerScoreDistance(score);
+        PlayerManager.instance.playerScore.DistanceTraveled = score;
     }
     #endregion
 

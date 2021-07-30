@@ -37,20 +37,31 @@ public class ShopUI : MonoBehaviour
 
 
 
-    private List<GameObject> stars;
+    public List<GameObject> stars;
 
 
     public static ShopUI instance;
 
+    private Color fullColor;
+    private Color fadedColor;
+
+
+
     public void Start()
     {
+        StarColors();
         stars = new List<GameObject>();
         AddStars();
+        CheckForStarsBought();
         instance = this;
         audio = GameObject.Find("ShopCanvas").GetComponent<AudioSource>();
         playerManager = GetComponent<PlayerManager>();
         Debug.Log(PlayerManager.shopUpgrades["Cannon"].name);
-        
+
+        if(stars.Count != 0)
+        InvokeRepeating("StarReadyAnim", 3, 3);
+
+
     }
 
     private void Update() {
@@ -58,6 +69,7 @@ public class ShopUI : MonoBehaviour
         if(stars.Count > 0)
         upgradeValueText.text = PlayerManager.shopUpgrades["Cannon"].upgradeAmount.ToString();
         //CheckForBoughtItems();
+        
     }
 
     public void onClickCannonUpgrade()
@@ -128,10 +140,18 @@ public class ShopUI : MonoBehaviour
 
     }
 
-    public void StarAnim()
+    // Not sure if needed now?
+
+    //public void StarAnim()
+    //{
+
+    //    LeanTween.scale(star, Vector3.one, 0.5f).setEasePunch();
+    //}
+
+    public void StarReadyAnim()
     {
-        
-        LeanTween.scale(star,Vector3.one, 0.5f).setEasePunch();
+       
+        LeanTween.scale(stars[0].gameObject, Vector3.one, 0.5f).setEaseShake();
     }
 
     private void AddStars()
@@ -154,9 +174,7 @@ public class ShopUI : MonoBehaviour
             else
             {
                 starr.GetComponent<Button>().enabled = false;
-                Color temp = starr.GetComponent<Image>().color;
-                temp.a = 0.2f;
-                starr.GetComponentInChildren<Image>().color = temp;
+                starr.GetComponentInChildren<Image>().color = fadedColor;
             }
 
         }
@@ -169,15 +187,47 @@ public class ShopUI : MonoBehaviour
         if (stars.Count > 0)
         {
             stars[0].GetComponent<Button>().enabled = true;
-            Color temp = stars[0].GetComponent<Image>().color;
-            temp.a = 1;
-            stars[0].GetComponent<Image>().color = temp;
+            stars[0].GetComponent<Image>().color = fullColor;
         } 
 
         if(stars.Count == 0)
         {
             upgradeValueText.text = "MAX";
         }
+    }
+
+    private void CheckForStarsBought()
+    {
+
+        if (PlayerManager.shopUpgrades["Cannon"].currentUpgrade > 0)
+        {
+            //stars[0]
+            for (int i = 0; i < PlayerManager.shopUpgrades["Cannon"].currentUpgrade; i++)
+            {
+               
+                stars[0].GetComponent<Button>().enabled = false;
+                stars[0].GetComponent<Image>().color = fullColor;
+                stars.Remove(stars[0]);
+            }
+
+            if (stars.Count > 0)
+            {
+                stars[0].GetComponent<Button>().enabled = true;
+                stars[0].GetComponent<Image>().color = fullColor;
+            }
+            else
+            {
+                upgradeValueText.text = "MAX";
+            }
+        }
+    }
+
+    private void StarColors()
+    {
+        fullColor = star.GetComponent<Image>().color;
+        fullColor.a = 1;
+        fadedColor = fullColor;
+        fadedColor.a = 0.2f;
     }
 
 
@@ -197,13 +247,5 @@ public class ShopUI : MonoBehaviour
 
 
 
-    // Commented out as no longer works with new Shop UI.
-
-    //private void CheckForBoughtItems()
-    //{
-    //    if(PlayerManager.shopUpgrades["Cannon"].isEnabled)
-    //    {
-    //        cannonBuyButton.SetActive(false);
-    //    }
-    //}
+   
 }

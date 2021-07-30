@@ -12,15 +12,17 @@ public class Star : MonoBehaviour
     
     public void StarAnimAndBuy(string name)
     {
-
-        
-        if (PlayerManager.BuyUpgrade(name))
+        if (!LeanTween.isTweening())
         {
-            LeanTween.scale(this.gameObject, Vector3.one, 0.5f).setEasePunch();
-            PlayerManager.BuyUpgrade(name);
-            button.enabled = false;
 
-            ShopUI.instance.RemoveButton();
+
+            if (PlayerManager.BuyUpgrade(name))
+            {
+                LeanTween.scale(this.gameObject, Vector3.one, 0.5f).setEasePunch();
+                button.enabled = false;
+
+                ShopUI.instance.RemoveButton();
+            }
         }
     }
 }

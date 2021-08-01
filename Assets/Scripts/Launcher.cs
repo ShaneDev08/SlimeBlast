@@ -196,6 +196,7 @@ public class Launcher : MonoBehaviour
     {
         Debug.Log("POWERRRRRR");
         PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
+ 
         rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * power.powerModifier, ForceMode2D.Impulse);
         // Launch in the Air
         
@@ -208,15 +209,16 @@ public class Launcher : MonoBehaviour
     {
         EnableMesh();
         Debug.Log("POWERRRRRR");
+        //Debug.Log(power.powerModifier);
         PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
         foreach (Rigidbody2D rbs in rb)
         {
             rbs.gravityScale = 1;
             slimeSpawned.GetComponent<SlimeBall>().hasSpawned = true;
-            rbs.AddForce(transform.right * UIManager.instance.powerAmount / 10 * power.powerModifier, ForceMode2D.Impulse);
+            rbs.AddForce(transform.right * (UIManager.instance.powerAmount / 10 + power.powerModifier), ForceMode2D.Impulse);
             // Launch in the Air
 
-            rbs.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * power.powerModifier, ForceMode2D.Impulse);
+            rbs.AddForce(Vector3.up * (UIManager.instance.powerAmount / 10 + power.powerModifier), ForceMode2D.Impulse);
          }
 
         target1.AddMember(slimeSpawned.transform, 2, 5);

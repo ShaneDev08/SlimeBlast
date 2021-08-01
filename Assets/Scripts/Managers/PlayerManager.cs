@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity;
-
-
+using System.Reflection;
+using System;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -67,9 +67,12 @@ public class PlayerManager : MonoBehaviour
     private void AddAllUpgrades()
     {
         shopUpgrades = new Dictionary<string, Upgrades>();
-        PowerUpgrade cannonPower = new PowerUpgrade("Power", 10, 10, 10, false);
-        
+
+        PowerUpgrade cannonPower = new PowerUpgrade("Cannon", 10, 10, 10, false);
         shopUpgrades.Add("Cannon", cannonPower);
+
+        HealthUpgrade extraHealth = new HealthUpgrade("Extra Health", 10, 10, 10, false);
+        shopUpgrades.Add("Extra Health", extraHealth);
 
         
 
@@ -86,7 +89,7 @@ public class PlayerManager : MonoBehaviour
         {
             
                 shopUpgrades[name].isEnabled = true;
-            shopUpgrades[name].currentUpgrade = 1;
+                shopUpgrades[name].currentUpgrade = 1;
                 money -= shopUpgrades[name].costAmount;
             return true;
 
@@ -109,19 +112,25 @@ public class PlayerManager : MonoBehaviour
         {
             if(shopUpgrades[name].GetType().ToString() == "PowerUpgrade")
             {
+
                 money -= shopUpgrades[name].upgradeAmount;
                 PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades[name];
                 power.UpgradePower(2);
                 shopUpgrades[name] = power;
-                // Method here to run the UI part of the star and enable the next one??
-                // To call a method in the shopUi script do the following:
-                // ShopUi.instance.MethodName();
+            }
+           else  if (shopUpgrades[name].GetType().ToString() == "HealthUpgrade")
+            {
 
-                Debug.Log("Buying Upgrade");
-                Debug.Log(shopUpgrades[name].currentUpgrade);
+                money -= shopUpgrades[name].upgradeAmount;
+                HealthUpgrade power = (HealthUpgrade)PlayerManager.shopUpgrades[name];
+                power.UpgradePower(10);
+                shopUpgrades[name] = power;
 
             }
+
         }
+
+
     }
 
 
@@ -139,5 +148,13 @@ public class PlayerManager : MonoBehaviour
         playerScore.ResetScores();
     }
 
-      
+    // Dynamically Create a class wtih String
+
+    //string className = shopUpgrades[name].GetType().ToString();
+    //var myType = typeof(PlayerManager);
+    //var n = myType.Namespace;
+
+    //dynamic myObj = Activator.CreateInstance(Type.GetType(n + "." + className), false);
+    //myObj =  shopUpgrades[name];
+    //            myObj.UpgradePower(2);
 }

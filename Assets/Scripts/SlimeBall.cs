@@ -37,18 +37,30 @@ public class SlimeBall : MonoBehaviour
 
     [Header("SlimeStats")]
     public int health;
-    
+
 
 
 
     private void Start()
     {
+        slimeStats.slimeHealth = health;
+
 
         jellyScript = GetComponent<UnityJellySprite>();
 
-        float scaleRatio = health / 100;
-        jellyScript.m_SpriteScale *= scaleRatio;
-        jellyScript.Scale(scaleRatio, true);
+
+        if (PlayerManager.shopUpgrades["Extra Health"].isEnabled)
+        {
+            SetExtraHealth();
+        }
+        else
+        {
+            float scaleRatio = slimeStats.slimeHealth / 100;
+            jellyScript.m_SpriteScale *= scaleRatio;
+            jellyScript.Scale(scaleRatio, true);
+        }
+
+        
         // Check to see if this object has multiple Rbs and gets them
         if (slimeStats.multipleRbs)
         {
@@ -72,6 +84,8 @@ public class SlimeBall : MonoBehaviour
         tank = GameObject.Find("Tank");                                                        // Adds the tank
         floor = GameObject.Find("pls_01");                                                     // Adds the Floor
         uiControl = GameObject.Find("GameSystem");                                             // Adds the UI
+
+
 
 
 
@@ -105,7 +119,7 @@ public class SlimeBall : MonoBehaviour
     
         if(Input.GetKeyDown(KeyCode.P))
         {
-            health = 0;
+            slimeStats.slimeHealth = 0;
         }
     }
 
@@ -184,7 +198,7 @@ public class SlimeBall : MonoBehaviour
         
         
 
-        if (health <=0)
+        if (slimeStats.slimeHealth <= 0)
         {
             hasStopedMoving = true;
             if (!hasSpawndFlag)
@@ -245,12 +259,12 @@ public class SlimeBall : MonoBehaviour
         {
             foreach (Rigidbody2D rig in rbs)
             {
-                rig.AddForce(Vector3.right , ForceMode2D.Impulse);
-                rig.AddForce(Vector3.up * 15, ForceMode2D.Impulse);
+                rig.AddForce(Vector3.right * 1.5f , ForceMode2D.Impulse);
+                rig.AddForce(Vector2.up * 15 , ForceMode2D.Impulse);
             }
-            health -= damage;
+            slimeStats.slimeHealth -= damage;
             float scaleRatio = 0.9f;
-            jellyScript.m_SpriteScale = new Vector2(health/100,health/100);
+            jellyScript.m_SpriteScale = new Vector2(slimeStats.slimeHealth / 100, slimeStats.slimeHealth / 100);
             jellyScript.Scale(scaleRatio, true);
             tookDamage = true;
             Invoke("ResetDamage", 1);
@@ -260,16 +274,28 @@ public class SlimeBall : MonoBehaviour
 
     }
 
+  
+
     public void AddSlime(int amount)
     {
-        health += amount;
+        slimeStats.slimeHealth += amount;
         float scaleRatio = 1.1f;
-        jellyScript.m_SpriteScale = new Vector2(health / 100, health / 100);
+        jellyScript.m_SpriteScale = new Vector2(slimeStats.slimeHealth / 100, slimeStats.slimeHealth / 100);
         jellyScript.Scale(scaleRatio, true);
     }
 
     private void ResetDamage()
     {
         tookDamage = false;
+    }
+
+    private void SetExtraHealth()
+    {
+        HealthUpgrade extraHealth = (HealthUpgrade)PlayerManager.shopUpgrades["Extra Health"];
+        slimeStats.slimeHealth = slimeStats.slimeHealth += extraHealth.extraHealth;
+
+        float scaleRatio = slimeStats.slimeHealth / 100;
+        jellyScript.m_SpriteScale *= scaleRatio;
+        jellyScript.Scale(scaleRatio, true);
     }
 }

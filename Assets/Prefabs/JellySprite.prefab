@@ -275,17 +275,17 @@ MonoBehaviour:
   m_CollisionDetectionMode2D: 0
   m_ManualPositioning: 0
   m_VertexDensity: 10
-  m_SphereRadius: 0.25
+  m_SphereRadius: 0.042
   m_DistanceExponent: 2
   m_Stiffness: 2.5
   m_Mass: 1
   m_LockRotation: 1
   m_GravityScale: 0
   m_UseGravity: 1
-  m_CollideConnected: 0
+  m_CollideConnected: 1
   m_CentralBodyKinematic: 0
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.01
   m_RadiusPoints: 8
   m_GridColumns: 4
   m_GridRows: 4

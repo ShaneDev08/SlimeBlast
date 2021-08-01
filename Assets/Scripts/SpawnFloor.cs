@@ -58,9 +58,9 @@ public class SpawnFloor : MonoBehaviour
             CreateLevel(gameFloor);
             
         }
-        SpawnBouncePads();
-        SpawnExtraSlime();
-        SpawnMoneyBags();
+        //SpawnBouncePads();
+        //SpawnExtraSlime();
+        //SpawnMoneyBags();
 
     }
 

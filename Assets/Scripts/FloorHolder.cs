@@ -26,6 +26,8 @@ public class FloorHolder : MonoBehaviour
 
     }
 
+    
+
     private void ResetHit()
     {
         hasHit = false;

@@ -25,6 +25,7 @@ public class BouncePad : MonoBehaviour
             
             if (obstacle.type == Obstacle.Type.BouncePad && !hasHit)
             {
+                hasHit = true;
                 if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
                 {
                     jellyRef = GameObject.Find(PlayerManager.instance.slimeBall.gameObject.name + "(Clone) Reference Points");
@@ -39,7 +40,7 @@ public class BouncePad : MonoBehaviour
                         rbs.AddForce(transform.right * obstacle.speedAmount, ForceMode2D.Impulse);
                         rbs.AddForce(Vector2.up * obstacle.heightAmount * 2, ForceMode2D.Impulse);
                     }
-                    hasHit = true;
+                    
 
                 }
                 else

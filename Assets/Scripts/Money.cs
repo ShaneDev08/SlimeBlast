@@ -10,11 +10,12 @@ public class Money : MonoBehaviour
     [Header("Sounds")]
     public AudioClip moneySound;
 
-
+    private bool hasBeenCollected = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
+        if (collision.gameObject.CompareTag("Player") && PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs && !hasBeenCollected)
         {
+            hasBeenCollected = true;
             PlayerManager.money += money;
             PlayerManager.instance.playerScore.MoneyCollected += 1;
             Destroy(gameObject);

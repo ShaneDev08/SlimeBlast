@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9702bf932000a429b0ea3f1e415fdc, type: 3}
   m_Name: StandardSlime
   m_EditorClassIdentifier: 
-  slimeHealth: 100
+  slimeHealth: 0
   slimeBounciness: 0.3
   slimeFriction: 0.2
   slimeName: Standard Slime

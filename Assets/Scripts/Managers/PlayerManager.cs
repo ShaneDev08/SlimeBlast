@@ -68,10 +68,10 @@ public class PlayerManager : MonoBehaviour
     {
         shopUpgrades = new Dictionary<string, Upgrades>();
 
-        PowerUpgrade cannonPower = new PowerUpgrade("Cannon", 10, 10, 10, false);
+        PowerUpgrade cannonPower = new PowerUpgrade("Cannon", 10, 10, 25, false,30);  // Name,  How many upgrades?   Cost to Buy    Cost to upgrade
         shopUpgrades.Add("Cannon", cannonPower);
 
-        HealthUpgrade extraHealth = new HealthUpgrade("Extra Health", 10, 10, 10, false);
+        HealthUpgrade extraHealth = new HealthUpgrade("Extra Health", 10, 10, 40, false,50);
         shopUpgrades.Add("Extra Health", extraHealth);
 
         

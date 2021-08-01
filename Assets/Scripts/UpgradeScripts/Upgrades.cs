@@ -11,6 +11,7 @@ public class Upgrades
     public int upgradeAmount;      // Cost to upgrade
     public int currentUpgrade = 0; // How many times has it been upgraded
     public bool isEnabled = false;
+    public int upgradeChangeAmount; // Amount to add to the next upgrade
 
 
     //public Upgrades(string name,int upgradeAmount, int purchaseAmount,int upgradeCost)
@@ -39,7 +40,7 @@ public class Upgrades
     public void PurchaseUpgrade()
     {
         currentUpgrade++;
-        upgradeAmount += 10;
+        upgradeAmount += upgradeChangeAmount;
     }
    
 }

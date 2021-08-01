@@ -7,13 +7,14 @@ public class PowerUpgrade : Upgrades
     public float powerModifier = 10;
 
     
-    public PowerUpgrade(string name, int upgradeAmount, int purchaseAmount, int upgradeCost ,bool enabled)
+    public PowerUpgrade(string name, int upgradeAmount, int purchaseAmount, int upgradeCost ,bool enabled, int upgradeChangeAmountToAdd)
     {
         this.name = name;
         this.amountOfUpgrades = upgradeAmount;
         this.costAmount = purchaseAmount;
         this.upgradeAmount = upgradeCost;
         this.isEnabled = enabled;
+        this.upgradeChangeAmount = upgradeChangeAmountToAdd;
     }
 
 

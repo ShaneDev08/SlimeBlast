@@ -9,30 +9,28 @@ public class GPSAuthentication : MonoBehaviour
 {
     public static PlayGamesPlatform platform;  // Needs to be static so it does not create others
 
-    private void Start()
-    {
-        if(platform == null)
+       public  void InitializePGS()
+        {
+            if(platform == null)
         {
             PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();   // Might have to do enableSavedGames
             PlayGamesPlatform.InitializeInstance(config);
             PlayGamesPlatform.DebugLogEnabled = true;
 
             platform = PlayGamesPlatform.Activate();
+            StartSignIn();
         }
 
-        Social.Active.localUser.Authenticate(success =>
+         void StartSignIn()
+        {
+            PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptAlways,(success)=>
             {
-                if (success)
+                switch(success)
                 {
-                    Debug.Log("Logged in Successfully!");
+                    case SignInStatus.Success:
+                    break;
                 }
-                else
-                {
-                    Debug.Log("Login Failed");
-                }
-
-
-            }
-            );
+            });
+        }
     }
 }

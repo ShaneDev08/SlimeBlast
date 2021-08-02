@@ -283,7 +283,7 @@ public class ShopUI : MonoBehaviour
         foreach(Upgrades upgradeList in PlayerManager.shopUpgrades.Values)
         {
             listOfUpgrades.Add(upgradeList);
-            Debug.Log(upgradeList.name);
+          
         }
     }
 

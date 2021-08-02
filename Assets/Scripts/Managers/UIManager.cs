@@ -18,11 +18,11 @@ public class UIManager : MonoBehaviour
     [Header("PlayerScore")]
     [SerializeField] TextMeshProUGUI scoreText;
 
-    [Header("Slime Score Text References")]
-    public TextMeshProUGUI distanceScoreText;
-    public TextMeshProUGUI heightText;
-    public TextMeshProUGUI moneyCollectedText;
-    public TextMeshProUGUI slimeCollectedText;
+    //[Header("Slime Score Text References")]
+    //public TextMeshProUGUI distanceScoreText;
+    //public TextMeshProUGUI heightText;
+    //public TextMeshProUGUI moneyCollectedText;
+    //public TextMeshProUGUI slimeCollectedText;
 
     public float powerAmount;
 
@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        UpdateStats();
+        //UpdateStats();
     }
 
     public void disableGameUI()
@@ -65,11 +65,11 @@ public class UIManager : MonoBehaviour
         scoreText.text = "Score: " +  score.ToString();
     }
 
-    private void UpdateStats()
-    {
-        heightText.text = "Max Height:" + PlayerManager.instance.playerScore.DistanceInHeight.ToString();  // MAX Height
-        distanceScoreText.text = "Max Distance:" + PlayerManager.instance.playerScore.DistanceTraveled.ToString(); // MAX Distance Travelled
-        moneyCollectedText.text = "Money Collected:" + PlayerManager.instance.playerScore.MoneyCollected;
-        slimeCollectedText.text = "Slime Collected:" + PlayerManager.instance.playerScore.SlimeCollected;
-    }
+    //private void UpdateStats()
+    //{
+    //    heightText.text = "Max Height:" + PlayerManager.instance.playerScore.DistanceInHeight.ToString();  // MAX Height
+    //    distanceScoreText.text = "Max Distance:" + PlayerManager.instance.playerScore.DistanceTraveled.ToString(); // MAX Distance Travelled
+    //    moneyCollectedText.text = "Money Collected:" + PlayerManager.instance.playerScore.MoneyCollected;
+    //    slimeCollectedText.text = "Slime Collected:" + PlayerManager.instance.playerScore.SlimeCollected;
+    //}
 }

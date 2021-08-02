@@ -22,14 +22,17 @@ public class RoundOver : MonoBehaviour
         slime = GetComponent<Slime>();
     }
 
-    public void updateText()
+    private void Update()
     {
-        scoreText.text = "Score: " + " ";
-        distanceTravelledText.text = "Distance Travelled: " + "";
-        obstaclesHitText.text = "Obstacles Hit: " + " ";
-        moneyEarntText.text = "Money: " + "";
-        heightText.text = "Height: " + "";
-        slimeCollectedText.text = "Slime Collected: " + "";
+        UpdateText();
+    }
+
+    public void UpdateText()
+    {
+        heightText.text = "Max Height:" + PlayerManager.instance.playerScore.DistanceInHeight.ToString();  // MAX Height
+        distanceTravelledText.text = "Max Distance:" + PlayerManager.instance.playerScore.DistanceTraveled.ToString(); // MAX Distance Travelled
+        moneyEarntText.text = "Money Collected:" + PlayerManager.instance.playerScore.MoneyCollected;
+        slimeCollectedText.text = "Slime Collected:" + PlayerManager.instance.playerScore.SlimeCollected;
     }
 
     public void HomeScreen(){

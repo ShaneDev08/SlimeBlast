@@ -80,10 +80,10 @@ public class MainMenu : MonoBehaviour
     public void ShowLeaderboard()
     {
         
-        if(GPSAuthentication.platform.IsAuthenticated())
-        {
-            Social.ShowLeaderboardUI();
-        }
+        //if(GPSAuthentication.platform.IsAuthenticated())
+        //{
+            Social.Active.ShowLeaderboardUI();
+        //}
     }
 
 

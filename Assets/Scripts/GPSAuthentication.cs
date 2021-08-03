@@ -7,9 +7,11 @@ using UnityEngine.SocialPlatforms;
 
 public class GPSAuthentication : MonoBehaviour
 {
+
+    public bool isConnectedToPlayServices;
     public static PlayGamesPlatform platform;  // Needs to be static so it does not create others
 
-
+    
        private void Start() 
        {
           InitializePGS();
@@ -33,11 +35,15 @@ public class GPSAuthentication : MonoBehaviour
 
          void StartSignIn()
         {
-            PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce,(success)=>
+            PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce,(result)=>
             {
-                switch(success)
+                switch(result)
                 {
                     case SignInStatus.Success:
+                    isConnectedToPlayServices = true;
+                    break;
+                    default:
+                    isConnectedToPlayServices = false;
                     break;
                 }
             });

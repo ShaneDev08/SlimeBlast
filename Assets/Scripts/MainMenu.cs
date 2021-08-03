@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
+using GooglePlayGames;
 
 public class MainMenu : MonoBehaviour
 {
@@ -60,20 +62,28 @@ public class MainMenu : MonoBehaviour
     public void OpenScore(){
         LeanTween.scale(scoreButton, Vector3.one * 2, tweenTime).setEasePunch();
         PlayButtonClick();
-        StartCoroutine(sceneTransition());
-        print("Hello");
+        ShowLeaderboard();
+        
     }
 
     public void OpenAbout(){
         LeanTween.scale(aboutButton, Vector3.one * 2, tweenTime).setEasePunch();
         PlayButtonClick();
         StartCoroutine(sceneTransition());
-        print("Hello");
     }
 
     public void PlayButtonClick()
     {
         audio.PlayOneShot(buttonNoise,volume);
+    }
+
+    public void ShowLeaderboard()
+    {
+        
+        if(GPSAuthentication.platform.IsAuthenticated())
+        {
+            Social.ShowLeaderboardUI();
+        }
     }
 
 

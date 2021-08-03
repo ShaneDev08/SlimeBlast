@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
 
     
     public static Dictionary<string, Upgrades> shopUpgrades;
-    public static int money = 2500;
+    public static int money = 10000;
 
 
     public  GameObject slimeBall;
@@ -74,7 +74,14 @@ public class PlayerManager : MonoBehaviour
         HealthUpgrade extraHealth = new HealthUpgrade("Extra Health", 10, 10, 40, false,50);
         shopUpgrades.Add("Extra Health", extraHealth);
 
-        
+        BouncePadsUpgrades bouncePadUpgrade = new BouncePadsUpgrades("BouncePads",1, 5000, false);
+        shopUpgrades.Add("BouncePads", bouncePadUpgrade);
+
+        SlimePickUp slimePickUpUpgrade = new SlimePickUp("SlimePickup", 1, 5000, false);
+        shopUpgrades.Add("SlimePickup", slimePickUpUpgrade);
+
+        MoneyPickup moneyPickUpUpgrade = new MoneyPickup("MoneyPickup", 1, 5000, false);
+        shopUpgrades.Add("MoneyPickup", moneyPickUpUpgrade);
 
     }
 

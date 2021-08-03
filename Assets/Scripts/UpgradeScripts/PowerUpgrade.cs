@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpgrade : Upgrades
 {
-    public float powerModifier = 10;
+    public float powerModifier = 2;
 
     
     public PowerUpgrade(string name, int upgradeAmount, int purchaseAmount, int upgradeCost ,bool enabled, int upgradeChangeAmountToAdd)

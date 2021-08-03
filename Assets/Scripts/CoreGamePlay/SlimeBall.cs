@@ -162,13 +162,10 @@ public class SlimeBall : MonoBehaviour
         
         //roundOverUI = uiControl.GetComponentInChildren<UIManager>();
         UIManager.instance.EnableRoundOverUI();
-           
         Social.ReportScore(PlayerManager.instance.playerScore.Score, "CgkI-p3e1-gWEAIQAQ", (bool success) => { }
-            );
-        
+             );
 
     }
-    
 
     #endregion
     // If Slime has collided with a non player object such as bouncing pad then play sound

@@ -304,6 +304,24 @@ public class ShopUI : MonoBehaviour
                 stars2.Add(upgrade.name, null);
                 AddStars(slimeGrids[0], upgrade.name);
             }
+
+            else if (upgrade.name == "BouncePads")
+            {
+                stars2.Add(upgrade.name, null);
+                AddStars(worldGrids[0], upgrade.name);
+            }
+
+            else if (upgrade.name == "SlimePickup")
+            {
+                stars2.Add(upgrade.name, null);
+                AddStars(worldGrids[1], upgrade.name);
+            }
+
+            else if (upgrade.name == "MoneyPickup")
+            {
+                stars2.Add(upgrade.name, null);
+                AddStars(worldGrids[2], upgrade.name);
+            }
         }
     }
 
@@ -350,6 +368,54 @@ public class ShopUI : MonoBehaviour
                     else
                     {
                         upgradeValueText[1].text = "MAX";
+                    }
+                    break;
+
+                case "BouncePads":
+                    if (stars2[upgrade.name].Count > 0 && !PlayerManager.shopUpgrades[upgrade.name].isEnabled)
+                    {
+                        upgradeValueText[2].text = PlayerManager.shopUpgrades[upgrade.name].costAmount.ToString();
+                    }
+                    else if (stars2[upgrade.name].Count > 0 && PlayerManager.shopUpgrades[upgrade.name].isEnabled)
+                    {
+                        upgradeValueText[2].text = PlayerManager.shopUpgrades[upgrade.name].upgradeAmount.ToString();
+
+                    }
+                    else
+                    {
+                        upgradeValueText[2].text = "MAX";
+                    }
+                    break;
+
+                case "SlimePickup":
+                    if (stars2[upgrade.name].Count > 0 && !PlayerManager.shopUpgrades[upgrade.name].isEnabled)
+                    {
+                        upgradeValueText[3].text = PlayerManager.shopUpgrades[upgrade.name].costAmount.ToString();
+                    }
+                    else if (stars2[upgrade.name].Count > 0 && PlayerManager.shopUpgrades[upgrade.name].isEnabled)
+                    {
+                        upgradeValueText[3].text = PlayerManager.shopUpgrades[upgrade.name].upgradeAmount.ToString();
+
+                    }
+                    else
+                    {
+                        upgradeValueText[3].text = "MAX";
+                    }
+                    break;
+
+                case "MoneyPickup":
+                    if (stars2[upgrade.name].Count > 0 && !PlayerManager.shopUpgrades[upgrade.name].isEnabled)
+                    {
+                        upgradeValueText[4].text = PlayerManager.shopUpgrades[upgrade.name].costAmount.ToString();
+                    }
+                    else if (stars2[upgrade.name].Count > 0 && PlayerManager.shopUpgrades[upgrade.name].isEnabled)
+                    {
+                        upgradeValueText[4].text = PlayerManager.shopUpgrades[upgrade.name].upgradeAmount.ToString();
+
+                    }
+                    else
+                    {
+                        upgradeValueText[4].text = "MAX";
                     }
                     break;
             }

@@ -25,6 +25,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject slimeInGame;
 
     public SlimeScore playerScore;
+
+    [System.NonSerialized]
+    private static AchievementListSO achievements;
     private void Awake()
     {
         if(instance == null)
@@ -39,9 +42,43 @@ public class PlayerManager : MonoBehaviour
         AddAllUpgrades();
 
        playerScore = new SlimeScore();
+
+        
+        
+      
+            
+       // Debug.Log(achievements);
     }
 
-    
+    private void Start()
+    {
+        // Load the achievement scritableobject
+        achievements = Instantiate(Resources.Load("AchievementList", typeof(AchievementListSO)) as AchievementListSO);
+        
+    }
+
+    private void Update()
+    {
+        
+        CheckAchievements();
+        Debug.Log(achievements.achievementList[0].hasPassed);
+        Debug.Log(playerScore.DistanceTraveled);
+    }
+
+    private void CheckAchievements()
+    {
+        for (int i = 0; i < achievements.achievementList.Count; i++)
+        {
+            if (achievements.achievementList[i].nameOfAchievement == "100m Distance" && playerScore.DistanceTraveled > achievements.achievementList[i].amountToScore && !achievements.achievementList[i].hasPassed)
+            {
+                achievements.achievementList[i].hasPassed = true;
+                Debug.Log("Achievement Passed!");
+            }
+        }
+    }
+
+
+
 
     public void SetSlimeBall(GameObject slime)
     {

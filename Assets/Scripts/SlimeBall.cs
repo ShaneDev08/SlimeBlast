@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class SlimeBall : MonoBehaviour
 {
@@ -160,6 +162,10 @@ public class SlimeBall : MonoBehaviour
         
         //roundOverUI = uiControl.GetComponentInChildren<UIManager>();
         UIManager.instance.EnableRoundOverUI();
+        Social.ReportScore(PlayerManager.instance.playerScore, "CgkI-p3e1-gWEAIQAQ", (bool success) => {
+            Success;
+        }
+
     }
 
     #endregion

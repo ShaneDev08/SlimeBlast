@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35765714c55bbfd4097605aa35f72095, type: 3}
   m_Name: 100mDistance
   m_EditorClassIdentifier: 
-  nameOfAchievement: 
+  nameOfAchievement: 100m Distance
   type: 0
-  amountToScore: 0
-  moneyToGive: 0
+  amountToScore: 100
+  moneyToGive: 250
+  hasPassed: 0
+  hasCollected: 0

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5106aa7b53ffd964996d097d919bab22, type: 3}
   m_Name: AchievementList
   m_EditorClassIdentifier: 
-  achievementList: []
+  achievementList:
+  - {fileID: 11400000, guid: 2f232e7fda7c148479b82fa95c0ae0df, type: 2}

@@ -17,6 +17,8 @@ public class SlimeSelectorController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private Image characterSplash;
     [SerializeField] private Image backgroundColour;
+    [SerializeField] private GridLayoutGroup[] statGrids;
+    [SerializeField] GameObject statStar;
 
     [Header("Sounds")]
     [SerializeField] private AudioClip buttonNoise;
@@ -35,12 +37,14 @@ public class SlimeSelectorController : MonoBehaviour
         audio = GameObject.Find("CharacterSelectionController").GetComponent<AudioSource>();
     }
 
+
     private void UpdateCharacterSelectionUI(){
         //Character Image Change, Name, Background Colour
         characterSplash.sprite =  characterSelection[selectedCharacterIndex].characterSplashImage;
         characterName.text =  characterSelection[selectedCharacterIndex].characterName;
         desiredColour =  characterSelection[selectedCharacterIndex].characterBackgroundColour;
         PlayerManager.instance.slimeBall = characterSelection[selectedCharacterIndex].slime;
+        AddStars();
     }
 
     public void changeCharacterLeft(){
@@ -81,6 +85,108 @@ public class SlimeSelectorController : MonoBehaviour
         audio.PlayOneShot(buttonNoise, audioVolume);
         StartCoroutine(sceneTransition());
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void AddStars()
+    {
+        SlimeBall stats = characterSelection[selectedCharacterIndex].slime.GetComponent<SlimeBall>();
+        int count = CalculateHealth(stats);
+        for (int i = 0; i < count; i++)
+        {
+            GameObject instance = Instantiate(statStar);
+            instance.transform.SetParent(statGrids[0].gameObject.transform);
+        }
+        count = CalculateBouciness(stats);
+        for (int i = 0; i < count; i++)
+        {
+            GameObject instance = Instantiate(statStar);
+            instance.transform.SetParent(statGrids[1].gameObject.transform);
+        }
+        count = CalculateWeight(stats);
+        for (int i = 0; i < count; i++)
+        {
+            GameObject instance = Instantiate(statStar);
+            instance.transform.SetParent(statGrids[2].gameObject.transform);
+        }
+        
+    }
+
+    private int CalculateHealth(SlimeBall stats)
+    {
+        int count = 0;
+        if(stats.slimeStats.slimeHealth <= 100)
+        {
+            count = 1;
+        }
+        else if (stats.slimeStats.slimeHealth > 100 && stats.slimeStats.slimeHealth <= 200 )
+        {
+            count = 2;
+        }
+        else if (stats.slimeStats.slimeHealth > 200 && stats.slimeStats.slimeHealth <= 300 )
+        {
+            count = 3;
+        }
+        else if (stats.slimeStats.slimeHealth > 300 && stats.slimeStats.slimeHealth <= 400 )
+        {
+            count = 4;
+        }
+        else if (stats.slimeStats.slimeHealth > 400 && stats.slimeStats.slimeHealth <= 500 )
+        {
+            count = 5;
+        }
+        return count;
+    }
+
+    private int CalculateBouciness(SlimeBall stats)
+    {
+        int count = 0;
+        if(stats.slimeStats.slimeBounciness <= 100)
+        {
+            count = 1;
+        }
+        else if (stats.slimeStats.slimeBounciness > 100 && stats.slimeStats.slimeBounciness <= 200 )
+        {
+            count = 2;
+        }
+        else if (stats.slimeStats.slimeBounciness > 200 && stats.slimeStats.slimeBounciness <= 300 )
+        {
+            count = 3;
+        }
+        else if (stats.slimeStats.slimeBounciness > 300 && stats.slimeStats.slimeBounciness <= 400 )
+        {
+            count = 4;
+        }
+        else if (stats.slimeStats.slimeBounciness > 400 && stats.slimeStats.slimeBounciness <= 500 )
+        {
+            count = 5;
+        }
+        return count;
+    }
+
+    private int CalculateWeight(SlimeBall stats)
+    {
+        int count = 0;
+        if(stats.slimeStats.slimeWeight <= 100)
+        {
+            count = 1;
+        }
+        else if (stats.slimeStats.slimeWeight > 100 && stats.slimeStats.slimeWeight <= 200 )
+        {
+            count = 2;
+        }
+        else if (stats.slimeStats.slimeWeight > 200 && stats.slimeStats.slimeWeight <= 300 )
+        {
+            count = 3;
+        }
+        else if (stats.slimeStats.slimeWeight > 300 && stats.slimeStats.slimeWeight <= 400 )
+        {
+            count = 4;
+        }
+        else if (stats.slimeStats.slimeWeight > 400 && stats.slimeStats.slimeWeight <= 500 )
+        {
+            count = 5;
+        }
+        return count;
     }
     
     [System.Serializable]

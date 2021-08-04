@@ -74,6 +74,9 @@ public class PlayerManager : MonoBehaviour
             if (achievements.achievementList[i].nameOfAchievement == "100m Distance" && playerScore.DistanceTraveled > achievements.achievementList[i].amountToScore && !achievements.achievementList[i].hasPassed)
             {
                 achievements.achievementList[i].hasPassed = true;
+                Social.ReportProgress("CgkI-p3e1-gWEAIQBA", 100f, (bool success) => {
+                //PlayerManager.money += 500;
+             }); 
                 Debug.Log("Achievement Passed!");
             }
         }

@@ -48,8 +48,9 @@ public class MainMenu : MonoBehaviour
     public void OpenSettings(){
         LeanTween.scale(settingsButton, Vector3.one * 2, tweenTime).setEasePunch();
         PlayButtonClick();
-        StartCoroutine(sceneTransition());
-        SceneManager.LoadScene("Settings");
+        //StartCoroutine(sceneTransition());
+        //SceneManager.LoadScene("Settings");
+        Social.ShowAchievementsUI();
     }
 
     public void OpenCharacterCollection(){

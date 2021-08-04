@@ -25,7 +25,8 @@
 public static class GPGSIds
 {
         public const string leaderboard_high_score = "CgkI-p3e1-gWEAIQAQ"; // <GPGSID>
-        public const string achievement_upgrade_cannon_power_to_max_level = "CgkI-p3e1-gWEAIQAw"; // <GPGSID>
+        public const string achievement_max_power = "CgkI-p3e1-gWEAIQAw"; // <GPGSID>
+        public const string achievement_going_places = "CgkI-p3e1-gWEAIQBA"; // <GPGSID>
 
 }
 

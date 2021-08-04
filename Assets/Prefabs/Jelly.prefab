@@ -235,9 +235,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad936e1390b460e48baed1e04c37be2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
+  slimeStats: {fileID: 11400000, guid: a40315512837d4f4b9c0c418386d1d85, type: 2}
   hasSpawned: 0
   flag: {fileID: 6137006683065028263, guid: 2f0f4f10675d0804082b4863b5d63faa, type: 3}
+  score: 0
+  heightScore: 0
+  health: 0
 --- !u!82 &4985865562114537732
 AudioSource:
   m_ObjectHideFlags: 0

@@ -12,6 +12,9 @@ public class SlimeSelectorController : MonoBehaviour
     private Color desiredColour;
     [Header("Character List")]
     [SerializeField] private List<CharacterSelection> characterSelection = new List<CharacterSelection>();
+    [SerializeField] private List<GameObject> healthStars = new List<GameObject>();
+    [SerializeField] private List<GameObject> bouncinessStars = new List<GameObject>();
+    [SerializeField] private List<GameObject> weightStars = new List<GameObject>();
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI characterName;
@@ -89,26 +92,58 @@ public class SlimeSelectorController : MonoBehaviour
 
     public void AddStars()
     {
+        ClearStars();
         SlimeBall stats = characterSelection[selectedCharacterIndex].slime.GetComponent<SlimeBall>();
         int count = CalculateHealth(stats);
         for (int i = 0; i < count; i++)
         {
             GameObject instance = Instantiate(statStar);
             instance.transform.SetParent(statGrids[0].gameObject.transform);
+            healthStars.Add(instance);
         }
-        count = CalculateBouciness(stats);
+        count = CalculateBounciness(stats);
         for (int i = 0; i < count; i++)
         {
             GameObject instance = Instantiate(statStar);
             instance.transform.SetParent(statGrids[1].gameObject.transform);
+            bouncinessStars.Add(instance);
         }
         count = CalculateWeight(stats);
         for (int i = 0; i < count; i++)
         {
             GameObject instance = Instantiate(statStar);
             instance.transform.SetParent(statGrids[2].gameObject.transform);
+            weightStars.Add(instance);
         }
         
+    }
+
+    private void ClearStars()
+    {
+        if (healthStars.Count > 0)
+        {
+            for (int i = 0; i < healthStars.Count; i++)
+            {
+                Destroy(healthStars[i]);
+            }
+            healthStars.Clear();
+        }
+        if (bouncinessStars.Count > 0)
+        {
+            for (int i = 0; i < bouncinessStars.Count; i++)
+            {
+                Destroy(bouncinessStars[i]);
+            }
+            bouncinessStars.Clear();
+        }
+        if (weightStars.Count > 0)
+        {
+            for (int i = 0; i < weightStars.Count; i++)
+            {
+                Destroy(weightStars[i]);
+            }
+            weightStars.Clear();
+        }
     }
 
     private int CalculateHealth(SlimeBall stats)
@@ -137,7 +172,7 @@ public class SlimeSelectorController : MonoBehaviour
         return count;
     }
 
-    private int CalculateBouciness(SlimeBall stats)
+    private int CalculateBounciness(SlimeBall stats)
     {
         int count = 0;
         if(stats.slimeStats.slimeBounciness <= 100)

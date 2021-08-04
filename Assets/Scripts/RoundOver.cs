@@ -29,10 +29,12 @@ public class RoundOver : MonoBehaviour
 
     public void UpdateText()
     {
+        scoreText.text = "Score:" + PlayerManager.instance.playerScore.Score.ToString();
         heightText.text = "Max Height:" + PlayerManager.instance.playerScore.DistanceInHeight.ToString();  // MAX Height
         distanceTravelledText.text = "Max Distance:" + PlayerManager.instance.playerScore.DistanceTraveled.ToString(); // MAX Distance Travelled
         moneyEarntText.text = "Money Collected:" + PlayerManager.instance.playerScore.MoneyCollected;
         slimeCollectedText.text = "Slime Collected:" + PlayerManager.instance.playerScore.SlimeCollected;
+        obstaclesHitText.text = "Obstacles Hit:" + PlayerManager.instance.playerScore.obstaclesHit.ToString();;
     }
 
     public void HomeScreen(){

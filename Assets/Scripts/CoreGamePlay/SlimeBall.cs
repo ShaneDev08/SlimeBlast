@@ -162,9 +162,8 @@ public class SlimeBall : MonoBehaviour
         
         //roundOverUI = uiControl.GetComponentInChildren<UIManager>();
         UIManager.instance.EnableRoundOverUI();
-        Social.ReportScore(PlayerManager.instance.playerScore.Score, "CgkI-p3e1-gWEAIQAQ", (bool success) => { }
+        Social.ReportScore(PlayerManager.instance.playerScore.DistanceTraveled, "CgkI-p3e1-gWEAIQAQ", (bool success) => { }
              );
-
     }
 
     #endregion

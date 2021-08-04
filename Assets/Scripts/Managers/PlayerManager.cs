@@ -4,6 +4,8 @@ using UnityEngine;
 using Unity;
 using System.Reflection;
 using System;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class PlayerManager : MonoBehaviour
 {

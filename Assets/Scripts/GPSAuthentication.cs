@@ -8,9 +8,8 @@ using UnityEngine.SocialPlatforms;
 public class GPSAuthentication : MonoBehaviour
 {
 
-    public bool isConnectedToPlayServices;
     public static PlayGamesPlatform platform;  // Needs to be static so it does not create others
-
+    public bool isConnectedToPlayServices;
     
        private void Start() 
        {
@@ -21,10 +20,6 @@ public class GPSAuthentication : MonoBehaviour
             if(platform == null)
         {
             PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-            .EnableSavedGames()
-            .RequestEmail()
-            .RequestServerAuthCode(false)
-            .RequestIdToken()
             .Build();   // Might have to do enableSavedGames
             PlayGamesPlatform.InitializeInstance(config);
             PlayGamesPlatform.DebugLogEnabled = true;
@@ -32,8 +27,10 @@ public class GPSAuthentication : MonoBehaviour
             platform = PlayGamesPlatform.Activate();
             StartSignIn();
         }
+        
+        }
 
-         void StartSignIn()
+        void StartSignIn()
         {
             PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce,(result)=>
             {
@@ -47,6 +44,7 @@ public class GPSAuthentication : MonoBehaviour
                     break;
                 }
             });
+        
         }
     }
-}
+

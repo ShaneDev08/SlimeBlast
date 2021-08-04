@@ -13,6 +13,25 @@ public class Slime : MonoBehaviour
 
     private bool hasBeenCollected = false;
 
+    public bool spawnFromSpawner = false;
+
+    private float aliveTime = 5f;
+    private float startTime;
+
+
+    private void OnEnable()
+    {
+        startTime = Time.time;
+    }
+
+    private void Update()
+    {
+        if(spawnFromSpawner && Time.time - startTime >= aliveTime)
+        {
+            gameObject.SetActive(false);
+        }    
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,8 +41,9 @@ public class Slime : MonoBehaviour
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().AddSlime(health);
 
             PlayerManager.instance.playerScore.SlimeCollected += 1;
-            Destroy(gameObject);
+            
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound(collectionSound);
+            gameObject.SetActive(false);
         }
         else
         {

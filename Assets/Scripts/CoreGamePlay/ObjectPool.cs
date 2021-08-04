@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public GameObject objPrefab;
-    public int createOnStart;
+
+    public GameObject slimePrefab;
+
+    [SerializeField] private  int createOnStart;
+    [SerializeField] private int amountOfSlimeToSpawn;
+
 
     private List<GameObject> pooledObjs = new List<GameObject>();
+    private List<GameObject> slimeSpawnerSlime = new List<GameObject>();
 
     private void Start()
     {
@@ -15,6 +20,11 @@ public class ObjectPool : MonoBehaviour
         for (int x = 0; x < createOnStart; x++)
         {
             CreateNewObject();
+        }
+
+        for (int x = 0; x < amountOfSlimeToSpawn; x++)
+        {
+            CreateNewSlimeObject();
         }
 
     }
@@ -26,7 +36,31 @@ public class ObjectPool : MonoBehaviour
 
             return obj;
         }
-    
+
+    private GameObject CreateNewSlimeObject()
+    {
+        GameObject obj = Instantiate(slimePrefab);
+        obj.SetActive(false);
+        slimeSpawnerSlime.Add(obj);
+            return obj;
+    }
+
+    // Get or activate Slime
+    public GameObject GetSlimeObject()
+    {
+        GameObject obj = slimeSpawnerSlime.Find(x => x.activeInHierarchy == false);
+
+        if (obj == null)
+        {
+            obj = CreateNewSlimeObject();
+        }
+
+        obj.SetActive(true);
+
+        return obj;
+    }
+
+
 
     public GameObject GetObject()
     {

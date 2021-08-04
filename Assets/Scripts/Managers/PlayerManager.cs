@@ -63,8 +63,7 @@ public class PlayerManager : MonoBehaviour
     {
         
         CheckAchievements();
-        Debug.Log(achievements.achievementList[0].hasPassed);
-        Debug.Log(playerScore.DistanceTraveled);
+  
     }
 
     private void CheckAchievements()
@@ -75,9 +74,11 @@ public class PlayerManager : MonoBehaviour
             {
                 achievements.achievementList[i].hasPassed = true;
                 Social.ReportProgress("CgkI-p3e1-gWEAIQBA", 100f, (bool success) => {
-                //PlayerManager.money += 500;
-             }); 
+                
+             });
+                PlayerManager.money += 500;
                 Debug.Log("Achievement Passed!");
+                
             }
         }
     }

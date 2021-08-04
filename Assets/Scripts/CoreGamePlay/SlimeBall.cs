@@ -302,4 +302,13 @@ public class SlimeBall : MonoBehaviour
         jellyScript.m_SpriteScale *= scaleRatio;
         jellyScript.Scale(scaleRatio, true);
     }
+
+    public void AddHeight()
+    {
+        foreach (Rigidbody2D rig in rbs)
+        {
+            rig.AddForce(Vector3.right * 0.1f, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.up / 2, ForceMode2D.Impulse);
+        }
+    }
 }

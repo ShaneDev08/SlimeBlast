@@ -38,14 +38,14 @@ public class SlimeBall : MonoBehaviour
     public int heightScore = 0;
 
     [Header("SlimeStats")]
-    public int health;
+    [SerializeField] private int health;
 
 
 
 
     private void Start()
     {
-        slimeStats.slimeHealth = health;
+        health = (int)slimeStats.slimeHealth;
 
 
         jellyScript = GetComponent<UnityJellySprite>();
@@ -57,7 +57,7 @@ public class SlimeBall : MonoBehaviour
         }
         else
         {
-            float scaleRatio = slimeStats.slimeHealth / 100;
+            float scaleRatio = health / 100;
             jellyScript.m_SpriteScale *= scaleRatio;
             jellyScript.Scale(scaleRatio, true);
         }
@@ -116,12 +116,11 @@ public class SlimeBall : MonoBehaviour
             target1.RemoveMember(floor.transform);
         }
 
-        //Set scale based on health
-        //Debug.Log(health / 100);
+     
     
         if(Input.GetKeyDown(KeyCode.P))
         {
-            slimeStats.slimeHealth = 0;
+            health = 0;
         }
     }
 
@@ -167,23 +166,7 @@ public class SlimeBall : MonoBehaviour
     }
 
     #endregion
-    // If Slime has collided with a non player object such as bouncing pad then play sound
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (!collision.gameObject.CompareTag("Player"))
-    //    {
-    //        if (collision.gameObject.CompareTag("BouncingPad"))
-    //        {
-    //            audioSource.PlayOneShot(slimeStats.slimeNoises[0]);
-    //        }
-    //        else
-    //        {
-                
-    //            int randomNumber = 0;
-    //            audioSource.PlayOneShot(slimeStats.slimeNoises[Random.RandomRange(1,slimeStats.slimeNoises.Length)]);
-    //        }
-    //    }
-    //}
+    
 
     public void PlaySound()
     {
@@ -202,7 +185,7 @@ public class SlimeBall : MonoBehaviour
         
         
 
-        if (slimeStats.slimeHealth <= 0)
+        if (health <= 0)
         {
             hasStopedMoving = true;
             if (!hasSpawndFlag)
@@ -266,9 +249,9 @@ public class SlimeBall : MonoBehaviour
                 rig.AddForce(Vector3.right * 1.5f , ForceMode2D.Impulse);
                 rig.AddForce(Vector2.up * slimeStats.slimeBounciness , ForceMode2D.Impulse);
             }
-            slimeStats.slimeHealth -= damage;
+            health -= damage;
             float scaleRatio = 0.9f;
-            jellyScript.m_SpriteScale = new Vector2(slimeStats.slimeHealth / 100, slimeStats.slimeHealth / 100);
+            jellyScript.m_SpriteScale = new Vector2(health / 100, health / 100);
             jellyScript.Scale(scaleRatio, true);
             tookDamage = true;
             Invoke("ResetDamage", 1);
@@ -278,13 +261,18 @@ public class SlimeBall : MonoBehaviour
 
     }
 
+    public void KillSlimeOnContact()
+    {
+        health = 0;
+    }
+
   
 
     public void AddSlime(int amount)
     {
-        slimeStats.slimeHealth += amount;
+        health += amount;
         float scaleRatio = 1.1f;
-        jellyScript.m_SpriteScale = new Vector2(slimeStats.slimeHealth / 100, slimeStats.slimeHealth / 100);
+        jellyScript.m_SpriteScale = new Vector2(health / 100, health / 100);
         jellyScript.Scale(scaleRatio, true);
     }
 
@@ -296,9 +284,9 @@ public class SlimeBall : MonoBehaviour
     private void SetExtraHealth()
     {
         HealthUpgrade extraHealth = (HealthUpgrade)PlayerManager.shopUpgrades["Extra Health"];
-        slimeStats.slimeHealth = slimeStats.slimeHealth += extraHealth.extraHealth;
+        health += extraHealth.extraHealth;
 
-        float scaleRatio = slimeStats.slimeHealth / 100;
+        float scaleRatio = health / 100;
         jellyScript.m_SpriteScale *= scaleRatio;
         jellyScript.Scale(scaleRatio, true);
     }

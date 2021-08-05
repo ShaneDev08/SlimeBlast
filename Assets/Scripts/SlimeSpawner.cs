@@ -23,9 +23,13 @@ public class SlimeSpawner : MonoBehaviour
         slimeSpawnd = pool.GetCurrentActiveObject();
         if (slimeSpawnd != null)
         {
-            if(slimeSpawnd.transform.position.x < transform.position.x )
+            if(slimeSpawnd.transform.position.x > transform.position.x -30)
             {
                 isEnabled = true;
+            } 
+            else if (slimeSpawnd.transform.position.x > transform.position.x)
+            {
+                isEnabled = false;
             }
         }
 

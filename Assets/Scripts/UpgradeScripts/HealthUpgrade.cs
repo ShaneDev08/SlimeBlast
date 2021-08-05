@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthUpgrade : Upgrades
 {
-    public float extraHealth = 10;
+    public int extraHealth = 10;
 
 
     public HealthUpgrade(string name, int upgradeAmount, int purchaseAmount, int upgradeCost, bool enabled, int upgradeChangeAmountToAdd)
@@ -18,7 +18,7 @@ public class HealthUpgrade : Upgrades
     }
 
 
-    public void UpgradePower(float amount)
+    public void UpgradePower(int amount)
     {
         if (CanUpgrade())
         {

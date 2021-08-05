@@ -57,7 +57,7 @@ public class Plane : MonoBehaviour
         {
             hasBeenHit = true;
             PlayerManager.instance.playerScore.ObstacalesHit += 1;
-            collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().TakeDamage(amountToDamage);
+            collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().KillSlimeOnContact();
             
             collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound(hitSound);
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class UIManager : MonoBehaviour
 
 
     [Header("FireFunction")]
-    [SerializeField] public Button startButton;
+    [SerializeField] private Button fireButton;
     [SerializeField] Image powerImage;
 
     [Header("PlayerScore")]
@@ -63,6 +64,15 @@ public class UIManager : MonoBehaviour
    public void UpdateScoreText(int score)
     {
         scoreText.text = "Score: " +  score.ToString();
+    }
+
+    public void DisableFireButton()
+    {
+        fireButton.enabled = false;
+        fireButton.GetComponent<EventTrigger>().enabled = false;
+        fireButton.gameObject.SetActive(false);
+        powerImage.gameObject.SetActive(false);
+       
     }
 
     //private void UpdateStats()

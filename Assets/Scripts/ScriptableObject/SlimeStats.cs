@@ -9,7 +9,7 @@ public class SlimeStats : ScriptableObject {
 
 
     [Header("Slime Main Stats")]
-    public float slimeHealth;
+    public int slimeHealth;
     public float slimeBounciness;
     public float slimeWeight;
 

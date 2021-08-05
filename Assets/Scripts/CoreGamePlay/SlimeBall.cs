@@ -39,13 +39,15 @@ public class SlimeBall : MonoBehaviour
 
     [Header("SlimeStats")]
     [SerializeField] private int health;
+    [SerializeField] private float bounciness;
 
 
 
 
     private void Start()
     {
-        health = (int)slimeStats.slimeHealth;
+        health = slimeStats.slimeHealth;
+        bounciness = slimeStats.slimeBounciness;
 
 
         jellyScript = GetComponent<UnityJellySprite>();
@@ -238,18 +240,22 @@ public class SlimeBall : MonoBehaviour
     #endregion
 
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,bool fromTrigger)
     {
        
 
-        if (!tookDamage)
+
+        if (!tookDamage && !fromTrigger)
         {
             foreach (Rigidbody2D rig in rbs)
             {
-                rig.AddForce(Vector3.right * 1.5f , ForceMode2D.Impulse);
-                rig.AddForce(Vector2.up * slimeStats.slimeBounciness , ForceMode2D.Impulse);
+                rig.velocity = new Vector2(rig.velocity.x, 0);
+                rig.AddForce( new Vector2 (rig.velocity.x + 20,rig.velocity.y));
+                rig.AddForce(Vector2.up * bounciness, ForceMode2D.Impulse);
             }
             health -= damage;
+            bounciness -= 4;
+            bounciness = Mathf.Clamp(bounciness, 0, 100);
             float scaleRatio = 0.9f;
             jellyScript.m_SpriteScale = new Vector2(health / 100, health / 100);
             jellyScript.Scale(scaleRatio, true);
@@ -260,6 +266,8 @@ public class SlimeBall : MonoBehaviour
         }
 
     }
+
+
 
     public void KillSlimeOnContact()
     {

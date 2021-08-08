@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 public class HealthUpgrade : Upgrades
 {
     public int extraHealth = 10;

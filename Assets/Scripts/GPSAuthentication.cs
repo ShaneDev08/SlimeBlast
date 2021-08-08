@@ -19,7 +19,7 @@ public class GPSAuthentication : MonoBehaviour
         {
             if(platform == null)
         {
-            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().EnableSavedGames()
             .Build();   // Might have to do enableSavedGames
             PlayGamesPlatform.InitializeInstance(config);
             PlayGamesPlatform.DebugLogEnabled = true;

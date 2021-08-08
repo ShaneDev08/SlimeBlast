@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class PowerUpgrade : Upgrades
+[Serializable] public class PowerUpgrade : Upgrades
 {
     public float powerModifier = 2;
 

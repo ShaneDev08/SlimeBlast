@@ -10,6 +10,7 @@ using GooglePlayGames.BasicApi.SavedGame;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+[Serializable]
 public class PlayerManager : MonoBehaviour
 {
 
@@ -27,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     public static Abillity[] abillities = new Abillity[1];
 
     
-    public static Dictionary<string, Upgrades> shopUpgrades;
+     public static Dictionary<string, Upgrades> shopUpgrades;
     public static int money = 10000;
 
 
@@ -242,10 +243,10 @@ public class PlayerManager : MonoBehaviour
         }
         catch(Exception e)
         {
-            Debug.Log("Fail to convert to byte");
+            Debug.Log(e);
         }
 
-        Debug.Log(mStream.ToString());
+
         return mStream.ToString();
     }
 
@@ -266,6 +267,7 @@ public class PlayerManager : MonoBehaviour
     public void OpenSaveGame(bool saving)
     {
         Debug.Log("Open Save");
+
         if(Social.localUser.authenticated)
         {
             isSaving = saving;

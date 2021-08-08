@@ -28,11 +28,6 @@ public class FloorHolder : MonoBehaviour
             hasHit = true;
             Invoke("ResetHit", 0.1f);
         }
-        //else
-        //{
-        //    collision.gameObject.GetComponent<SlimeBall>().PlaySound();
-        //}
-
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -50,12 +45,20 @@ public class FloorHolder : MonoBehaviour
                 Invoke("ResetHit", 0.1f);
             }
         }
-        //else
-        //{
-        //    collision.gameObject.GetComponent<SlimeBall>().PlaySound();
-        //}
+       
 
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        startTime = 1f;
+    }
+
+       
+        
+
+
+    
 
     IEnumerator CheckIfStopedMoving()
     {

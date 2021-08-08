@@ -39,6 +39,7 @@ public class RoundOver : MonoBehaviour
 
     public void HomeScreen(){
         ResetScores();
+        PlayerManager.instance.OpenSaveGame(true);
         SceneManager.LoadScene("MainMenu");
     }
     public void RetryButton(){

@@ -6,9 +6,17 @@ using System.Reflection;
 using System;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
+using GooglePlayGames.BasicApi.SavedGame;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class PlayerManager : MonoBehaviour
 {
+
+    // Google Api saving variables
+    private bool isSaving;
+
+
     public static PlayerManager instance;
 
 
@@ -28,6 +36,9 @@ public class PlayerManager : MonoBehaviour
 
     public SlimeScore playerScore;
 
+
+    private static bool hasLoaded = false;
+
     [System.NonSerialized]
     private static AchievementListSO achievements;
     private void Awake()
@@ -41,7 +52,10 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        AddAllUpgrades();
+        if (!hasLoaded)
+        {
+            AddAllUpgrades();
+        }
 
        playerScore = new SlimeScore();
 
@@ -54,6 +68,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+
+        OpenSaveGame(false);
         // Load the achievement scritableobject
         achievements = Instantiate(Resources.Load("AchievementList", typeof(AchievementListSO)) as AchievementListSO);
         
@@ -126,6 +142,8 @@ public class PlayerManager : MonoBehaviour
         MoneyPickup moneyPickUpUpgrade = new MoneyPickup("MoneyPickup", 1, 5000, false);
         shopUpgrades.Add("MoneyPickup", moneyPickUpUpgrade);
 
+
+        hasLoaded = true;
     }
 
 
@@ -207,4 +225,88 @@ public class PlayerManager : MonoBehaviour
     //dynamic myObj = Activator.CreateInstance(Type.GetType(n + "." + className), false);
     //myObj =  shopUpgrades[name];
     //            myObj.UpgradePower(2);
+
+
+
+
+
+    private string GetSaveString()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        var mStream = new MemoryStream();
+        try
+        {
+            
+            formatter.Serialize(mStream, shopUpgrades);
+            Debug.Log("Hello" + mStream.ToArray() + "|" + mStream.ToString()); 
+        }
+        catch(Exception e)
+        {
+            Debug.Log("Fail to convert to byte");
+        }
+
+        Debug.Log(mStream.ToString());
+        return mStream.ToString();
+    }
+
+    private void LoadSaveString(byte[] loadedData)
+    {
+        MemoryStream memStream = new MemoryStream();
+        BinaryFormatter binForm = new BinaryFormatter();
+        memStream.Write(loadedData, 0, loadedData.Length);
+        memStream.Seek(0, SeekOrigin.Begin);
+        Dictionary<string,Upgrades> obj = (Dictionary<string, Upgrades>)binForm.Deserialize(memStream);
+        Debug.Log(obj.ToString());
+        shopUpgrades = obj;
+    }
+
+
+
+
+    public void OpenSaveGame(bool saving)
+    {
+        Debug.Log("Open Save");
+        if(Social.localUser.authenticated)
+        {
+            isSaving = saving;
+            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution("SlimeBlast", GooglePlayGames.BasicApi.DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, SaveGameOpened); // Will call SaveGameOpened Method as a call back.
+        }
+    }
+
+    private void SaveGameOpened(SavedGameRequestStatus status, ISavedGameMetadata meta)
+    {
+        if(status == SavedGameRequestStatus.Success)
+        {
+            if(isSaving) // Writing
+            {
+                byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(GetSaveString()); // Need to get the string and convert to bytes or maybe just pass in the bytes
+                SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().WithUpdatedDescription("Saved At " + DateTime.Now.ToString()).Build();
+
+                ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta, update, data, SaveUpdate);
+            }
+            else // Reading
+            {
+                ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta, SaveRead);
+            }
+        }
+    }
+
+    // Load
+    private void SaveRead(SavedGameRequestStatus status, byte[] data)
+    {
+        if(status == SavedGameRequestStatus.Success)
+        {
+            LoadSaveString(data);
+            string saveData = System.Text.ASCIIEncoding.ASCII.GetString(data);
+            Debug.Log(saveData);
+            
+        }
+    }
+
+
+    // Success save
+    private void SaveUpdate(SavedGameRequestStatus status, ISavedGameMetadata arg2)
+    {
+        Debug.Log(status);
+    }
 }

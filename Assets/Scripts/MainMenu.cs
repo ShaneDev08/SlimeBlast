@@ -53,11 +53,11 @@ public class MainMenu : MonoBehaviour
         Social.ShowAchievementsUI();
     }
 
-    public void OpenCharacterCollection(){
+    public void OpenCharacterUnlockScreen(){
         LeanTween.scale(slimeCollectionButton, Vector3.one * 2, tweenTime).setEasePunch();
         PlayButtonClick();
         StartCoroutine(sceneTransition());
-        SceneManager.LoadScene("CharacterCollection");
+        SceneManager.LoadScene("Unlocks");
     }
 
     public void OpenScore(){

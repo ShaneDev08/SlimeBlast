@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a484888ad8302b4998d6001b0eb60e8, type: 3}
-  m_Name: SlimeUnlock1
+  m_Script: {fileID: 11500000, guid: 0195acf894f37454aba7ff86642c9d71, type: 3}
+  m_Name: UnlockList
   m_EditorClassIdentifier: 
-  slimeSprite: {fileID: 21300000, guid: 822171381a89c1441bb6a6b1f7c81526, type: 3}
-  slimeName: Purp
-  slimeUnlockValue: 100
-  isUnlocked: 0
-  slimeID: 0
+  unlockList:
+  - {fileID: 11400000, guid: eb7456d741b6b4545b929faf28f8b03a, type: 2}
+  - {fileID: 11400000, guid: 49e3190715fab9f4d8066e349c1230fd, type: 2}

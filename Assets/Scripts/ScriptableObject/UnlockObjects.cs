@@ -5,15 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 
 
-[CreateAssetMenu(menuName ="Unlock")]
+[CreateAssetMenu(menuName ="Unlock/Unlock")]
 public class UnlockObjects : ScriptableObject
 {
    
 [Header("UnlockHolderObjects")]
-    public Sprite unlockHolder;
     public Sprite slimeSprite;
-    public TextMeshProUGUI slimeName;
-    public TextMeshProUGUI slimeUnlockValue;
+    public string slimeName;
+    public string slimeUnlockValue;
+    public bool isUnlocked;
 
 [Header("UnlockHolderID")]
     public int slimeID;

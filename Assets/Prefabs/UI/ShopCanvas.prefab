@@ -750,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Power
+  m_text: Extra Health
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86e234314a3245347a6b79fe61186b26, type: 2}
   m_sharedMaterial: {fileID: 162988421939607036, guid: 86e234314a3245347a6b79fe61186b26, type: 2}
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Extra Health
+  m_text: Power
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86e234314a3245347a6b79fe61186b26, type: 2}
   m_sharedMaterial: {fileID: 162988421939607036, guid: 86e234314a3245347a6b79fe61186b26, type: 2}
@@ -1695,7 +1695,7 @@ GameObject:
   - component: {fileID: 7450969540365288204}
   - component: {fileID: 5458128817713435551}
   m_Layer: 5
-  m_Name: Grid (1)
+  m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1896,7 +1896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4213937283932410322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2122,7 +2122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4213937284516042159
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2513,7 +2513,7 @@ MonoBehaviour:
   moneyText: {fileID: 7074098465775175937}
   tweenTime: 0.5
   cannonGrids:
-  - {fileID: 0}
+  - {fileID: 5458128817713435551}
   slimeGrids:
   - {fileID: 680024594}
   worldGrids:

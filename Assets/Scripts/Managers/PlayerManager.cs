@@ -70,7 +70,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
 
-        OpenSaveGame(false);
+        //OpenSaveGame(false);
         // Load the achievement scritableobject
         achievements = Instantiate(Resources.Load("AchievementList", typeof(AchievementListSO)) as AchievementListSO);
         
@@ -231,8 +231,8 @@ public class PlayerManager : MonoBehaviour
 
 
 
-    private string GetSaveString()
-    {
+    //private string GetSaveString()
+   // {
         //BinaryFormatter formatter = new BinaryFormatter();
         //var mStream = new MemoryStream();
         //try
@@ -247,11 +247,11 @@ public class PlayerManager : MonoBehaviour
         //}
 
 
-        return money.ToString();
-    }
+       // return money.ToString();
+  //  }
 
-    private void LoadSaveString(string loadedData)
-    {
+    //private void LoadSaveString(string loadedData)
+   // {
         //MemoryStream memStream = new MemoryStream();
         //BinaryFormatter binForm = new BinaryFormatter();
         //memStream.Write(loadedData, 0, loadedData.Length);
@@ -260,58 +260,58 @@ public class PlayerManager : MonoBehaviour
         //Debug.Log(obj.ToString());
         //shopUpgrades = obj;
 
-        money = Int32.Parse(loadedData);
-    }
+      //  money = Int32.Parse(loadedData);
+   // }
 
 
 
 
-    public void OpenSaveGame(bool saving)
-    {
-        Debug.Log("Open Save");
+    //public void OpenSaveGame(bool saving)
+    //{
+     //   Debug.Log("Open Save");
 
-        if(Social.localUser.authenticated)
-        {
-            isSaving = saving;
-            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution("SlimeBlast", GooglePlayGames.BasicApi.DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, SaveGameOpened); // Will call SaveGameOpened Method as a call back.
-        }
-    }
+     //   if(Social.localUser.authenticated)
+      //  {
+          //  isSaving = saving;
+           // ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution("SlimeBlast", GooglePlayGames.BasicApi.DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, SaveGameOpened); // Will call SaveGameOpened Method as a call back.
+       // }
+   // }
 
-    private void SaveGameOpened(SavedGameRequestStatus status, ISavedGameMetadata meta)
-    {
-        if(status == SavedGameRequestStatus.Success)
-        {
-            if(isSaving) // Writing
-            {
-                byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(GetSaveString()); // Need to get the string and convert to bytes or maybe just pass in the bytes
-                SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().WithUpdatedDescription("Saved At " + DateTime.Now.ToString()).Build();
+   // private void SaveGameOpened(SavedGameRequestStatus status, ISavedGameMetadata meta)
+   // {
+      //  if(status == SavedGameRequestStatus.Success)
+     //   {
+     //       if(isSaving) // Writing
+      //      {
+        //        byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(GetSaveString()); // Need to get the string and convert to bytes or maybe just pass in the bytes
+         //       SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().WithUpdatedDescription("Saved At " + DateTime.Now.ToString()).Build();
 
-                ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta, update, data, SaveUpdate);
-            }
-            else // Reading
-            {
-                ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta, SaveRead);
-            }
-        }
-    }
+          //      ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta, update, data, SaveUpdate);
+           // }
+           // else // Reading
+           // {
+            //    ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta, SaveRead);
+           // }
+       // }
+   // }
 
     // Load
-    private void SaveRead(SavedGameRequestStatus status, byte[] data)
-    {
-        if(status == SavedGameRequestStatus.Success)
-        {
+   // private void SaveRead(SavedGameRequestStatus status, byte[] data)
+   // {
+    //    if(status == SavedGameRequestStatus.Success)
+    //    {
             
-            string saveData = System.Text.ASCIIEncoding.ASCII.GetString(data);
-            LoadSaveString(saveData);
-            Debug.Log(saveData);
+      //      string saveData = System.Text.ASCIIEncoding.ASCII.GetString(data);
+    //        LoadSaveString(saveData);
+     //       Debug.Log(saveData);
             
-        }
-    }
+      //  }
+  //  }
 
 
     // Success save
-    private void SaveUpdate(SavedGameRequestStatus status, ISavedGameMetadata arg2)
-    {
-        Debug.Log(status);
-    }
+  //  private void SaveUpdate(SavedGameRequestStatus status, ISavedGameMetadata meta)
+  //  {
+   //     Debug.Log(status);
+  //  }
 }

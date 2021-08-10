@@ -233,32 +233,34 @@ public class PlayerManager : MonoBehaviour
 
     private string GetSaveString()
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        var mStream = new MemoryStream();
-        try
-        {
+        //BinaryFormatter formatter = new BinaryFormatter();
+        //var mStream = new MemoryStream();
+        //try
+        //{
             
-            formatter.Serialize(mStream, shopUpgrades);
-            Debug.Log("Hello" + mStream.ToArray() + "|" + mStream.ToString()); 
-        }
-        catch(Exception e)
-        {
-            Debug.Log(e);
-        }
+        //    formatter.Serialize(mStream, shopUpgrades);
+        //    Debug.Log("Hello" + mStream.ToArray() + "|" + mStream.ToString()); 
+        //}
+        //catch(Exception e)
+        //{
+        //    Debug.Log(e);
+        //}
 
 
-        return mStream.ToString();
+        return money.ToString();
     }
 
-    private void LoadSaveString(byte[] loadedData)
+    private void LoadSaveString(string loadedData)
     {
-        MemoryStream memStream = new MemoryStream();
-        BinaryFormatter binForm = new BinaryFormatter();
-        memStream.Write(loadedData, 0, loadedData.Length);
-        memStream.Seek(0, SeekOrigin.Begin);
-        Dictionary<string,Upgrades> obj = (Dictionary<string, Upgrades>)binForm.Deserialize(memStream);
-        Debug.Log(obj.ToString());
-        shopUpgrades = obj;
+        //MemoryStream memStream = new MemoryStream();
+        //BinaryFormatter binForm = new BinaryFormatter();
+        //memStream.Write(loadedData, 0, loadedData.Length);
+        //memStream.Seek(0, SeekOrigin.Begin);
+        //Dictionary<string,Upgrades> obj = (Dictionary<string, Upgrades>)binForm.Deserialize(memStream);
+        //Debug.Log(obj.ToString());
+        //shopUpgrades = obj;
+
+        money = Int32.Parse(loadedData);
     }
 
 
@@ -298,8 +300,9 @@ public class PlayerManager : MonoBehaviour
     {
         if(status == SavedGameRequestStatus.Success)
         {
-            LoadSaveString(data);
+            
             string saveData = System.Text.ASCIIEncoding.ASCII.GetString(data);
+            LoadSaveString(saveData);
             Debug.Log(saveData);
             
         }

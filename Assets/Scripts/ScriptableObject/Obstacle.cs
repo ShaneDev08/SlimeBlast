@@ -6,12 +6,6 @@ using UnityEngine;
 public class Obstacle : ScriptableObject
 {
 
-    public enum Type
-    {
-        BouncePad,
-        Rock
-    }
-    public Type type;
-    public float speedAmount;
-    public float heightAmount;
+    public Sprite[] sprites;
+
 }

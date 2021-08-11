@@ -69,7 +69,7 @@ public class SaveManager : MonoBehaviour
 
     private string GetDataToStore()
     {
-        string Data = PlayerManager.money.ToString();
+        string Data = "Text";
         return Data;
     }
     

@@ -240,6 +240,11 @@ public class SlimeBall : MonoBehaviour
     #endregion
 
 
+    public void AddBounce(int amount)
+    {
+        bounciness += amount;
+    }
+
     public void TakeDamage(int damage,bool fromTrigger)
     {
        
@@ -250,7 +255,7 @@ public class SlimeBall : MonoBehaviour
             foreach (Rigidbody2D rig in rbs)
             {
                 rig.velocity = new Vector2(rig.velocity.x, 0);
-                rig.AddForce( new Vector2 (rig.velocity.x + 20,rig.velocity.y));
+                rig.AddForce( Vector2.right * 10);
                 rig.AddForce(Vector2.up * bounciness, ForceMode2D.Impulse);
             }
             health -= damage;
@@ -304,6 +309,15 @@ public class SlimeBall : MonoBehaviour
         foreach (Rigidbody2D rig in rbs)
         {
             rig.AddForce(Vector3.right * 0.1f, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.up / 2, ForceMode2D.Impulse);
+        }
+    }
+
+    public void AddHeightAndWidth()
+    {
+        foreach (Rigidbody2D rig in rbs)
+        {
+            rig.AddForce(Vector3.right * 5, ForceMode2D.Impulse);
             rig.AddForce(Vector2.up / 2, ForceMode2D.Impulse);
         }
     }

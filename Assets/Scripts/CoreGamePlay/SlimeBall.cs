@@ -28,6 +28,7 @@ public class SlimeBall : MonoBehaviour
     private GameObject jellyRef;
     private GameObject uiControl;
     private UnityJellySprite jellyScript;
+    private Jetpack jetPack;
 
     // Script Variables
     private bool hasStopedMoving = false;
@@ -42,12 +43,17 @@ public class SlimeBall : MonoBehaviour
     [SerializeField] private float bounciness;
 
 
+    public float jetPackAmount = 100f;
+
+
 
 
     private void Start()
     {
-        health = slimeStats.slimeHealth;
-        bounciness = slimeStats.slimeBounciness;
+        health = slimeStats.slimeHealth + slimeStats.slimeUpgrade.extraHealth;
+        bounciness = slimeStats.slimeBounciness + slimeStats.slimeUpgrade.extraBounce;
+
+        jetPack = GetComponentInChildren<Jetpack>();
 
 
         jellyScript = GetComponent<UnityJellySprite>();
@@ -114,7 +120,7 @@ public class SlimeBall : MonoBehaviour
         // Removes the floor from the camera
         if (transform.position.y > 100)
         {
-            Debug.Log("Remove Floor");
+           
             target1.RemoveMember(floor.transform);
         }
 
@@ -123,6 +129,11 @@ public class SlimeBall : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
         {
             health = 0;
+        }
+
+        if(jetPackAmount <= 0)
+        {
+            StopJetPacking();
         }
     }
 
@@ -247,15 +258,15 @@ public class SlimeBall : MonoBehaviour
 
     public void TakeDamage(int damage,bool fromTrigger)
     {
-       
 
+        Debug.Log("ouchhh");
 
         if (!tookDamage && !fromTrigger)
         {
             foreach (Rigidbody2D rig in rbs)
             {
                 rig.velocity = new Vector2(rig.velocity.x, 0);
-                rig.AddForce( Vector2.right * 10);
+                rig.AddForce(new Vector2(2,rig.velocity.y),ForceMode2D.Impulse);
                 rig.AddForce(Vector2.up * bounciness, ForceMode2D.Impulse);
             }
             health -= damage;
@@ -320,5 +331,26 @@ public class SlimeBall : MonoBehaviour
             rig.AddForce(Vector3.right * 5, ForceMode2D.Impulse);
             rig.AddForce(Vector2.up / 2, ForceMode2D.Impulse);
         }
+    }
+
+
+    public void JetPackForce()
+    {
+        jetPack.GetComponent<Jetpack>().usingJetPack = true;
+        foreach (Rigidbody2D rig in rbs)
+        {
+            if (jetPackAmount >= 0)
+            {
+                Debug.Log("JETRPACKKK");
+                rig.AddForce(Vector3.right * Time.deltaTime, ForceMode2D.Impulse);
+                rig.AddForce(Vector2.up * 25 * Time.deltaTime, ForceMode2D.Impulse);
+            }
+        }
+        jetPackAmount -= 50 * Time.deltaTime;
+    }
+
+    public void StopJetPacking()
+    {
+        jetPack.GetComponent<Jetpack>().usingJetPack = false;
     }
 }

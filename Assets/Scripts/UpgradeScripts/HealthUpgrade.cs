@@ -7,7 +7,7 @@ using System;
 public class HealthUpgrade : Upgrades
 {
     public int extraHealth = 10;
-
+    
 
     public HealthUpgrade(string name, int upgradeAmount, int purchaseAmount, int upgradeCost, bool enabled, int upgradeChangeAmountToAdd)
     {

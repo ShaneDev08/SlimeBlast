@@ -70,5 +70,7 @@ public class PowerBar : MonoBehaviour
 
         UIManager.instance.DisableFireButton();
 
+       
+
     }
 }

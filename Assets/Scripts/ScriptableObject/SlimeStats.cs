@@ -24,4 +24,6 @@ public class SlimeStats : ScriptableObject {
     public AudioClip[] slimeNoises;
     public bool multipleRbs;
 
+
+    public SlimeUpgrades slimeUpgrade;
 }

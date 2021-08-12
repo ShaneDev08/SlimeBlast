@@ -14,15 +14,9 @@ public class Star : MonoBehaviour
     {
         if (!LeanTween.isTweening())
         {
-
-
-            if (PlayerManager.BuyUpgrade(upgradeName))
-            {
                 LeanTween.scale(this.gameObject, Vector3.one, 0.5f).setEasePunch();
                 button.enabled = false;
-
-                ShopUI.instance.RemoveButton(upgradeName);
-            }
+            BuyUpgradesCannon.instance.RemoveButton();
         }
     }
 }

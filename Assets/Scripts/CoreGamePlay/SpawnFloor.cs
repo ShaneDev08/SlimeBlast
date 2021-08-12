@@ -58,20 +58,20 @@ public class SpawnFloor : MonoBehaviour
             CreateLevel(gameFloor);
             
         }
-        if (PlayerManager.shopUpgrades["BouncePads"].isEnabled)
-        {
-            SpawnBouncePads();
-        }
+        //if (PlayerManager.shopUpgrades["BouncePads"].isEnabled)
+        //{
+        //    SpawnBouncePads();
+        //}
 
-        if (PlayerManager.shopUpgrades["SlimePickup"].isEnabled)
-        {
-            SpawnExtraSlime();
-        }
+        //if (PlayerManager.shopUpgrades["SlimePickup"].isEnabled)
+        //{
+        //    SpawnExtraSlime();
+        //}
 
-        if (PlayerManager.shopUpgrades["MoneyPickup"].isEnabled)
-        {
-            SpawnMoneyBags();
-        }
+        //if (PlayerManager.shopUpgrades["MoneyPickup"].isEnabled)
+        //{
+        //    SpawnMoneyBags();
+        //}
 
     }
 

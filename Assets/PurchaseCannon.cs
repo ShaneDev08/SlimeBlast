@@ -16,6 +16,12 @@ public class PurchaseCannon : MonoBehaviour
     public Button purchaseButton;
     public Button upgradeButton;
 
+    public GameObject upgradeBoxGO;
+    private float tweenTime = 0.5f;
+
+     private void Start() 
+    {
+    }
     // Update is called once per frame
     void Update()
     {
@@ -54,6 +60,11 @@ public class PurchaseCannon : MonoBehaviour
     public void OnPointerUp()
     {
         Reset();
+    }
+
+    public void OpenUpgradeScreen()
+    {
+        upgradeBoxGO.SetActive(true);
     }
 
     public void Reset()

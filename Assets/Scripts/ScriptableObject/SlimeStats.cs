@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 
 [CreateAssetMenu(menuName ="SlimeCharacter")]
@@ -16,7 +18,6 @@ public class SlimeStats : ScriptableObject {
     [Header("Slime Secondary Stats")]
     public string slimeName;
 
-    
 
     [Header("SlimeObjectReferences")]
     public Sprite slimeSprite;
@@ -26,4 +27,16 @@ public class SlimeStats : ScriptableObject {
 
 
     public SlimeUpgrades slimeUpgrade;
+    public SlimeBought slimeBought;
+}
+[Serializable]
+public class SlimeBought
+{
+    public bool isUnlocked = false;
+
+    public void BuySlime()
+    {
+        isUnlocked = true;
+    }
+    
 }

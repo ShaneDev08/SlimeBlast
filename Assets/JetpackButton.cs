@@ -18,8 +18,8 @@ public class JetpackButton : MonoBehaviour
 
         if(slimeBall = null)
         slimeBall = slimeSpawnd.GetComponent<SlimeBall>();
-
-        if(isHolding)
+       
+            if(isHolding)
         {
             slimeSpawnd.GetComponent<SlimeBall>().JetPackForce();
         }
@@ -33,6 +33,7 @@ public class JetpackButton : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+        
     }
 
 

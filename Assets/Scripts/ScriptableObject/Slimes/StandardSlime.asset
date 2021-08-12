@@ -25,3 +25,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c44b89db7efc42a48b2b82e3ee88e13e, type: 3}
   - {fileID: 8300000, guid: 2a38039c0cdb1634da9f0e72c015fa33, type: 3}
   multipleRbs: 1
+  slimeUpgrade:
+    extraHealth: 0
+    amountOfHealthUpgrades: 0
+    costHealthAmount: 0
+    currentHealthUpgrade: 0
+    upgradeChangeAmount: 0
+    addToHealthAmount: 0
+    extraBounce: 0
+    amountOfBouncehUpgrades: 0
+    costBouncehAmount: 0
+    currentBounceUpgrade: 0
+    upgradeBounceChangeAmount: 0
+    addToBounceAmount: 0
+  slimeBought:
+    isUnlocked: 1

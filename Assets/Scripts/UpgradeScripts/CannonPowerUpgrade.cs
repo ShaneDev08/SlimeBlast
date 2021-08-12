@@ -10,11 +10,11 @@ public class CannonPowerUpgrade
     [Header("Power Upgrade Stats")]
     public int upgradeAmount = 10;
     public int currentUpgrade;
-    public int upgradeValue;
+    public float upgradeValue;
     public int powerModifer;
     public int upgradeChangeValue;
 
-    private bool CanBuy()
+    public bool CanBuy()
     {
         if (PlayerManager.money >= upgradeValue  && currentUpgrade < upgradeAmount)
         {
@@ -35,6 +35,7 @@ public class CannonPowerUpgrade
             PlayerManager.money -= upgradeValue;
             currentUpgrade += 1;
             upgradeValue += upgradeValue / 100 * 15;
+           
         }
     }
 

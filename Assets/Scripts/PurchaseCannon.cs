@@ -19,8 +19,18 @@ public class PurchaseCannon : MonoBehaviour
     public GameObject upgradeBoxGO;
     private float tweenTime = 0.5f;
 
+
+    [SerializeField] CannonSo cannon;
+  
+
+    
+
+    
+ 
+
      private void Start() 
     {
+        
     }
     // Update is called once per frame
     void Update()
@@ -64,7 +74,10 @@ public class PurchaseCannon : MonoBehaviour
 
     public void OpenUpgradeScreen()
     {
+        
         upgradeBoxGO.SetActive(true);
+        BuyUpgradesCannon.instance.SetCannonID(cannon.id);
+        BuyUpgradesCannon.instance.CreateStars();
     }
 
     public void Reset()

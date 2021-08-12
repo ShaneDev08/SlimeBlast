@@ -109,17 +109,16 @@ public class Launcher : MonoBehaviour
             audio.PlayOneShot(launchSound);
 
             // Check to see if powerUpgrade is enabled
-            Debug.Log(PlayerManager.shopUpgrades["Cannon"].isEnabled);
-            if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
-            {
-                Debug.Log("Launch With extra Power");
-                LaunchWithPowerUpgrade(rb);
-            }
-            else
-            {
+           
+            //if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
+            //{
+            //    Debug.Log("Launch With extra Power");
+            //    LaunchWithPowerUpgrade(rb);
+            //}
+            
                 Debug.Log("Launch With No Power");
                 LaunchWithNoUpgrades(rb);
-            }
+            
 
            
 
@@ -132,14 +131,13 @@ public class Launcher : MonoBehaviour
         else if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
         {
 
-            if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
-            {
-                LaunchWithPowerUpgrade(rbs);
-            }
-            else
-            {
+            //if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
+            //{
+            //    LaunchWithPowerUpgrade(rbs);
+            //}
+            
                 LaunchWithNoUpgrades(rbs);
-            }
+            
             audio.PlayOneShot(launchSound);
             
         }
@@ -194,13 +192,13 @@ public class Launcher : MonoBehaviour
     #region TODOLAUNCHSLIMEWITHUPGRADE
     private void LaunchWithPowerUpgrade(Rigidbody2D rb)
     {
-        Debug.Log("POWERRRRRR");
-        PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
- 
-        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * power.powerModifier, ForceMode2D.Impulse);
-        // Launch in the Air
         
-        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * power.powerModifier , ForceMode2D.Impulse);
+        //PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
+ 
+        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * 2, ForceMode2D.Impulse);           // TO DO Upgrade POWER 
+                                                                                                               // Launch in the Air
+
+        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * 2 , ForceMode2D.Impulse);               // TO DO Upgrade POWER 
 
         target1.AddMember(slimeSpawned.transform, 1, 0);
     }
@@ -210,15 +208,15 @@ public class Launcher : MonoBehaviour
         EnableMesh();
         Debug.Log("POWERRRRRR");
         //Debug.Log(power.powerModifier);
-        PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
+       // PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
         foreach (Rigidbody2D rbs in rb)
         {
             rbs.gravityScale = 1;
             slimeSpawned.GetComponent<SlimeBall>().hasSpawned = true;
-            rbs.AddForce(transform.right * (UIManager.instance.powerAmount / 10 + power.powerModifier), ForceMode2D.Impulse);
+            rbs.AddForce(transform.right * (UIManager.instance.powerAmount / 10 + 2), ForceMode2D.Impulse);       // TO DO Upgrade POWER 
             // Launch in the Air
 
-            rbs.AddForce(Vector3.up * (UIManager.instance.powerAmount / 10 + power.powerModifier), ForceMode2D.Impulse);
+            rbs.AddForce(Vector3.up * (UIManager.instance.powerAmount / 10 + 2), ForceMode2D.Impulse);                // TO DO Upgrade POWER 
          }
 
         target1.AddMember(slimeSpawned.transform, 2, 5);

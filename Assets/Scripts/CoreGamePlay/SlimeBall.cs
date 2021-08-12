@@ -59,16 +59,17 @@ public class SlimeBall : MonoBehaviour
         jellyScript = GetComponent<UnityJellySprite>();
 
 
-        if (PlayerManager.shopUpgrades["Extra Health"].isEnabled)
-        {
-            SetExtraHealth();
-        }
-        else
-        {
+        //if (PlayerManager.shopUpgrades["Extra Health"].isEnabled)
+        //{
+        //    SetExtraHealth();
+        //}
+
+
+        
             float scaleRatio = health / 100;
             jellyScript.m_SpriteScale *= scaleRatio;
             jellyScript.Scale(scaleRatio, true);
-        }
+        
 
         
         // Check to see if this object has multiple Rbs and gets them
@@ -305,15 +306,15 @@ public class SlimeBall : MonoBehaviour
         tookDamage = false;
     }
 
-    private void SetExtraHealth()
-    {
-        HealthUpgrade extraHealth = (HealthUpgrade)PlayerManager.shopUpgrades["Extra Health"];
-        health += extraHealth.extraHealth;
+    //private void SetExtraHealth()
+    //{
+    //    HealthUpgrade extraHealth = (HealthUpgrade)PlayerManager.shopUpgrades["Extra Health"];
+    //    health += extraHealth.extraHealth;
 
-        float scaleRatio = health / 100;
-        jellyScript.m_SpriteScale *= scaleRatio;
-        jellyScript.Scale(scaleRatio, true);
-    }
+    //    float scaleRatio = health / 100;
+    //    jellyScript.m_SpriteScale *= scaleRatio;
+    //    jellyScript.Scale(scaleRatio, true);
+    //}
 
     public void AddHeight()
     {

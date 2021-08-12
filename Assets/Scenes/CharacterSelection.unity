@@ -2229,6 +2229,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2405553133256117141, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405553133256117141, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405553133256117141, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1906445201}
+    - target: {fileID: 2405553133256117141, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405553133256117141, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnCannonSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405553133256117141, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CannonSelection, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405553133256117141, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 401bf5667462a924d83447768a7e610e, type: 3}
 --- !u!1 &954990356
@@ -4244,6 +4272,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905692691}
   m_CullTransparentMesh: 1
+--- !u!1 &1906445200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1899121939103122854, guid: 401bf5667462a924d83447768a7e610e, type: 3}
+  m_PrefabInstance: {fileID: 841958853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1906445201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906445200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507cf0af36ccf374cb7ea009ccc61526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon: {fileID: 1035096096722235946, guid: 358b12fe5b1ab2a4087418386c7994f8, type: 3}
 --- !u!1 &1977680838
 GameObject:
   m_ObjectHideFlags: 0

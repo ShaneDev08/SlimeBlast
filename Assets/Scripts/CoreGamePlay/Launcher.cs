@@ -12,10 +12,10 @@ public class Launcher : MonoBehaviour
 
 
     // Game Components 
-    public CinemachineTargetGroup target1;
-    public CinemachineVirtualCamera cam;
+    private CinemachineTargetGroup target1;
+    private CinemachineVirtualCamera cam;
     public AudioClip launchSound;
-    public ObjectPool pool;
+    private ObjectPool pool;
     public Transform shootFrom;
     public GameObject explosion;
     public Transform floor;
@@ -37,6 +37,13 @@ public class Launcher : MonoBehaviour
 
     private void Start()
     {
+
+        pool = GameObject.Find("ObjectPool").GetComponent<ObjectPool>();
+        target1 = GameObject.Find("TargetGroup").GetComponent<CinemachineTargetGroup>();
+        target1.AddMember(this.gameObject.transform, 1, 1);
+        cam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+        floor = GameObject.Find("GameStartFloor").transform;
+
 
         cam.m_Lens.NearClipPlane = -5;
         // Register to event when fire button is no longer pressed

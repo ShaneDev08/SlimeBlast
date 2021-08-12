@@ -122,7 +122,7 @@ public class SlimeBall : MonoBehaviour
         if (transform.position.y > 100)
         {
            
-            target1.RemoveMember(floor.transform);
+            //target1.RemoveMember(floor.transform);
         }
 
      
@@ -342,7 +342,7 @@ public class SlimeBall : MonoBehaviour
         {
             if (jetPackAmount >= 0)
             {
-                Debug.Log("JETRPACKKK");
+              
                 rig.AddForce(Vector3.right * Time.deltaTime, ForceMode2D.Impulse);
                 rig.AddForce(Vector2.up * 25 * Time.deltaTime, ForceMode2D.Impulse);
             }

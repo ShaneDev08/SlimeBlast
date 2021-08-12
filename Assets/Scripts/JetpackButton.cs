@@ -10,41 +10,30 @@ public class JetpackButton : MonoBehaviour
     public GameObject slimeSpawnd;
     private SlimeBall slimeBall;
     public bool isHolding = false;
-    private bool hasSpawned;
 
     // Update is called once per frame
     void Update()
     {
+        slimeSpawnd = pool.GetCurrentActiveObject();
 
-        if (!hasSpawned)
+        if(slimeBall = null)
+        slimeBall = slimeSpawnd.GetComponent<SlimeBall>();
+       
+            if(isHolding)
         {
-
-            slimeSpawnd = pool.GetCurrentActiveObject();
-
-            if(slimeSpawnd != null)
-            {
-                hasSpawned = true;
-            }
+            slimeSpawnd.GetComponent<SlimeBall>().JetPackForce();
+        }
+        else
+        {
+            slimeSpawnd.GetComponent<SlimeBall>().StopJetPacking();
         }
 
-        if (slimeSpawnd != null)
+
+        if(slimeSpawnd.GetComponent<SlimeBall>().jetPackAmount <=0 )
         {
-
-            if (isHolding)
-            {
-                slimeSpawnd.GetComponent<SlimeBall>().JetPackForce();
-            }
-            else
-            {
-                slimeSpawnd.GetComponent<SlimeBall>().StopJetPacking();
-            }
-
-
-            if (slimeSpawnd.GetComponent<SlimeBall>().jetPackAmount <= 0)
-            {
-                this.gameObject.SetActive(false);
-            }
+            this.gameObject.SetActive(false);
         }
+        
     }
 
 

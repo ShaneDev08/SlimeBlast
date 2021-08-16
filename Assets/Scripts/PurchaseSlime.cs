@@ -15,7 +15,7 @@ public class PurchaseSlime : MonoBehaviour
     public Button purchaseButton;
     public Button upgradeButton;
 
-    public GameObject upgradeBoxGO;
+    public GameObject upgradeBox;
     private float tweenTime = 0.5f;
  
      private void Start() 
@@ -83,8 +83,7 @@ public class PurchaseSlime : MonoBehaviour
 
     public void OpenUpgradeScreen()
     {
-        
-        upgradeBoxGO.SetActive(true);
+        LeanTween.moveLocalY(upgradeBox,-25, tweenTime);
         //BuyUpgradesCannon.instance.SetCannonID(slime.id);
         //BuyUpgradesCannon.instance.CreateStars();
     }

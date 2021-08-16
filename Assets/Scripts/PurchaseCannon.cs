@@ -97,4 +97,9 @@ public class PurchaseCannon : MonoBehaviour
         fillImage.fillAmount = pointerDownTime / requiredDownTime;
     }
 
+    public void onClickBack()
+    {
+        upgradeBox.LeanMoveLocalY(-700, tweenTime);
+    }
+
 }

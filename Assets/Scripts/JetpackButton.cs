@@ -12,6 +12,14 @@ public class JetpackButton : MonoBehaviour
     public bool isHolding = false;
     private bool hasSpawned;
 
+    private void Start()
+    {
+        if(!PlayerManager.instance.CheckIfWorldUpgradeBought(1))
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -21,11 +21,7 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
 
 
-    // Lisdt of Abillitys user can buy
-    // 0 Is jump?
-    // 1 is?
-    // 2 is?
-    public static Abillity[] abillities = new Abillity[1];
+    public List<WorldUpgrades> upgradeForWorld;
 
     
 
@@ -71,10 +67,11 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-
+        upgradeForWorld = new List<WorldUpgrades>();
         //OpenSaveGame(false);
         // Load the achievement scritableobject
         achievements = Instantiate(Resources.Load("AchievementList", typeof(AchievementListSO)) as AchievementListSO);
+        AddAllWorldUpgrades();
         
     }
 
@@ -112,15 +109,53 @@ public class PlayerManager : MonoBehaviour
 
     // Buy Jump. If money is over 50 then jump abillity has been enabled and added to the list
 
-    public void BuyJump()
+
+// 0 bouncepad
+// 1 jetpack
+// 2 fan
+// 3 slimeSpawner
+
+
+   private void AddAllWorldUpgrades()
     {
-        Debug.Log("Bought Jump" + " " + money);
-        if (money >= 50)
+        WorldUpgrades bouncePadUpgrade = new WorldUpgrades("BouncePad", 0, 5000);
+        WorldUpgrades jetPack = new WorldUpgrades("JetPack", 1, 6000);
+        WorldUpgrades fan = new WorldUpgrades("Fan", 2, 1000);
+        WorldUpgrades slimeSpawner = new WorldUpgrades("SlimeSpawner", 3, 10000);
+
+        upgradeForWorld.Add(bouncePadUpgrade);
+        upgradeForWorld.Add(jetPack);
+        upgradeForWorld.Add(fan);
+        upgradeForWorld.Add(slimeSpawner);
+    }
+
+    public bool CheckIfWorldUpgradeBought (int id)
+    {
+        
+        foreach (WorldUpgrades upgrades in upgradeForWorld)
         {
-            money -= 50;
-            Debug.Log("Bought Jump" + " money equals " + money);
-            JumpAbillity jumpAbillity = new JumpAbillity("Jump", true, 100);
-            abillities[0] = jumpAbillity;
+            
+            if(upgrades.Id == id && upgrades.IsBought)
+            {
+               
+                return true;
+            }   
+        }
+        return false;
+
+       
+    }
+
+    public void BuyWorldUpgrade(int id)
+    {
+        
+        foreach(WorldUpgrades upgrade in upgradeForWorld)
+        {
+            if(upgrade.Id == id)
+            {
+                upgrade.IsBought = true;
+                
+            }
         }
     }
 

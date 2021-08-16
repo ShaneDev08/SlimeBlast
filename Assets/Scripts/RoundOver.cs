@@ -49,7 +49,7 @@ public class RoundOver : MonoBehaviour
 
     public void ShopScreen(){
         ResetScores();
-        SceneManager.LoadScene("Shop");
+        SceneManager.LoadScene("ShopV2");
     }
 
     private void ResetScores()

@@ -82,11 +82,13 @@ public class Launcher : MonoBehaviour
 
                 slimeSpawned.transform.position = shootFrom.transform.position;
                 slimeSpawned.GetComponent<MeshRenderer>().enabled = false;
-                sprites = slimeSpawned.GetComponentsInChildren<SpriteRenderer>();
+                sprites = slimeSpawned.transform.Find("Eyes").GetComponentsInChildren<SpriteRenderer>();
                 for (int i = 0; i < sprites.Length; i++)
                 {
                     sprites[i].enabled = false;
                 }
+
+                
                 hasSpawned = true;
 
 
@@ -105,39 +107,9 @@ public class Launcher : MonoBehaviour
     // This method will get called by an EVENT which is when the player lets go of the power button
     public void LaunchSlime()
     {
-        // If standard slime with one RB then get the RB and send it over to the method for standard 1 RB
-        if (!multipleRb)
-        {
-            slimeSpawned = pool.GetObject();
-            slimeSpawned.transform.position = shootFrom.transform.position;
-
-
-            PlayerManager.instance.slimeInGame = slimeSpawned;
-            Rigidbody2D rb = slimeSpawned.GetComponent<Rigidbody2D>();
-
-            audio.PlayOneShot(launchSound);
-
-            // Check to see if powerUpgrade is enabled
-           
-            //if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
-            //{
-            //    Debug.Log("Launch With extra Power");
-            //    LaunchWithPowerUpgrade(rb);
-            //}
-            
-                Debug.Log("Launch With No Power");
-                LaunchWithNoUpgrades(rb);
-            
-
-           
-
-
-            //cam.LookAt = slimeSpawned.transform;
-            //cam.Follow = slimeSpawned.transform;
-        }
 
         // Else Launch with multipleRbs
-        else if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
+        if (PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs)
         {
 
             //if (PlayerManager.shopUpgrades["Cannon"].isEnabled)
@@ -184,33 +156,8 @@ public class Launcher : MonoBehaviour
     }
 
 
-    // Standard Method for one Rb. Adds force and creates an explosion and also adds slime to target
-    private void LaunchWithNoUpgrades(Rigidbody2D rb)
-    {
-            rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
-            // Launch in the Air
-            rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * 12, ForceMode2D.Impulse);
-            Instantiate(explosion, shootFrom.transform.position, explosion.transform.rotation);
-        
-
-        target1.AddMember(slimeSpawned.transform, 2, 5);
-        target1.RemoveMember(gameObject.transform);
-    }
-
-
     #region TODOLAUNCHSLIMEWITHUPGRADE
-    private void LaunchWithPowerUpgrade(Rigidbody2D rb)
-    {
-        
-        //PowerUpgrade power = (PowerUpgrade)PlayerManager.shopUpgrades["Cannon"];
- 
-        rb.AddForce(transform.right * UIManager.instance.powerAmount / 10 * 2, ForceMode2D.Impulse);           // TO DO Upgrade POWER 
-                                                                                                               // Launch in the Air
-
-        rb.AddForce(Vector3.up * UIManager.instance.powerAmount / 10 * 2 , ForceMode2D.Impulse);               // TO DO Upgrade POWER 
-
-        target1.AddMember(slimeSpawned.transform, 1, 0);
-    }
+    
 
     private void LaunchWithPowerUpgrade(Rigidbody2D[] rb)
     {
@@ -248,20 +195,7 @@ public class Launcher : MonoBehaviour
 
     #endregion
 
-    #region TankUpgradesToDOLIST
-    // Added the jump here. If the abillity is enabled then we can show a button??
-    //public void Jump()
-    //{
-    //    if (PlayerManager.abillities[0].isEnabled)
-    //    {
-    //        Debug.Log("Jump");
-    //        slimeSpawned.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50f, ForceMode2D.Impulse);
-    //    }
-    //}
 
-
-
-    #endregion
 
 
     private void EnableMesh()
@@ -271,6 +205,10 @@ public class Launcher : MonoBehaviour
         {
             // Enables the Eyes 
             sprites[i].enabled = true;
+        }
+        if (PlayerManager.instance.CheckIfWorldUpgradeBought(1))
+        {
+            slimeSpawned.transform.Find("Jetpack").GetComponent<SpriteRenderer>().enabled = true;
         }
 
     }

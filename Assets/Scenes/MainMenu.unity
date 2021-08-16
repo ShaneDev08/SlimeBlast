@@ -1156,10 +1156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c571330d4d9311e40be004817255d4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBallPos: []
-  timeBallRadius: []
-  timeBallColor: []
-  showTimeBall: 0
 --- !u!1 &1685910396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1290,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865109, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: 1035096096722235946, guid: 358b12fe5b1ab2a4087418386c7994f8, type: 3}
     - target: {fileID: 6668571603292865110, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
       propertyPath: m_Name
       value: PlayerManager

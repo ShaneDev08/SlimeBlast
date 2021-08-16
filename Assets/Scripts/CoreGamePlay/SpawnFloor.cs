@@ -58,10 +58,10 @@ public class SpawnFloor : MonoBehaviour
             CreateLevel(gameFloor);
             
         }
-        //if (PlayerManager.shopUpgrades["BouncePads"].isEnabled)
-        //{
-        //    SpawnBouncePads();
-        //}
+        if (PlayerManager.instance.CheckIfWorldUpgradeBought(0))
+        {
+            SpawnBouncePads();
+        }
 
         //if (PlayerManager.shopUpgrades["SlimePickup"].isEnabled)
         //{

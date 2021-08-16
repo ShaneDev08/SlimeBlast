@@ -53,9 +53,13 @@ public class SlimeBall : MonoBehaviour
         health = slimeStats.slimeHealth + slimeStats.slimeUpgrade.extraHealth;
         bounciness = slimeStats.slimeBounciness + slimeStats.slimeUpgrade.extraBounce;
 
-        jetPack = GetComponentInChildren<Jetpack>();
+        if (PlayerManager.instance.CheckIfWorldUpgradeBought(1))
+        {
+            
+            jetPack = GetComponentInChildren<Jetpack>();
+        }
 
-
+       
         jellyScript = GetComponent<UnityJellySprite>();
 
 

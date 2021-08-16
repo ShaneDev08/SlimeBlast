@@ -41,9 +41,9 @@ public class ShopUIController : MonoBehaviour
 
     public void onClickBack()
     {
-        cannonUpgradeHolder.LeanMoveLocalY(-400,tweenTime).setEaseOutExpo();
-        slimeUprgradeHolder.LeanMoveLocalY(-400,tweenTime).setEaseOutExpo();
-        unlockTreeHolder.LeanMoveLocalY(-600,tweenTime).setEaseOutExpo();
+        cannonUpgradeHolder.LeanMoveLocalY(-700,tweenTime).setEaseOutExpo();
+        slimeUprgradeHolder.LeanMoveLocalY(-700,tweenTime).setEaseOutExpo();
+        unlockTreeHolder.LeanMoveLocalY(-700,tweenTime).setEaseOutExpo();
         buttonHolder.LeanMoveLocalY(0,tweenTime).setEaseOutExpo();
     }
 
@@ -69,7 +69,7 @@ public class ShopUIController : MonoBehaviour
 
     public void MoveUnlockButtons()
     {
-        buttonHolder.LeanMoveLocalY(-500,tweenTime).setEaseOutExpo();
+        buttonHolder.LeanMoveLocalY(-700,tweenTime).setEaseOutExpo();
     }
 
 

@@ -30,6 +30,8 @@ public class Launcher : MonoBehaviour
     private bool hasFoundRb;
     private bool multipleRb;
 
+    public CannonSo cannonStats;
+
 
     // TO DO 
     // Use upgrades class to add in upgrades to the launcher. Then we can check to see if upgrades have been unlocked and then use them

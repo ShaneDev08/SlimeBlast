@@ -10,6 +10,7 @@ public class CannonSo : ScriptableObject
     [Tooltip("Starting Power for the Cannon")]
     public int power;
     public int value;
+    public bool isBought;
     
 
     [Header("ID")]

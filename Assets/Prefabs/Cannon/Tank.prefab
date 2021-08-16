@@ -211,13 +211,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbs: []
-  target1: {fileID: 0}
-  cam: {fileID: 0}
   launchSound: {fileID: 8300000, guid: f1dd105ba1465b9409d369acc3014dce, type: 3}
-  pool: {fileID: 0}
   shootFrom: {fileID: 1801594758}
   explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   floor: {fileID: 0}
+  cannonStats: {fileID: 11400000, guid: 8b8113afe32e17a488c0b533b54fc977, type: 2}
 --- !u!114 &1035096096722235950
 MonoBehaviour:
   m_ObjectHideFlags: 0

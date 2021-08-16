@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class PurchaseCannon : MonoBehaviour
+public class PurchaseSlime : MonoBehaviour
 {
     private bool pointerDown;
     private float pointerDownTime;
@@ -18,7 +17,7 @@ public class PurchaseCannon : MonoBehaviour
 
     public GameObject upgradeBoxGO;
     private float tweenTime = 0.5f;
-
+ 
      private void Start() 
     {
         
@@ -31,12 +30,12 @@ public class PurchaseCannon : MonoBehaviour
             pointerDownTime += Time.deltaTime;
         if (pointerDownTime >= requiredDownTime)
         {
-            ShopSelection.shopSelection.BuyingCannon();
+            ShopSelection.shopSelection.BuyingSlime();
             Reset();
         }
         fillImage.fillAmount = pointerDownTime / requiredDownTime;
         }
-        if (ShopSelection.shopSelection.CheckIfCannonBought())
+        if (ShopSelection.shopSelection.CheckIfSlimeBought())
         {
             DisablePurchaseButton();
             EnableUpgradeButton();
@@ -54,7 +53,7 @@ public class PurchaseCannon : MonoBehaviour
 
     public void DisablePurchaseButton()
     {
-        if (ShopSelection.shopSelection.CheckIfCannonBought())
+        if (ShopSelection.shopSelection.CheckIfSlimeBought())
         {
             purchaseButton.gameObject.SetActive(false);
         }
@@ -62,7 +61,7 @@ public class PurchaseCannon : MonoBehaviour
 
     public void EnablePurchaseButton()
     {
-        if (!ShopSelection.shopSelection.CheckIfCannonBought())
+        if (!ShopSelection.shopSelection.CheckIfSlimeBought())
         {
             purchaseButton.gameObject.SetActive(true);
         }

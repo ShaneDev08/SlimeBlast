@@ -7,7 +7,7 @@ public class SpawnCannon : MonoBehaviour
    
     void Start()
     {
-        Instantiate(PlayerManager.instance.cannon);
+        Instantiate(PlayerManager.instance.cannon,transform.position, transform.rotation);
     }
 
    

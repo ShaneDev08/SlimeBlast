@@ -30,6 +30,7 @@ public class PowerBar : MonoBehaviour
 
     private void PowerActive()
     {
+        TankController.instance.isShooting = true;
         if(isDirectionUp)
         {
             powerAmount += Time.deltaTime * powerSpeed;

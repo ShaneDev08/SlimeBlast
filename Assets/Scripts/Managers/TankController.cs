@@ -4,39 +4,50 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
-    private Touch touch;
-    [SerializeField] private Transform cannonObject;
-    private Vector2 startPos;
-    Quaternion rotationZ;
-    float rotateSpeed = 0.1f;
-    // Update is called once per frame
+    [Header("Cannon Objects")]
+    [SerializeField] private Transform cannonBarrel;
+
+    [Header("Cannon Stats")]
+    [SerializeField] private float rotateSpeed;
+    [SerializeField] private float minHeight;
+    [SerializeField] private float maxHeight;
+
+    private bool direction = true;
+    public bool isShooting = false;
+
+    public static TankController instance;
+
+    private void Start()
+    {
+        instance = this;
+    }
+
+
     void Update()
     {
-
-        if (Input.touchCount > 0)
+        if (!isShooting)
         {
-            
-                touch = Input.GetTouch(0);
-
-                if(touch.position.y < Screen.height /2)
+            if (direction)
+            {
+                cannonBarrel.Rotate(0, 0, rotateSpeed * Time.deltaTime, Space.Self);
+                if (cannonBarrel.transform.localEulerAngles.z > maxHeight)
                 {
-                    if(touch.phase == TouchPhase.Moved)
-                    {
-                        cannonObject.transform.Rotate(0f, 0f, -touch.deltaPosition.y * rotateSpeed);
-                    }
+                    direction = false;
                 }
+            }
+
+            else if (!direction)
+            {
                 
-            
-
+                cannonBarrel.Rotate(0, 0, -rotateSpeed * Time.deltaTime, Space.Self);
+                if (cannonBarrel.transform.localEulerAngles.z < minHeight)
+                {
+                    direction = true;
+                }
+            }
         }
 
-        if(Input.GetKey(KeyCode.DownArrow))
-        {
-            cannonObject.transform.Rotate(0, 0, -1 * Time.deltaTime);
-        } else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            cannonObject.transform.Rotate(0, 0, 1 * Time.deltaTime);
-        }
+
     }
 }
 

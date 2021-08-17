@@ -1188,7 +1188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156046681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c4d6ef0d60a35d4459f0c3444466921e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2339a18b24dc3f04aa6670733824deb0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4667,6 +4667,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021550603}
   m_CullTransparentMesh: 1
+--- !u!1001 &1034441973
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1223.4661
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 482.50604
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -76.21931
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668571603292865110, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
+      propertyPath: m_Name
+      value: PlayerManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
 --- !u!1 &1037342942
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,7 +5699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1344882200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6425,7 +6482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c4d6ef0d60a35d4459f0c3444466921e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2339a18b24dc3f04aa6670733824deb0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8036,7 +8093,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c4d6ef0d60a35d4459f0c3444466921e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2339a18b24dc3f04aa6670733824deb0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8388,7 +8445,7 @@ GameObject:
   - component: {fileID: 2019815898}
   - component: {fileID: 2019815897}
   m_Layer: 5
-  m_Name: PlayBUtton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8752,7 +8809,7 @@ PrefabInstance:
     - target: {fileID: 258615779134647216, guid: 614fefa406ddb764998209c8a170bd40, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bb4026baf635a1b49ba449b3c6d22d5a, type: 3}
+      objectReference: {fileID: 21300000, guid: 41ad1844ee7f56a4ea52ac32ea255842, type: 3}
     - target: {fileID: 258615779134647218, guid: 614fefa406ddb764998209c8a170bd40, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

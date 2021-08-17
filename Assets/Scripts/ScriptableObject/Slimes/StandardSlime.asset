@@ -26,17 +26,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2a38039c0cdb1634da9f0e72c015fa33, type: 3}
   multipleRbs: 1
   slimeUpgrade:
-    extraHealth: 0
-    amountOfHealthUpgrades: 0
-    costHealthAmount: 150
-    currentHealthUpgrade: 0
+    extraHealth: 1450
+    amountOfHealthUpgrades: 10
+    costHealthAmount: 201
+    currentHealthUpgrade: 10
     upgradeHealthChangeAmount: 0
-    addToHealthAmount: 0
-    extraBounce: 0
-    amountOfBouncehUpgrades: 0
-    costBouncehAmount: 0
-    currentBounceUpgrade: 0
+    addToHealthAmount: 200
+    increaseHealthtCost: 20
+    extraBounce: 36
+    amountOfBounceUpgrades: 3
+    costBounceAmount: 110
+    currentBounceUpgrade: 3
     upgradeBounceChangeAmount: 0
-    addToBounceAmount: 0
+    addToBounceAmount: 32
+    increaseBouncetCost: 30
+    lessWeight: 18
+    amountOfWeightUpgrades: 2
+    costWeighthAmount: 110
+    currentWeightUpgrade: 2
+    upgradeWeightChangeAmount: 0
+    addToWeightAmount: 24
+    increaseWeightCost: 40
   slimeBought:
     isUnlocked: 1

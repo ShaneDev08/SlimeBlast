@@ -1188,7 +1188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &156046681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1249,6 +1249,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156046680}
   m_CullTransparentMesh: 1
+--- !u!114 &158519256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 1545521424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &210107070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2010,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358261881}
   m_CullTransparentMesh: 1
+--- !u!114 &367091443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 855232967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &381641936
 GameObject:
   m_ObjectHideFlags: 0
@@ -3552,6 +3574,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1344882200}
     m_Modifications:
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329028705}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeScreenManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1341102582903846446, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_Name
       value: UpgradeBounciness
@@ -4131,6 +4201,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1344882200}
     m_Modifications:
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329028705}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeScreenManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1341102582903846446, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_Name
       value: UpgradeWeight
@@ -4367,6 +4485,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ff6416c9d4f0164fa936fa076e64fc2, type: 3}
+--- !u!114 &918402157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102583060308499, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 776174805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &950461016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5262,6 +5391,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210202865}
   m_CullTransparentMesh: 1
+--- !u!114 &1223556530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102583060308499, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 855232967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1255463880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5619,8 +5759,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff1f36df960bbd499024338250fbfa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSlimeBall: {fileID: 0}
   healthValueText: {fileID: 1923005024}
+  bounceValueText: {fileID: 918402157}
+  weightValueText: {fileID: 1223556530}
+  healthButton: {fileID: 158519256}
+  bounceButton: {fileID: 1733425116}
+  weightButton: {fileID: 367091443}
 --- !u!1 &1337575836
 GameObject:
   m_ObjectHideFlags: 0
@@ -5714,7 +5858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1344882200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7270,6 +7414,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1344882200}
     m_Modifications:
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329028705}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeScreenManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1341102582903846446, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_Name
       value: UpgradeHealth
@@ -7880,6 +8072,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718899301}
   m_CullTransparentMesh: 1
+--- !u!114 &1733425116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 776174805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1738417416
 GameObject:
   m_ObjectHideFlags: 0

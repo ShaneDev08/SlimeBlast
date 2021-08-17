@@ -5527,6 +5527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329028704}
   - component: {fileID: 1329028703}
+  - component: {fileID: 1329028705}
   m_Layer: 0
   m_Name: ShopController
   m_TagString: Untagged
@@ -5606,6 +5607,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329028705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329028702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff1f36df960bbd499024338250fbfa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSlimeBall: {fileID: 0}
+  healthValueText: {fileID: 1923005024}
 --- !u!1 &1337575836
 GameObject:
   m_ObjectHideFlags: 0
@@ -8352,6 +8367,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1923005024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102583060308499, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 1545521424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1929813275 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8572081515238932395, guid: b49bb50d75f07e94da3468a4d826230e, type: 3}

@@ -28,9 +28,9 @@ MonoBehaviour:
   slimeUpgrade:
     extraHealth: 0
     amountOfHealthUpgrades: 0
-    costHealthAmount: 0
+    costHealthAmount: 150
     currentHealthUpgrade: 0
-    upgradeChangeAmount: 0
+    upgradeHealthChangeAmount: 0
     addToHealthAmount: 0
     extraBounce: 0
     amountOfBouncehUpgrades: 0

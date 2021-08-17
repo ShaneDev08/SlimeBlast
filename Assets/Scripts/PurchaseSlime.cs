@@ -83,6 +83,7 @@ public class PurchaseSlime : MonoBehaviour
 
     public void OpenUpgradeScreen()
     {
+        
         upgradeBox.LeanMoveLocalY(-25, tweenTime);
         //BuyUpgradesCannon.instance.SetCannonID(slime.id);
         //BuyUpgradesCannon.instance.CreateStars();

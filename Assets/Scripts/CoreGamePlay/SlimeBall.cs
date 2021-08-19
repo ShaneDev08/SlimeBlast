@@ -5,6 +5,8 @@ using Cinemachine;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
 
+
+
 public class SlimeBall : MonoBehaviour
 {
 
@@ -29,6 +31,7 @@ public class SlimeBall : MonoBehaviour
     private GameObject uiControl;
     private UnityJellySprite jellyScript;
     private Jetpack jetPack;
+    [SerializeField] private ParticleSystem splatParticle;
 
     // Script Variables
     private bool hasStopedMoving = false;
@@ -42,7 +45,7 @@ public class SlimeBall : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private float bounciness;
 
-
+    
     public float jetPackAmount = 100f;
 
 
@@ -265,7 +268,8 @@ public class SlimeBall : MonoBehaviour
     {
 
         Debug.Log("ouchhh");
-
+        ParticleSystem instance = Instantiate(splatParticle, transform.position, transform.rotation);
+        instance.Play();
         if (!tookDamage && !fromTrigger)
         {
             foreach (Rigidbody2D rig in rbs)
@@ -287,6 +291,8 @@ public class SlimeBall : MonoBehaviour
         }
 
     }
+
+    
 
 
 
@@ -357,5 +363,11 @@ public class SlimeBall : MonoBehaviour
     public void StopJetPacking()
     {
         jetPack.GetComponent<Jetpack>().usingJetPack = false;
+    }
+
+
+    void OnJellyCollisionEnter2D(JellySprite.JellyCollision2D collision)
+    {
+        Debug.Log("Jelly Hit Something");
     }
 }

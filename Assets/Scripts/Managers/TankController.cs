@@ -40,7 +40,7 @@ public class TankController : MonoBehaviour
             {
                 
                 cannonBarrel.Rotate(0, 0, -rotateSpeed * Time.deltaTime, Space.Self);
-                if (cannonBarrel.transform.localEulerAngles.z < minHeight)
+                if (cannonBarrel.transform.localEulerAngles.z < minHeight || cannonBarrel.transform.localEulerAngles.z > maxHeight)
                 {
                     direction = true;
                 }

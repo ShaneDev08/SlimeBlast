@@ -35,7 +35,7 @@ public class Cloud : MonoBehaviour
         {
             if (transform.position.x <= slimeSpawnd.transform.position.x - 25)
             {
-                Debug.Log("Plane has gvone past");
+                
                 this.gameObject.transform.position = new Vector2(slimeSpawnd.transform.position.x + 50, transform.position.y);
             }
         }

@@ -80,22 +80,23 @@ public class Launcher : MonoBehaviour
             {
                 slimeSpawned = pool.GetObject();
 
-                slimeSpawned.transform.position = shootFrom.transform.position;
+
                 slimeSpawned.GetComponent<MeshRenderer>().enabled = false;
                 sprites = slimeSpawned.transform.Find("Eyes").GetComponentsInChildren<SpriteRenderer>();
                 for (int i = 0; i < sprites.Length; i++)
                 {
                     sprites[i].enabled = false;
                 }
+                //jellyRef.transform.position = slimeSpawned.transform.position;
 
-                
+
                 hasSpawned = true;
-
-
-
 
             }
             multipleRb = true;
+            //slimeSpawned.transform.position = shootFrom.transform.position;
+            jellyRef.transform.position = shootFrom.transform.position;
+
         }
 
         // Anything under here is for standard Slimes

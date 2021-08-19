@@ -94,5 +94,7 @@ public class UnityJellySprite : JellySprite
 		Selection.activeGameObject = gameObject;
 		Undo.RegisterCreatedObjectUndo(gameObject, "Create Jelly Sprite");
 	}
+
+	
 #endif
 }

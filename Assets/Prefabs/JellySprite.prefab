@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7679748748658669326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.99, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.22776383, y: 0.22776383, z: 0.22776383}
   m_Children:
   - {fileID: 828912538460952504}
@@ -309,9 +309,9 @@ MonoBehaviour:
   m_VertexDensity: 10
   m_SphereRadius: 0.25
   m_DistanceExponent: 2
-  m_Stiffness: 7
+  m_Stiffness: 2
   m_Mass: 1
-  m_LockRotation: 1
+  m_LockRotation: 0
   m_GravityScale: 0
   m_UseGravity: 1
   m_CollideConnected: 1
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_RadiusPoints: 8
   m_GridColumns: 4
   m_GridRows: 4
-  m_DampingRatio: 1
+  m_DampingRatio: 0.2
   m_SoftBodyScale: {x: 1, y: 1}
   m_SoftBodyRotation: 0
   m_SoftBodyOffset: {x: -0, y: -0}
@@ -352,6 +352,7 @@ MonoBehaviour:
   slimeStats: {fileID: 11400000, guid: 5ef5d05fb85e25240b78da2dccf15a8c, type: 2}
   hasSpawned: 0
   flag: {fileID: 6137006683065028263, guid: 2f0f4f10675d0804082b4863b5d63faa, type: 3}
+  splatParticle: {fileID: 5512067484688454199, guid: 48c463c867417804b83df98d3b03e961, type: 3}
   score: 0
   heightScore: 0
   health: 100

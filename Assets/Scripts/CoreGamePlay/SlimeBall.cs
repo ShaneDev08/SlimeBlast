@@ -32,6 +32,7 @@ public class SlimeBall : MonoBehaviour
     private UnityJellySprite jellyScript;
     private Jetpack jetPack;
     [SerializeField] private ParticleSystem splatParticle;
+    private GameObject distanceArrow;
 
     // Script Variables
     private bool hasStopedMoving = false;
@@ -64,6 +65,7 @@ public class SlimeBall : MonoBehaviour
 
        
         jellyScript = GetComponent<UnityJellySprite>();
+        distanceArrow = GameObject.Find("DistanceArrow");
 
 
         //if (PlayerManager.shopUpgrades["Extra Health"].isEnabled)
@@ -116,10 +118,10 @@ public class SlimeBall : MonoBehaviour
             CheckIfStopedMoving();
         }
         // If standard Slime with only 1 RB then call standard method
-        else
-        {
-            CheckIfStopedMovingStandard();
-        }
+        //else
+        //{
+        //    CheckIfStopedMovingStandard();
+        //}
         //Puts the score to screen
         AddScore();
         AddHeightStats();
@@ -143,6 +145,8 @@ public class SlimeBall : MonoBehaviour
         {
             StopJetPacking();
         }
+
+        distanceArrow.transform.position = new Vector3(transform.position.x, distanceArrow.transform.position.y, distanceArrow.transform.position.z);
     }
 
     #region ScoringSystem
@@ -219,7 +223,7 @@ public class SlimeBall : MonoBehaviour
             // if score is over 100 add 100 money
             if (score > 100)
             {
-                PlayerManager.money += 100;
+                PlayerManager.money += score;
             }
             this.gameObject.SetActive(false);
             Invoke("KillSlime", 5);
@@ -228,35 +232,35 @@ public class SlimeBall : MonoBehaviour
     }
     #endregion
 
-    #region SlimeStandard
+    //#region SlimeStandard
 
-    // Standard Slime with no multiple RidigedBodies 
-    private void CheckIfStopedMovingStandard()
-    {
+    //// Standard Slime with no multiple RidigedBodies 
+    //private void CheckIfStopedMovingStandard()
+    //{
 
-        // If RB is no longer moving then mark as stopped moving
-        if(standardSlimeRb.IsSleeping() && !hasStopedMoving)
-        {
-            hasStopedMoving = true;
-            if (!hasSpawndFlag)
-            {
-                // Create a flag to show where it has landed.
-                GameObject obj = Instantiate(flag, new Vector2(transform.position.x, flag.transform.position.y), flag.transform.rotation);
-                hasSpawndFlag = true;
-            }
+    //    // If RB is no longer moving then mark as stopped moving
+    //    if(standardSlimeRb.IsSleeping() && !hasStopedMoving)
+    //    {
+    //        hasStopedMoving = true;
+    //        if (!hasSpawndFlag)
+    //        {
+    //            // Create a flag to show where it has landed.
+    //            GameObject obj = Instantiate(flag, new Vector2(transform.position.x, flag.transform.position.y), flag.transform.rotation);
+    //            hasSpawndFlag = true;
+    //        }
 
-            // If Slime has gone over 100 along the X axies then add money
-            if (score > 100)
-            {
-                PlayerManager.money += 100;
-            }
-            // Kill the slime in 5 seconds.
-            Invoke("KillSlime", 5);
-            hasStopedMoving = false ;
-        }
-    }
+    //        // If Slime has gone over 100 along the X axies then add money
+    //        if (score > 100)
+    //        {
+    //            PlayerManager.money += ;
+    //        }
+    //        // Kill the slime in 5 seconds.
+    //        Invoke("KillSlime", 5);
+    //        hasStopedMoving = false ;
+    //    }
+    //}
 
-    #endregion
+    //#endregion
 
 
     public void AddBounce(int amount)

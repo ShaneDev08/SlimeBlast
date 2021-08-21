@@ -28,6 +28,7 @@ public class ShopSelection : MonoBehaviour
     [SerializeField] private Image worldUpgradeSplash;
     [SerializeField] private Image worldUpgradeBackgroundColour;
     [SerializeField] private TextMeshProUGUI worldUpgradeDescription;
+    [SerializeField] private TextMeshProUGUI worldUpgrageCost;
     [SerializeField] private GameObject leftSelection;
     [SerializeField] private GameObject leftSelectionCannon;
     [SerializeField] private GameObject leftSelectionWorld;
@@ -35,6 +36,7 @@ public class ShopSelection : MonoBehaviour
     [SerializeField] private GameObject rightSelectionCannon;
     [SerializeField] private GameObject rightSelectionWorld;
     [SerializeField] private float tweenTime;
+    [SerializeField] private TextMeshProUGUI playerMoney;
 
     
 
@@ -48,6 +50,11 @@ public class ShopSelection : MonoBehaviour
         UpdateCannonSelectionUI();
         UpdateCharacterSelectionUI();
         UpdateWorldUpgradeSelectionUI();
+    }
+
+    private void Update()
+    {
+        playerMoney.text = PlayerManager.money.ToString();
     }
 
     private void UpdateCharacterSelectionUI()
@@ -193,6 +200,8 @@ public class ShopSelection : MonoBehaviour
         worldUpgradeSplash.sprite = worldSelection[selectedWorldIndex].worldSpriteImage;
         worldUpgradeName.text = worldSelection[selectedWorldIndex].worldSpecialName;
         worldUpgradeDescription.text = worldSelection[selectedWorldIndex].worldSpecialDescription;
+        worldSelection[selectedWorldIndex].valueToBuy = PlayerManager.instance.GetCostOfUpgrade(worldSelection[selectedWorldIndex].worldUpgradeId);
+        worldUpgrageCost.text = "Value: " + worldSelection[selectedWorldIndex].valueToBuy.ToString();
         //PlayerManager.instance.cannon = cannonSelection[selectedCannonIndex].cannon;
 
     }
@@ -224,4 +233,5 @@ public class WorldSelectionShop
     public string worldSpecialDescription;
     public Color worldUpgradeBackGround;
     public int worldUpgradeId;
+    public int valueToBuy;
 }

@@ -151,12 +151,26 @@ public class PlayerManager : MonoBehaviour
         
         foreach(WorldUpgrades upgrade in upgradeForWorld)
         {
-            if(upgrade.Id == id)
+            if(upgrade.Id == id && money >= upgrade.ValueToBuy)
             {
                 upgrade.IsBought = true;
+                money -= upgrade.ValueToBuy;
                 
             }
         }
+    }
+
+    public int GetCostOfUpgrade(int id)
+    {
+        foreach (WorldUpgrades upgrade in upgradeForWorld)
+        {
+            if (upgrade.Id == id)
+            {
+                return upgrade.ValueToBuy;
+
+            }
+        }
+        return 0;
     }
 
   

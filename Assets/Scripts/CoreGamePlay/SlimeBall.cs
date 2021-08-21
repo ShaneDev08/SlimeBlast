@@ -33,6 +33,7 @@ public class SlimeBall : MonoBehaviour
     private Jetpack jetPack;
     [SerializeField] private ParticleSystem splatParticle;
     private GameObject distanceArrow;
+    
 
     // Script Variables
     private bool hasStopedMoving = false;
@@ -52,10 +53,14 @@ public class SlimeBall : MonoBehaviour
 
 
 
+
+
     private void Start()
     {
+        
         health = slimeStats.slimeHealth + slimeStats.slimeUpgrade.extraHealth;
         bounciness = slimeStats.slimeBounciness + slimeStats.slimeUpgrade.extraBounce;
+        
 
         if (PlayerManager.instance.CheckIfWorldUpgradeBought(1))
         {
@@ -186,6 +191,7 @@ public class SlimeBall : MonoBehaviour
         
         //roundOverUI = uiControl.GetComponentInChildren<UIManager>();
         UIManager.instance.EnableRoundOverUI();
+
         Social.ReportScore(PlayerManager.instance.playerScore.DistanceTraveled, "CgkI-p3e1-gWEAIQAQ", (bool success) => { }
              );
     }
@@ -225,6 +231,7 @@ public class SlimeBall : MonoBehaviour
             {
                 PlayerManager.money += score;
             }
+            AdFinishSpawner.instance.startPos = this.gameObject.transform;
             this.gameObject.SetActive(false);
             Invoke("KillSlime", 5);
             hasStopedMoving = false;
@@ -303,6 +310,8 @@ public class SlimeBall : MonoBehaviour
     public void KillSlimeOnContact()
     {
         health = 0;
+
+
     }
 
   
@@ -374,4 +383,22 @@ public class SlimeBall : MonoBehaviour
     {
         Debug.Log("Jelly Hit Something");
     }
+
+    public void Restart()
+    {
+
+        UIManager.instance.DisableRoundOverUI();
+        health = 200;
+        bounciness = 40;
+        hasSpawndFlag = false;
+
+        foreach (Rigidbody2D rig in rbs)
+        {
+            rig.AddForce(Vector3.right * 7, ForceMode2D.Impulse);
+            rig.AddForce(Vector2.up * 7, ForceMode2D.Impulse);
+        }
+
+        
+    }    
+
 }

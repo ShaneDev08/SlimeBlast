@@ -118,15 +118,19 @@ public class PlayerManager : MonoBehaviour
 
    private void AddAllWorldUpgrades()
     {
-        WorldUpgrades bouncePadUpgrade = new WorldUpgrades("BouncePad", 0, 5000);
-        WorldUpgrades jetPack = new WorldUpgrades("JetPack", 1, 6000);
-        WorldUpgrades fan = new WorldUpgrades("Fan", 2, 1000);
+        WorldUpgrades bouncePadUpgrade = new WorldUpgrades("BouncePad", 0, 1000);
+        WorldUpgrades jetPack = new WorldUpgrades("JetPack", 1, 3500);
+        WorldUpgrades fan = new WorldUpgrades("Fan", 2, 5000);
         WorldUpgrades slimeSpawner = new WorldUpgrades("SlimeSpawner", 3, 10000);
+        WorldUpgrades extraSlimeUpgrade = new WorldUpgrades("ExtraSlime", 4, 2500);
+        WorldUpgrades extraMoneyUpgrade = new WorldUpgrades("ExtraMoney", 5, 2500);
 
         upgradeForWorld.Add(bouncePadUpgrade);
         upgradeForWorld.Add(jetPack);
         upgradeForWorld.Add(fan);
         upgradeForWorld.Add(slimeSpawner);
+        upgradeForWorld.Add(extraSlimeUpgrade);
+        upgradeForWorld.Add(extraMoneyUpgrade);
     }
 
     public bool CheckIfWorldUpgradeBought (int id)

@@ -15,10 +15,11 @@ MonoBehaviour:
   nameOfCannon: Cannon 1
   power: 10
   value: 0
+  isBought: 1
   id: 0
   powerUpgrade:
     upgradeAmount: 10
-    currentUpgrade: 0
-    upgradeValue: 25
-    powerModifer: 76
+    currentUpgrade: 1
+    upgradeValue: 10
+    powerModifer: 25
     upgradeChangeValue: 2

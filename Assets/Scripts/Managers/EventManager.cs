@@ -10,7 +10,7 @@ public class EventManager : MonoBehaviour
 
 
     public event Action LaunchSlime;
-    //public event Action RoundOver;
+    public event Action RoundOver;
 
 
     // Makes this a singleton using instance as the var
@@ -27,13 +27,13 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    //public void OnRoundOver()
-    //{
-    //    if(RoundOver != null)
-    //    {
-    //        RoundOver();
-    //    }
-    //}
+    public void OnRoundOverAdFinished()
+    {
+        if (RoundOver != null)
+        {
+            RoundOver();
+        }
+    }
 
 
 }

@@ -954,6 +954,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87136875}
   m_CullTransparentMesh: 1
+--- !u!114 &103653308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102583060308499, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 1196250898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &115672532
 GameObject:
   m_ObjectHideFlags: 0
@@ -3744,7 +3755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyUpgrade
+      value: BuySlimeUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4371,7 +4382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyUpgrade
+      value: BuySlimeUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5278,6 +5289,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 156046681}
     m_Modifications:
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329028705}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyCannonUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeScreenManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1341102582903846446, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_Name
       value: UpgradePanel
@@ -5536,6 +5591,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1236497595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
+  m_PrefabInstance: {fileID: 1196250898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1255463880
@@ -5841,19 +5907,47 @@ MonoBehaviour:
     cannonName: Cannon
     cannonBackgroundColour: {r: 0, g: 0, b: 0, a: 0}
     cannon: {fileID: 1035096096722235946, guid: 358b12fe5b1ab2a4087418386c7994f8, type: 3}
+  - cannonSplashImage: {fileID: 21300000, guid: ed8f3749a89f13e4d922c46698e08ebd, type: 3}
+    cannonName: Cannon 2
+    cannonBackgroundColour: {r: 0, g: 0, b: 0, a: 0}
+    cannon: {fileID: 3605734563610985294, guid: ac356986500adcf48911db17efcf3122, type: 3}
   worldSelection:
   - worldSpriteImage: {fileID: 21300000, guid: ed8f3749a89f13e4d922c46698e08ebd, type: 3}
     worldSpecialName: Bounce Pad
     worldSpecialDescription: Bounce Pad to bounce off
     worldUpgradeBackGround: {r: 0, g: 0, b: 0, a: 0}
     worldUpgradeId: 0
-    valueToBuy: 0
+    valueToBuy: 1000
+  - worldSpriteImage: {fileID: 21300000, guid: 41b6150f5c83251429ec62c496399206, type: 3}
+    worldSpecialName: Extra Slime
+    worldSpecialDescription: 'Slime spawns '
+    worldUpgradeBackGround: {r: 0, g: 0, b: 0, a: 0}
+    worldUpgradeId: 4
+    valueToBuy: 2500
+  - worldSpriteImage: {fileID: 21300000, guid: a3f56159f68d8b746ac33217d11ea82a, type: 3}
+    worldSpecialName: Extra Money
+    worldSpecialDescription: Money spawns
+    worldUpgradeBackGround: {r: 0, g: 0, b: 0, a: 0}
+    worldUpgradeId: 5
+    valueToBuy: 2500
   - worldSpriteImage: {fileID: 21300000, guid: 0581abc9a839940469739e9c3e956301, type: 3}
     worldSpecialName: Jetpack
     worldSpecialDescription: Jetpack to fly
     worldUpgradeBackGround: {r: 0, g: 0, b: 0, a: 0}
     worldUpgradeId: 1
-    valueToBuy: 0
+    valueToBuy: 3500
+  - worldSpriteImage: {fileID: 21300000, guid: 7674436db41328f47adc01afaff3d17c, type: 3}
+    worldSpecialName: Fan
+    worldSpecialDescription: Fan that shoots Player forward
+    worldUpgradeBackGround: {r: 0, g: 0, b: 0, a: 0}
+    worldUpgradeId: 3
+    valueToBuy: 5000
+  - worldSpriteImage: {fileID: 21300000, guid: f40dfe4fc5953cf4f99767f58245f736, type: 3}
+    worldSpecialName: SlimeSpawner
+    worldSpecialDescription: Spawner that spawns slime and shoots player up
+    worldUpgradeBackGround: {r: 0, g: 0, b: 0, a: 0}
+    worldUpgradeId: 2
+    valueToBuy: 7500
   characterName: {fileID: 1021550605}
   characterSplash: {fileID: 1362947088}
   backgroundColour: {fileID: 0}
@@ -5905,6 +5999,8 @@ MonoBehaviour:
   healthButton: {fileID: 158519256}
   bounceButton: {fileID: 1733425116}
   weightButton: {fileID: 367091443}
+  powerValueText: {fileID: 103653308}
+  powerButton: {fileID: 1236497595}
 --- !u!1 &1337575836
 GameObject:
   m_ObjectHideFlags: 0
@@ -7589,7 +7685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyUpgrade
+      value: BuySlimeUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 1341102582896105248, guid: fbeee449a6ddbe24bac21ca442835197, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

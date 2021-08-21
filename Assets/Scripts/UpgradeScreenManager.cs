@@ -10,9 +10,10 @@ public class UpgradeScreenManager : MonoBehaviour
     public static UpgradeScreenManager instance;
 
     private SlimeBall currentSlime;
+    private CannonSo currentCannon;
 
 
-    [Header("Ui Elements")]
+    [Header("Ui Elements Slime Upgrade")]
     [SerializeField] private TextMeshProUGUI healthValueText;
     [SerializeField] private TextMeshProUGUI bounceValueText;
     [SerializeField] private TextMeshProUGUI weightValueText;
@@ -20,20 +21,57 @@ public class UpgradeScreenManager : MonoBehaviour
     [SerializeField] private Button bounceButton;
     [SerializeField] private Button weightButton;
 
+    [Header("Ui Elements Cannon Upgrade")]
+    [SerializeField] private TextMeshProUGUI powerValueText;
+    [SerializeField] private Button powerButton;
 
 
-    public void BuyUpgrade(int number)
+
+
+    public void BuySlimeUpgrade(int number)
     {
         Debug.Log("Buying Health");
         currentSlime.slimeStats.slimeUpgrade.BuyUpgrade(number);
     }
 
+    public void BuyCannonUpgrade()
+    {
+        Debug.Log("Buying Power");
+        currentCannon.powerUpgrade.BuyUpgrade();
+    }
+
     private void Update()
+    {
+
+        CannonUpgradeSettings();
+        SlimeUpgradeSettings();
+
+
+
+
+
+    }
+
+    private void CannonUpgradeSettings()
+    {
+        currentCannon = ShopSelection.shopSelection.GetCurrentCannonSo();
+        powerValueText.text = currentCannon.powerUpgrade.upgradeValue.ToString();
+
+        if(currentCannon.powerUpgrade.currentUpgrade >= currentCannon.powerUpgrade.upgradeAmount)
+        {
+            powerValueText.text = "MAX";
+            powerButton.interactable = false;
+        }
+    }
+
+    private void SlimeUpgradeSettings()
     {
         currentSlime = ShopSelection.shopSelection.GetCurrentSlimeBall();
         healthValueText.text = currentSlime.slimeStats.slimeUpgrade.costHealthAmount.ToString();
         bounceValueText.text = currentSlime.slimeStats.slimeUpgrade.costBounceAmount.ToString();
         weightValueText.text = currentSlime.slimeStats.slimeUpgrade.costWeighthAmount.ToString();
+
+
 
         if (currentSlime.slimeStats.slimeUpgrade.currentHealthUpgrade >= currentSlime.slimeStats.slimeUpgrade.amountOfHealthUpgrades)
         {
@@ -52,7 +90,5 @@ public class UpgradeScreenManager : MonoBehaviour
             weightValueText.text = "MAX";
             weightButton.interactable = false;
         }
-
-
     }
 }

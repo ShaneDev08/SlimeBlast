@@ -10,7 +10,7 @@ public class CannonPowerUpgrade
     [Header("Power Upgrade Stats")]
     public int upgradeAmount = 10;
     public int currentUpgrade;
-    public float upgradeValue;
+    public int upgradeValue;
     public int powerModifer;
     public int upgradeChangeValue;
 
@@ -34,7 +34,7 @@ public class CannonPowerUpgrade
             powerModifer += upgradeChangeValue;
             PlayerManager.money -= upgradeValue;
             currentUpgrade += 1;
-            upgradeValue += upgradeValue / 100 * 15;
+            upgradeValue += upgradeValue;
            
         }
     }

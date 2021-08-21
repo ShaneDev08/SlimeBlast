@@ -60,6 +60,11 @@ public class UIManager : MonoBehaviour
         roundOverUI.LeanMoveLocalY(0, 0.5f).setEaseOutExpo();//roundOverUI.SetActive(true);
     }
 
+    public void DisableRoundOverUI()
+    {
+        roundOverUI.LeanMoveLocalY(-1000, 0.5f).setEaseOutExpo();//roundOverUI.SetActive(true);
+    }
+
     
    public void UpdateScoreText(int score)
     {

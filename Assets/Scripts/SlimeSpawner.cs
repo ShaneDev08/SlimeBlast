@@ -7,7 +7,7 @@ public class SlimeSpawner : MonoBehaviour
 
     [Header("Misc")]
    [SerializeField] private bool isEnabled = false;
-    [SerializeField]  private  ObjectPool pool;
+      private  ObjectPool pool;
     [SerializeField] private Transform spawnPoint;
     private GameObject slimeSpawnd;
 
@@ -15,6 +15,7 @@ public class SlimeSpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine("SpawnSlime");
+        pool = GameObject.Find("ObjectPool").GetComponent<ObjectPool>();
     }
 
     // Update is called once per frame
@@ -27,17 +28,15 @@ public class SlimeSpawner : MonoBehaviour
             {
                 isEnabled = true;
             } 
-            else if (slimeSpawnd.transform.position.x > transform.position.x)
+
+
+             if (slimeSpawnd.transform.position.x > transform.position.x)
             {
                 isEnabled = false;
             }
         }
 
-        if(isEnabled)
-        {
-            
-
-        }
+       
     }
 
     IEnumerator SpawnSlime()

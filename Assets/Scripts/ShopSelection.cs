@@ -148,6 +148,11 @@ public class ShopSelection : MonoBehaviour
         return characterSelection[selectedCharacterIndex].slime.GetComponent<SlimeBall>();
     }
 
+    public CannonSo GetCurrentCannonSo()
+    {
+        return cannonSelection[selectedCannonIndex].cannon.GetComponent<Launcher>().cannonStats;
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // World Upgrade Screen
     //////////////////////////////////////////////////////////////////////////////////////////////////////////

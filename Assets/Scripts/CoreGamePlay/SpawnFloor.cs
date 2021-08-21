@@ -20,16 +20,26 @@ public class SpawnFloor : MonoBehaviour
     public GameObject helperObjects;
 
     [Header("Helpers")]
-    public GameObject bouncePads;
-    public GameObject extraSlime;
-    public GameObject extraMoney;
+    [SerializeField] private GameObject bouncePads;
+    [SerializeField] private GameObject extraSlime;
+    [SerializeField] private GameObject extraMoney;
+    [SerializeField] private GameObject fan;
+    [SerializeField] private GameObject slimeSpawner;
+
+    [Header("Obstcals")]
+    [SerializeField] private GameObject rocks;
+
     // Money
 
 
     [Header("Amount To Spawn")]
-    public int bouncePadsToSpawn;
-    public int extraSlimeToSpawn;
-    public int extraMoneyToSpawn;
+    [SerializeField] private int bouncePadsToSpawn;
+    [SerializeField] private int extraSlimeToSpawn;
+    [SerializeField] private int extraMoneyToSpawn;
+    [SerializeField] private int fansToSpawns;
+    [SerializeField] private int slimeSpawnersToSpawn;
+    [SerializeField] private int rocksToSpawn;
+
 
 
 
@@ -58,9 +68,47 @@ public class SpawnFloor : MonoBehaviour
             CreateLevel(gameFloor);
             
         }
-        if (PlayerManager.instance.CheckIfWorldUpgradeBought(0))
+
+
+        // 0 is bounce pads
+        // 1 is jetpack so break.
+        // 2 is SlimeSpawner
+        // 3 is fan
+        // 4 is extra slime
+        // 5 is extra money
+        for (int i = 0; i < PlayerManager.instance.upgradeForWorld.Count; i++)
         {
-            SpawnBouncePads();
+            if (PlayerManager.instance.CheckIfWorldUpgradeBought(i))
+            {
+                switch (i)
+                {
+                    // bounce pads
+                    case 0:
+                        SpawnBouncePads();
+                        break;
+                    // Jet pack
+                    case 1:
+                        break;
+                    // Slime Spawner
+                    case 2:
+                        SpawnSlimeSpawner();
+                        break;
+                    // Fan
+                    case 3:
+                        SpawnFans();
+                        break;
+                    // Extra Slime
+                    case 4:
+                        SpawnExtraSlime();
+                        break;
+                    // Extra Money
+                    case 5:
+                        SpawnMoneyBags();
+                        break;
+
+                    
+                }
+            }
         }
 
         //if (PlayerManager.shopUpgrades["SlimePickup"].isEnabled)
@@ -72,6 +120,8 @@ public class SpawnFloor : MonoBehaviour
         //{
         //    SpawnMoneyBags();
         //}
+
+        SpawnRocks();
 
     }
 
@@ -148,6 +198,36 @@ public class SpawnFloor : MonoBehaviour
 
         {
             GameObject go = Instantiate(extraMoney, new Vector2((float)Random.Range(10, distanceToSpan * floors.Length), extraMoney.transform.position.y), extraMoney.transform.rotation);
+            go.transform.parent = helperObjects.transform;
+        }
+    }
+
+    void SpawnRocks()
+    {
+        for (int i = 0; i < rocksToSpawn; i++)
+
+        {
+            GameObject go = Instantiate(rocks, new Vector2((float)Random.Range(10, distanceToSpan * floors.Length), rocks.transform.position.y), rocks.transform.rotation);
+            go.transform.parent = helperObjects.transform;
+        }
+    }
+
+    void SpawnFans()
+    {
+        for (int i = 0; i < fansToSpawns; i++)
+
+        {
+            GameObject go = Instantiate(fan, new Vector2((float)Random.Range(10, distanceToSpan * floors.Length), (float)Random.Range(0,300)), fan.transform.rotation);
+            go.transform.parent = helperObjects.transform;
+        }
+    }
+
+    void SpawnSlimeSpawner()
+    {
+        for (int i = 0; i < slimeSpawnersToSpawn; i++)
+
+        {
+            GameObject go = Instantiate(slimeSpawner, new Vector2((float)Random.Range(10, distanceToSpan * floors.Length), slimeSpawner.transform.position.y), slimeSpawner.transform.rotation);
             go.transform.parent = helperObjects.transform;
         }
     }

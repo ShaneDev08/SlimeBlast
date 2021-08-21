@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6668571603292865108}
   - component: {fileID: 6668571603292865109}
+  - component: {fileID: 3737584361101277002}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -43,5 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c65bb82f4e9fee418a96e7852e13fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
   slimeBall: {fileID: 0}
+  slimeInGame: {fileID: 0}
+  cannon: {fileID: 0}
+--- !u!114 &3737584361101277002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6668571603292865110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d8fdd05ec5959a4a812fff0b62bde27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasWatchedAdd: 0

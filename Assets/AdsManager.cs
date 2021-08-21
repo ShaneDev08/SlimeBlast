@@ -6,7 +6,7 @@ using UnityEngine.Advertisements;
 public class AdsManager : MonoBehaviour,IUnityAdsListener
 {
     public static AdsManager instance;
-    public bool hasWatchedAdd;
+    public static bool hasWatchedAdd;
 
 
     private void Start()
@@ -61,7 +61,10 @@ public class AdsManager : MonoBehaviour,IUnityAdsListener
 
     public void PlayRewardAdd()
     {
-        if(!hasWatchedAdd)
-        PlayRewardedAdd();
+        if (!hasWatchedAdd)
+        {
+            Debug.Log("PLaying Add");
+            PlayRewardedAdd();
+        }
     }    
 }

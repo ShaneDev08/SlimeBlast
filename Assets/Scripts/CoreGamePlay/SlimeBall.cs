@@ -277,7 +277,7 @@ public class SlimeBall : MonoBehaviour
 
     public void TakeDamage(int damage,bool fromTrigger)
     {
-
+        jellyScript.m_GravityScale = 1;
         Debug.Log("ouchhh");
         ParticleSystem instance = Instantiate(splatParticle, transform.position, transform.rotation);
         instance.Play();
@@ -381,7 +381,14 @@ public class SlimeBall : MonoBehaviour
 
     void OnJellyCollisionEnter2D(JellySprite.JellyCollision2D collision)
     {
-        Debug.Log("Jelly Hit Something");
+        Debug.Log(collision.Collision2D.gameObject);
+        if (collision.Collision2D.gameObject.CompareTag("Floor"))
+        {
+            TakeDamage(15,false);
+            PlaySound();
+            
+            
+        }
     }
 
     public void Restart()

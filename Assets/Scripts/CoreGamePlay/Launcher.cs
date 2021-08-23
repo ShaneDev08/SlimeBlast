@@ -95,6 +95,7 @@ public class Launcher : MonoBehaviour
             }
             multipleRb = true;
             //slimeSpawned.transform.position = shootFrom.transform.position;
+            if (jellyRef != null)
             jellyRef.transform.position = shootFrom.transform.position;
 
         }
@@ -138,7 +139,7 @@ public class Launcher : MonoBehaviour
     {
         // Enables the Mesh so we can see it
         EnableMesh();
-
+        
         // Loops through each Rb and adds gravity and force. Also creates an explosion and adds slime to target group
         foreach (Rigidbody2D rb2 in rbs)
         {

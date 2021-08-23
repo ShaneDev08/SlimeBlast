@@ -11,7 +11,7 @@ public class FloorHolder : MonoBehaviour
     private bool hasHit = false;
     private float startTime;
     private float endTime = 4f;
-    private bool hasStoppedMoving = false;
+    public bool hasStoppedMoving = false;
 
 
     private void Start()
@@ -21,13 +21,7 @@ public class FloorHolder : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && PlayerManager.instance.slimeBall.GetComponent<SlimeBall>().slimeStats.multipleRbs && !hasHit)
-        {
-            collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().TakeDamage(damage,false);
-            collision.gameObject.GetComponent<JellySpriteReferencePoint>().ParentJellySprite.GetComponent<SlimeBall>().PlaySound();
-            hasHit = true;
-            Invoke("ResetHit", 0.1f);
-        }
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)

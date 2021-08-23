@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ad33766209c151746aa520eb7b5e6201, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,7 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f95994be141c94b9ede019bcb41e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonObject: {fileID: 2517983724568203834}
+  cannonBarrel: {fileID: 2517983724568203834}
+  rotateSpeed: 50
+  minHeight: 0.1
+  maxHeight: 50
+  isShooting: 0
 --- !u!1 &6373545045406479301
 GameObject:
   m_ObjectHideFlags: 0

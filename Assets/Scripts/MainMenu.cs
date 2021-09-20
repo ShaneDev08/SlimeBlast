@@ -48,16 +48,17 @@ public class MainMenu : MonoBehaviour
     public void OpenSettings(){
         LeanTween.scale(settingsButton, Vector3.one * 2, tweenTime).setEasePunch();
         PlayButtonClick();
-        //StartCoroutine(sceneTransition());
-        //SceneManager.LoadScene("Settings");
-        Social.ShowAchievementsUI();
+        StartCoroutine(sceneTransition());
+        SceneManager.LoadScene("Settings");
+        //Social.ShowAchievementsUI();
     }
 
     public void OpenCharacterUnlockScreen(){
         LeanTween.scale(slimeCollectionButton, Vector3.one * 2, tweenTime).setEasePunch();
         PlayButtonClick();
-        StartCoroutine(sceneTransition());
-        SceneManager.LoadScene("Unlocks");
+        //StartCoroutine(sceneTransition());
+        //SceneManager.LoadScene("Unlocks");
+        Social.ShowAchievementsUI();
     }
 
     public void OpenScore(){

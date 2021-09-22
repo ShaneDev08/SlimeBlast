@@ -17,7 +17,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void SoundControl()
     {
-        isMuted = !isMuted;
+        //isMuted = !isMuted;
         if(isMuted)
         {
             soundButton.GetComponent<Image>().sprite = soundUnMute;

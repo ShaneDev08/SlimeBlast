@@ -33,11 +33,9 @@ public class RewardsUi : MonoBehaviour
         {
            GameObject template = Instantiate(rewardTemplate);
             template.transform.SetParent(templateHolder.gameObject.transform);
-            //unlockList.unlockList[i].slimeID;
             template.gameObject.transform.Find("AchievementName").GetComponent<TextMeshProUGUI>().text = achievements.achievementList[i].nameOfAchievement;
             template.GetComponent<ClaimReward>().achievements = achievements.achievementList[i];
-            //unlockList.unlockList[i].isUnlocked;
-            //template.gameObject.transform.Find("CharacterValue").GetComponent<TextMeshProUGUI>().text = unlockList.unlockList[i].slimeUnlockValue.ToString();
+            
         }
     }
 }

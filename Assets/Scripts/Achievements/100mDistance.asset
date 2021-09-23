@@ -16,5 +16,5 @@ MonoBehaviour:
   type: 0
   amountToScore: 100
   moneyToGive: 250
-  hasPassed: 0
+  hasPassed: 1
   hasCollected: 0

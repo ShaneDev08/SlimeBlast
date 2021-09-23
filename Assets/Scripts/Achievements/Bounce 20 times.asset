@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35765714c55bbfd4097605aa35f72095, type: 3}
   m_Name: Bounce 20 times
   m_EditorClassIdentifier: 
-  nameOfAchievement: 
+  nameOfAchievement: Bounce 20 Times
   type: 0
-  amountToScore: 0
-  moneyToGive: 0
-  hasPassed: 0
+  amountToScore: 20
+  moneyToGive: 500
+  hasPassed: 1
   hasCollected: 0

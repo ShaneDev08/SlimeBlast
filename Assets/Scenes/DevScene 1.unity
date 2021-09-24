@@ -947,7 +947,7 @@ GameObject:
   - component: {fileID: 634592340}
   m_Layer: 0
   m_Name: GameStartFloor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1058,6 +1058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   floor: {fileID: 11400000, guid: 08197de34bd229549b2005b87aba04b7, type: 2}
+  hasStoppedMoving: 0
 --- !u!50 &634592340
 Rigidbody2D:
   serializedVersion: 4
@@ -1194,71 +1195,6 @@ Transform:
   m_Father: {fileID: 1228461750}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &853223007
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_RootOrder
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1223.4661
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 482.50604
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -76.21931
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865108, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6668571603292865109, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: cannon
-      value: 
-      objectReference: {fileID: 3605734563610985294, guid: ac356986500adcf48911db17efcf3122, type: 3}
-    - target: {fileID: 6668571603292865109, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: slimeBall
-      value: 
-      objectReference: {fileID: 7679748748658669326, guid: f39eac0905ecbbe43af873c75ffb4c73, type: 3}
-    - target: {fileID: 6668571603292865110, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
-      propertyPath: m_Name
-      value: PlayerManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d84971735e4590f4694ebd6ce1fb792b, type: 3}
 --- !u!1 &878334449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1210,7 @@ GameObject:
   - component: {fileID: 878334450}
   m_Layer: 0
   m_Name: pls_01 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1314,6 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   floor: {fileID: 11400000, guid: 08197de34bd229549b2005b87aba04b7, type: 2}
+  hasStoppedMoving: 0
 --- !u!61 &878334452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1418,7 +1355,7 @@ GameObject:
   - component: {fileID: 914113255}
   m_Layer: 0
   m_Name: pls_02
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2897,7 +2834,7 @@ GameObject:
   - component: {fileID: 1909633632}
   m_Layer: 0
   m_Name: P_01
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2981,6 +2918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   floor: {fileID: 11400000, guid: 2d0ebbdb3d251024f89980dd1ec07b64, type: 2}
+  hasStoppedMoving: 0
 --- !u!61 &1909633633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3051,7 +2989,7 @@ GameObject:
   - component: {fileID: 2009481559}
   m_Layer: 0
   m_Name: plrs_01
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3135,6 +3073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   floor: {fileID: 11400000, guid: 5e9f1ab28f3649d4f83bc0a3785f505d, type: 2}
+  hasStoppedMoving: 0
 --- !u!61 &2009481560
 BoxCollider2D:
   m_ObjectHideFlags: 0

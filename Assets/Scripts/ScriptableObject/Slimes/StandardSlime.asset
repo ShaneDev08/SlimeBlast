@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StandardSlime
   m_EditorClassIdentifier: 
   slimeHealth: 200
-  slimeBounciness: 20
+  slimeBounciness: 40
   slimeWeight: 0
   slimeName: Standard Slime
   slimeSprite: {fileID: 21300000, guid: 6fba3606eb5d5564587ec5c548b6dd1b, type: 3}

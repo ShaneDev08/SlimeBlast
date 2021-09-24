@@ -21,6 +21,11 @@ public class SaveManager : MonoBehaviour
         instance=this;
     }
 
+    private void Start()
+    {
+        OpenSaveToCloud(false);
+    }
+
     public void OpenSaveToCloud(bool saving)
     {
         if(Social.localUser.authenticated)
@@ -36,12 +41,16 @@ public class SaveManager : MonoBehaviour
         {
             if(isSaving)
             {
+                Debug.Log("Saving Game Now PLEASE READ");
                 byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(GetDataToStore());
                 SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().Build();
+                Debug.Log(meta);
+                Debug.Log(data.ToString());
                 ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta,update,data,SaveUpdate);
             }
             else
             {
+                Debug.Log("Loading GOOGLE PLAY SAVE");
                 ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta,ReadSave);
             }
         }
@@ -58,8 +67,8 @@ public class SaveManager : MonoBehaviour
 
     private void LoadData(string saveData)
     {
-        string[] data = saveData.Split('|');
-        debugText.text = data[0];
+        Debug.Log("Loading Player Money");
+        PlayerManager.money = int.Parse(saveData);
     }
 
     private void SaveUpdate(SavedGameRequestStatus status, ISavedGameMetadata meta)
@@ -69,7 +78,8 @@ public class SaveManager : MonoBehaviour
 
     private string GetDataToStore()
     {
-        string Data = "Text";
+        string Data = PlayerManager.money.ToString();
+        Debug.Log("Saving Player Money");
         return Data;
     }
     

@@ -42,6 +42,7 @@ public class SettingsMenu : MonoBehaviour
                 {
                     case SignInStatus.Success:
                     isConnectedToPlayServices = true;
+                        SaveManager.instance.OpenSaveToCloud(false);
                     break;
                     default:
                     isConnectedToPlayServices = false;

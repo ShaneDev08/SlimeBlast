@@ -135,14 +135,14 @@ public class SpawnFloor : MonoBehaviour
 
     void CreateLevel( FloorHolder gameFloor)
     {
-        sprite.size = new Vector2(distanceToSpan, 9.373164f);
+        sprite.size = new Vector2(distanceToSpan, 7.25f);
 
         if (gameFloor.floor.type == Floors.Type.Grass)
         {
             for (int i = 0; i < 25; i++)
             {
                 int randomNumber = Random.Range(0, gameFloor.floor.objects.Length);
-             GameObject go =   Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.Range(5, distanceToSpan), gameFloor.floor.objects[randomNumber].transform.position.y), transform.rotation);
+             GameObject go =   Instantiate(gameFloor.floor.objects[randomNumber], new Vector2(Random.Range(5, distanceToSpan), gameFloor.floor.objects[randomNumber].transform.position.y), gameFloor.floor.objects[randomNumber].gameObject.transform.rotation);
                 go.transform.parent = floorParent.transform;
             }
         }

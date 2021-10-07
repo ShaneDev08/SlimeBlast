@@ -5,6 +5,7 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.SavedGame;
 using UnityEngine.UI;
+using System;
 
 public class SaveManager : MonoBehaviour
 {
@@ -23,65 +24,120 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        OpenSaveToCloud(false);
+        //Debug.Log("Loading Save on Start Game");
+        //OpenSave(false);
     }
 
-    public void OpenSaveToCloud(bool saving)
+    //public void OpenSaveToCloud(bool saving)
+    //{
+    //    if(Social.localUser.authenticated)
+    //    {
+    //        isSaving = saving;
+    //        ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution(saveName,GooglePlayGames.BasicApi.DataSource.ReadCacheOrNetwork,ConflictResolutionStrategy.UseLongestPlaytime,SaveGameOpen);
+    //    }
+    //}
+
+    //private void SaveGameOpen(SavedGameRequestStatus status, ISavedGameMetadata meta)
+    //{
+    //    if(status==SavedGameRequestStatus.Success)
+    //    {
+    //        if(isSaving)
+    //        {
+    //            Debug.Log("Saving Game Now PLEASE READ");
+    //            byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(GetDataToStore());
+    //            SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().Build();
+    //            Debug.Log(meta);
+    //            Debug.Log(data.ToString());
+    //            ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta,update,data,SaveUpdate);
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Loading GOOGLE PLAY SAVE");
+    //            ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta,ReadSave);
+    //        }
+    //    }
+    //}
+
+    //private void ReadSave(SavedGameRequestStatus status, byte[] data)
+    //{
+    //    if(status == SavedGameRequestStatus.Success)
+    //    {
+    //        string saveData = System.Text.ASCIIEncoding.ASCII.GetString(data);
+    //        LoadData(saveData);
+    //    }
+    //}
+
+    //private void LoadData(string saveData)
+    //{
+    //    Debug.Log("Loading Player Money");
+    //    PlayerManager.money = int.Parse(saveData);
+    //}
+
+    //private void SaveUpdate(SavedGameRequestStatus status, ISavedGameMetadata meta)
+    //{
+    //    debugText.text = "Successfully Saved";
+    //}
+
+    //private string GetDataToStore()
+    //{
+    //    string Data = PlayerManager.money.ToString();
+    //    Debug.Log("Saving Player Money");
+    //    return Data;
+    //}
+
+
+
+    private string GetSaveString()
+    {
+        return PlayerManager.money.ToString();
+    }
+
+
+    
+    public void OpenSave(bool saving)
     {
         if(Social.localUser.authenticated)
         {
             isSaving = saving;
-            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution(saveName,GooglePlayGames.BasicApi.DataSource.ReadCacheOrNetwork,ConflictResolutionStrategy.UseLongestPlaytime,SaveGameOpen);
+            ((PlayGamesPlatform)Social.Active).SavedGame.OpenWithAutomaticConflictResolution("RunningSlime",
+                GooglePlayGames.BasicApi.DataSource.ReadCacheOrNetwork,
+                ConflictResolutionStrategy.UseLongestPlaytime, SaveGameOpened);
         }
     }
 
-    private void SaveGameOpen(SavedGameRequestStatus status, ISavedGameMetadata meta)
+    private void SaveGameOpened(SavedGameRequestStatus status, ISavedGameMetadata meta)
     {
-        if(status==SavedGameRequestStatus.Success)
+        Debug.Log("SavedGameOpened");
+       if(status==SavedGameRequestStatus.Success)
         {
-            if(isSaving)
+            if(isSaving) // Writing
             {
-                Debug.Log("Saving Game Now PLEASE READ");
-                byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(GetDataToStore());
-                SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().Build();
-                Debug.Log(meta);
-                Debug.Log(data.ToString());
-                ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta,update,data,SaveUpdate);
+                byte[] data = System.Text.ASCIIEncoding.ASCII.GetBytes(GetSaveString());
+                SavedGameMetadataUpdate update = new SavedGameMetadataUpdate.Builder().WithUpdatedDescription("Saved at " + DateTime.Now.ToString()).Build();
+
+
+                ((PlayGamesPlatform)Social.Active).SavedGame.CommitUpdate(meta, update, data, SaveUpdate);
             }
-            else
+            else  // Loading
             {
-                Debug.Log("Loading GOOGLE PLAY SAVE");
-                ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta,ReadSave);
+                ((PlayGamesPlatform)Social.Active).SavedGame.ReadBinaryData(meta, SaveRead);
             }
         }
     }
 
-    private void ReadSave(SavedGameRequestStatus status, byte[] data)
+    private void SaveRead(SavedGameRequestStatus status, byte[] data)
     {
-        if(status == SavedGameRequestStatus.Success)
+       if(status == SavedGameRequestStatus.Success)
         {
-            string saveData = System.Text.ASCIIEncoding.ASCII.GetString(data);
-            LoadData(saveData);
-        }
-    }
+            string savedData = System.Text.ASCIIEncoding.ASCII.GetString(data);
+            Debug.Log(savedData);
 
-    private void LoadData(string saveData)
-    {
-        Debug.Log("Loading Player Money");
-        PlayerManager.money = int.Parse(saveData);
+            PlayerManager.money = int.Parse(savedData);
+        }
     }
 
     private void SaveUpdate(SavedGameRequestStatus status, ISavedGameMetadata meta)
     {
-        debugText.text = "Successfully Saved";
+        Debug.Log(status);
     }
-
-    private string GetDataToStore()
-    {
-        string Data = PlayerManager.money.ToString();
-        Debug.Log("Saving Player Money");
-        return Data;
-    }
-    
-
 }

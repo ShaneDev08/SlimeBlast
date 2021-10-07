@@ -144,7 +144,7 @@ public class SlimeBall : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
         {
             health = 0;
-            SaveManager.instance.OpenSaveToCloud(true);
+            SaveManager.instance.OpenSave(true);
         }
 
         if(jetPackAmount <= 0)
@@ -311,7 +311,7 @@ public class SlimeBall : MonoBehaviour
     public void KillSlimeOnContact()
     {
         health = 0;
-        SaveManager.instance.OpenSaveToCloud(true);
+        //SaveManager.instance.OpenSaveToCloud(true);
 
     }
 

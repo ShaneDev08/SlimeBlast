@@ -10,6 +10,7 @@ public class GPSAuthentication : MonoBehaviour
 
     public static PlayGamesPlatform platform;  // Needs to be static so it does not create others
     public bool isConnectedToPlayServices;
+    private bool hasLoadedSave = false;
     
        private void Start() 
        {
@@ -31,6 +32,7 @@ public class GPSAuthentication : MonoBehaviour
 
             platform = PlayGamesPlatform.Activate();
             StartSignIn();
+            
         }
         
         }
@@ -51,5 +53,17 @@ public class GPSAuthentication : MonoBehaviour
             });
         
         }
+
+    private void Update()
+    {
+        if(isConnectedToPlayServices)
+        {
+            if (!hasLoadedSave)
+            {
+                SaveManager.instance.OpenSave(false);
+                hasLoadedSave = true;
+            }
+        }
     }
+}
 
